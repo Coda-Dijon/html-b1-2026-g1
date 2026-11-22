@@ -11,10 +11,6 @@ Si après avoir déployé, le site ne change pas, forcer le rafraichissement (ou
 
 Si ça persiste, contacter immédiatement le prof. Ne restez pas bloqués.
 
-## Mesures
-
-Speedlify : https://speedlify-b1-2026-coda.baldir.fr/group/html-b1-2026-g1/
-
 ## Documentation
 
 - [Activation du site via Github Pages](docs/Github-Pages.md)
