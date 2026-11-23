@@ -1,0 +1,45 @@
+RÉSUMÉ DES CONSIGNES
+
+Note finale : total sur 100, divisé par 5 pour obtenir la note sur 20.
+Total = A (40) + B2 (35) + B1 (25)
+
+A — SITE LIVRÉ (40 points)
+- 23 critères notés de 0 à 4 : points = max du critère × niveau ÷ 4.
+- Pages et contenus (5), Images (4), Structure et sémantique (5),
+  Style et mise en page (9), Accessibilité et affichage adaptatif (9),
+  Éco-conception (3), Mesure et qualité (5).
+- JavaScript : pénalité de -2 maximum.
+- Niveaux : 0 absent, 1 très incomplet, 2 partiel, 3 attendu atteint, 4 solide.
+- Une erreur isolée ne fait pas tomber tout un critère.
+
+B — DÉMOS (60 points)
+- Une démo évaluée par groupe et par jour, environ 8 minutes :
+  1. état du projet (1 min)
+  2. démonstration (2 min)
+  3. choix techniques (2 min)
+  4. question individuelle (2 min)
+  5. problème et vérification (1 min)
+- On évalue la compréhension et la progression, pas l'absence d'erreurs.
+- Chaque membre répond à au moins 2 questions individuelles sur la semaine.
+- La personne qui présente change à chaque démo.
+
+B2 — Résultat collectif (35 points)
+- Fonctionnalité montrée et évolution du projet : 8
+- Explication des choix : 8
+- Compréhension des concepts du cours : 6
+- Diagnostic et correction : 6
+- Progression entre les démos : 7
+
+B1 — Maîtrise individuelle (25 points)
+- Expliquer un choix du groupe : 7
+- Mobiliser un concept du cours : 5
+- Analyser et corriger un problème : 5
+- Contribution et progression personnelle : 3
+- Progression individuelle : 5
+
+DÉMARCHE DE CORRECTION : repérer, expliquer, essayer, vérifier.
+Une erreur trouvée et corrigée est une preuve d'apprentissage.
+
+ÉCHELLE B (0 à 4)
+0 aucune preuve, 1 très fragile, 2 partiel avec aide,
+3 approprié et autonome, 4 clair, solide, transférable.

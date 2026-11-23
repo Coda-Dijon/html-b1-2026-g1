@@ -5,7 +5,7 @@ Membres du groupe :
 - Nolhan Robelin
 - Esteban Georget
 - Nathan Lion
-- D
+- 
 
 [Consignes](CONSIGNES.md)
 

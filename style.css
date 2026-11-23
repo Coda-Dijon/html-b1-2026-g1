@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: center;
+    background: rgb(50, 40, 50);
+    padding: 0.5rem;
+
+}
+.menu {
+    vertical-align: middle;
+    display: inline-block;
+    color: gold;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 5rem;
+    font-family: arial, sans-serif;
+    width: auto;
+
+}
+html {
+    background: rgb(82, 63, 84);
+    background-image: ;
+
+}
