@@ -2,7 +2,7 @@
 
 Membres du groupe : 
 
-- A
+- Nolhan Robelin
 - B
 - C
 - D
