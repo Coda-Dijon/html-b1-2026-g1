@@ -2,14 +2,9 @@
    1. Base
    ========================================================== */
 
-/* html { 
-    width: 100%;
-    background: rgb(82, 63, 84);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: class="background" url(Ressources-index/gta6.png);
-    
-} */
+html { 
+   width: 100%;
+} 
 body { --bg-image: url(Ressources-index/gta6.png); }
 body.index    { --bg-image: url(Ressources-index/gta6.png); }
 body.cinema   { --bg-image: url(Ressources-index/test.gif); }
@@ -20,6 +15,8 @@ body.musique  { --bg-image: url(Ressources-index/test.gif); }
 body {
     background-color: rgb(82, 63, 84);
 }
+
+body.carrousel { animation: defileme 10s linear infinite alternate }
 
 body::before {
     content: "";
@@ -35,6 +32,11 @@ body::before {
 }
 
 
+* { box-sizing: border-box; }
+
+
+
+
 
 /* ==========================================================
    2. Navigation
@@ -42,10 +44,12 @@ body::before {
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 2rem;
+    align-items: center;
+    padding: 1rem;
     background: rgb(50, 40, 50);
-    border-radius: 9.375rem;
+    border-radius: 2rem;
 }
 
 /* Liens du menu */
@@ -55,9 +59,9 @@ nav {
     align-self: center;
     vertical-align: middle;
     width: auto;
-    margin: 3rem;
+    margin: 0.75rem;
     font-family: arial, sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
@@ -107,8 +111,8 @@ nav {
 }
 
 .galerie img {
-    width: 100%;
-  height: 35rem;        
+  width: 90%;
+  height: 20rem;        
   object-fit: cover;    
   border-radius: 0.5rem;
   display: block;
@@ -127,23 +131,22 @@ nav {
    ========================================================== */
 
 .title {
-    margin: 2rem 0;
+    margin: 1rem 0;
     font-family: arial, sans-serif;
-    font-size: 3rem;
+    font-size: 1.75rem;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
     color: gold;
 }
 
-/* La liste : une grille de cartes */
 .top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     max-width: 75rem;
-    margin: 0 auto 3rem;
-    padding: 0 2rem;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
     list-style: none;
 }
 
@@ -156,15 +159,11 @@ nav {
 .top img {
     display: block;
     width: 100%;
-    height: 22rem;
     margin-bottom: 1rem;
+    height: 20rem;
     object-fit: cover;
-    width: 100%;
-  height: 35rem;        
-  object-fit: cover;    
-  border-radius: 0.5rem;
-  display: block;
-  transition: all 0.3s;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
 }
 
 
@@ -176,5 +175,23 @@ nav {
     .menu,
     .menu::after {
         transition: none;
+    }
+}
+
+/* Mobile first : à partir de 48rem (768px), on rétablit les tailles desktop */
+@media (min-width: 48rem) {
+    nav { padding: 2rem; border-radius: 9.375rem; }
+    .menu { margin: 3rem; font-size: 2.5rem; }
+    .title { margin: 2rem 0; font-size: 3rem; }
+    .top { gap: 2rem; padding: 0 2rem; margin-bottom: 3rem; }
+    .galerie img,
+    .top img { height: 35rem; }
+}
+
+ @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
