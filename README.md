@@ -3,7 +3,7 @@
 Membres du groupe : 
 
 - Nolhan Robelin
-- B
+- Esteban Georget
 - C
 - D
 
