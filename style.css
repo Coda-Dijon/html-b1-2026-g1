@@ -74,6 +74,7 @@ nav {
     text-decoration: none;
     color: red;
     transform: scale(1.2);
+    opacit
 }
 
 .menu::after {
@@ -94,7 +95,6 @@ nav {
 .menu:focus-visible::after {
     transform: scaleX(1);
 }
-
 
 /* ==========================================================
    3. Galerie
@@ -178,7 +178,6 @@ nav {
     }
 }
 
-/* Mobile first : à partir de 48rem (768px), on rétablit les tailles desktop */
 @media (min-width: 48rem) {
     nav { padding: 2rem; border-radius: 9.375rem; }
     .menu { margin: 3rem; font-size: 2.5rem; }
