@@ -38,3 +38,10 @@ la barre de navigation
 le grid
 comment fonctionne l'image pour afficher le lien
 l
+
+
+A faire:
+Trier le CSS pour que sa sois mieux et delete se qui a besoin d'etre delete
+Metre sticky sur header
+
+Nathan: mise en page de la partie article
