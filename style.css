@@ -2,21 +2,19 @@
    1. Base
    ========================================================== */
 
-html { 
-   width: 100%;
-} 
-body { --bg-image: url(Ressources-index/gta6.png); }
-body.index    { --bg-image: url(Ressources-index/gta6.png); }
+html { width: 100%; }
+
+* { box-sizing: border-box; }
+
+body { background-color: rgb(82, 63, 84); }
+
+body.index    { --bg-image: url(Ressources-index/gta6.jpeg); }
 body.cinema   { --bg-image: url(Ressources-index/test.gif); }
 body.cours    { --bg-image: url(Ressources-index/test.gif); }
 body.jeux     { --bg-image: url(Ressources-index/forza-horizon-6.jpeg); }
-body.musique  { --bg-image: url(Ressources-index/test.gif); }
+body.musique  { color: #1b1023; }
 
-body {
-    background-color: rgb(82, 63, 84);
-}
-
-body.carrousel { animation: defileme 10s linear infinite alternate }
+body.carrousel { animation: defileme 10s linear infinite alternate; }
 
 body::before {
     content: "";
@@ -28,21 +26,20 @@ body::before {
     background-repeat: no-repeat;
     background-position: center;
     filter: blur(0.5rem) brightness(0.7);
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
-
-* { box-sizing: border-box; }
-
-
-
-
+a { text-decoration: none; }
 
 /* ==========================================================
    2. Navigation
    ========================================================== */
 
 nav {
+    display: none;
+    position: relative;
+    top: 0;
+    z-index: 10;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -52,14 +49,17 @@ nav {
     border-radius: 2rem;
 }
 
-/* Liens du menu */
+nav a { 
+    display: none 
+}
+
 .menu {
     position: relative;
     display: inline-block;
     align-self: center;
     vertical-align: middle;
     width: auto;
-    margin: 0.75rem;
+    margin: 1.5rem;
     font-family: arial, sans-serif;
     font-size: 1.25rem;
     font-weight: bold;
@@ -67,11 +67,9 @@ nav {
     text-decoration: none;
     color: gold;
     transition: transform 0.3s;
-    font-family: arial, sans-serif;
 }
 
 .menu:hover {
-    text-decoration: none;
     color: red;
     transform: scale(1.2);
 }
@@ -95,8 +93,50 @@ nav {
     transform: scaleX(1);
 }
 
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+
 /* ==========================================================
-   3. Galerie
+   3. Actualités
+   ========================================================== */
+
+.actualites {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 20rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 0.125rem solid gold;
+    border-radius: 0.5rem;
+    background-image: url(Ressources-index/gta6.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: right;
+    color: white;
+}
+
+.actualites .subtitle {
+    margin: 0 0 0.5rem;
+    font-family: arial, sans-serif;
+    text-transform: uppercase;
+    color: gold;
+}
+
+.actu-texte {
+    margin: 1rem;
+    padding: 1rem;
+    background: rgba(82, 63, 84);
+    border-radius: 0.5rem;
+}
+
+/* ==========================================================
+   4. Galerie
    ========================================================== */
 
 .galerie {
@@ -110,13 +150,14 @@ nav {
 }
 
 .galerie img {
-  width: 90%;
-  height: 20rem;        
-  object-fit: cover;    
-  border-radius: 0.5rem;
-  display: block;
-  transition: all 0.3s;
+    display: block;
+    width: 90%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
 }
+
 .galerie img:hover {
     transform: scale(1.05);
     border: 0.125rem solid;
@@ -126,7 +167,7 @@ nav {
 }
 
 /* ==========================================================
-   4. Top Lists
+   5. Top Lists
    ========================================================== */
 
 .title {
@@ -149,44 +190,49 @@ nav {
     list-style: none;
 }
 
+.top img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
 .top img:hover {
     border: 0.0625rem solid gold;
     box-shadow: 0 0 5rem #000;
     transform: scale(1.05);
 }
 
-.top img {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    height: 20rem;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    transition: all 0.3s;
-}
-
-
 /* ==========================================================
-   5. Accessibilité
+   6. Jeux
    ========================================================== */
 
-@media (prefers-reduced-motion: reduce) {
-    .menu,
-    .menu::after {
-        transition: none;
-    }
-}
+.jeux ul li a { color: rgb(241, 121, 9); }
+
+/* ==========================================================
+   7. Responsive
+   ========================================================== */
 
 @media (min-width: 48rem) {
-    nav { padding: 2rem; border-radius: 9.375rem; }
+    nav { visibility: visible; }
+    nav a { visibility: visible; }
+
     .menu { margin: 3rem; font-size: 2.5rem; }
     .title { margin: 2rem 0; font-size: 3rem; }
     .top { gap: 2rem; padding: 0 2rem; margin-bottom: 3rem; }
+
     .galerie img,
     .top img { height: 35rem; }
 }
 
- @media (prefers-reduced-motion: reduce) {
+/* ==========================================================
+   8. Accessibilité
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
