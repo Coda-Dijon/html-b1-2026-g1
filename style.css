@@ -40,18 +40,18 @@ nav {
     position: relative;
     top: 0;
     z-index: 10;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     background: rgb(50, 40, 50);
     border-radius: 2rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
+nav * { display: none;}
 
-nav a { 
-    display: none 
-}
+nav img:active { transform: scale(1.1); }
 
 .menu {
     position: relative;
@@ -100,6 +100,10 @@ nav a {
     margin: 3rem;
 }
 
+.logo:click {
+    cursor: pointer;
+}
+
 /* ==========================================================
    3. Actualités
    ========================================================== */
@@ -108,10 +112,11 @@ nav a {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: center;
+    width: 90%;
+    max-width: 80rem;
     min-height: 20rem;
-    margin: 2rem 0;
-    padding: 1.5rem;
+    margin: 1rem auto;
+    padding: 1rem;
     border: 0.125rem solid gold;
     border-radius: 0.5rem;
     background-image: url(Ressources-index/gta6.jpg);
@@ -119,6 +124,15 @@ nav a {
     background-position: center;
     text-align: right;
     color: white;
+    transition: all 0.3s;
+}
+
+.actualites:hover {
+    transform: scale(1.05);
+    border: 0.125rem solid;
+    border-radius: 0.1875rem;
+    border-image: linear-gradient(silver, gold) 1;
+    box-shadow: 0 0 5rem #000;
 }
 
 .actualites .subtitle {
@@ -133,6 +147,9 @@ nav a {
     padding: 1rem;
     background: rgba(82, 63, 84);
     border-radius: 0.5rem;
+    flex: auto;
+    text-align: right;
+    
 }
 
 /* ==========================================================
@@ -166,6 +183,9 @@ nav a {
     box-shadow: 0 0 5rem #000;
 }
 
+
+
+
 /* ==========================================================
    5. Top Lists
    ========================================================== */
@@ -180,6 +200,16 @@ nav a {
     color: gold;
 }
 
+.title_2 {
+    margin: 1rem 0;
+    font-family: arial, sans-serif;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color:darkcyan;
+}
+
 .top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -188,6 +218,7 @@ nav a {
     margin: 0 auto 2rem;
     padding: 0 1rem;
     list-style: none;
+    font-size: 1.5rem;
 }
 
 .top img {
@@ -212,13 +243,15 @@ nav a {
 
 .jeux ul li a { color: rgb(241, 121, 9); }
 
+
 /* ==========================================================
    7. Responsive
    ========================================================== */
 
 @media (min-width: 48rem) {
-    nav { visibility: visible; }
-    nav a { visibility: visible; }
+    .logo { display: none; }
+    nav { display: flex; }
+    nav * { display: inline-block; }
 
     .menu { margin: 3rem; font-size: 2.5rem; }
     .title { margin: 2rem 0; font-size: 3rem; }
