@@ -230,10 +230,7 @@ nav img{
 
 .galerie img:hover {
     transform: scale(1.05);
-    border: 0.125rem solid;
-    border-radius: 0.1875rem;
-    border-image: linear-gradient(var(--accent), var(--accent-clair)) 1;
-    box-shadow: 0 0 5rem #000;
+    box-shadow: 0 0 0 0.125rem var(--accent, 0 0 5rem #000);
 }
 
 .galerie p {
@@ -328,13 +325,13 @@ nav img{
 .jeux .top .iframe {
     display: none;
     position: absolute;
-    top: 0;
+    top: 100%;
     left: 0;
     z-index: 10;
     width: 100%;
-    height: 20rem;
+    height: 40rem;
     border: 0.125rem solid var(--accent);
-    pointer-events: none;
+    background: var(--fond);
 }
 
 .jeux .top li:active .iframe,
@@ -373,7 +370,8 @@ nav img{
     align-items: center;
     gap: 0.75rem 1rem;
     /* text-shadow: 0 0 0.3rem var(--accent); */
-    margin: 1rem 0;
+    box-shadow: 0 0 0.3rem var(--accent);
+    margin: 1rem 1rem;
     padding: 1rem;
     color: var(--texte);
     background-color: var(--surface);
@@ -450,9 +448,7 @@ nav img{
 
 .acheter a:hover { text-decoration: underline; }
 
-@media (min-width: 48rem) {
-    
-}
+
 
 /* ==========================================================
    8 . Footer
@@ -466,15 +462,16 @@ footer {
     flex-direction: column;
 }
 
-footer table,footer tr,footer td{
-    justify-content: center;
-    width: 25rem;
-    height: 3rem;
+footer table {
+    width: 100%;
+    max-width: 50rem;
     border-collapse: collapse;
 }
 
+footer tr { height: 3rem; }
+
 footer table th{
-    width: 10rem;
+    width: 3rem;
 }
 
 footer p:first-of-type{
@@ -493,6 +490,8 @@ footer a:visited{
     color: var(--lien);
 }
 
+footer a:hover { text-decoration: underline; }
+
 
 /* ==========================================================
    8. Responsive
@@ -510,12 +509,7 @@ footer a:visited{
     .galerie img,
     .top img { height: 35rem; }
 
-    footer table,
-    footer tr,
-    footer td {
-        width: 50rem;
-        height: 4.5rem;
-    }
+    footer tr{ height: 4.5rem; }
 
     footer img { max-width: 3rem; }
     
@@ -530,6 +524,10 @@ footer a:visited{
 
     .article-intro + .article-content p {
         flex: 1;
+    }
+    .jeux .top .iframe {
+        top: 0;
+        left: calc(100% + 1rem);
     }
 }
 
