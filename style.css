@@ -28,6 +28,10 @@ nav {
 }
 nav * { display: none;}
 
+nav img{
+    width: 175px;
+}
+
 .menu {
     position: relative;
     margin: 1.5rem;
@@ -105,8 +109,8 @@ nav * { display: none;}
 
 .actualites::before {
     content: "";
-    position: absolute;
     inset: -10px;
+    position: absolute;
     z-index: -1;
     background-image: url(Ressources-index/gta6.jpg);
     background-size: cover;
@@ -182,15 +186,13 @@ nav * { display: none;}
 }
 
 .galerie p {
-  position: absolute;
-  top: 93%;
-  left: 5%;
+  position: static;
+  width: fit-content;
+  margin: -1.5rem 0 0 5%;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 0.5rem;
   padding: 8px 16px;
-  margin: 0;
-  pointer-events: none;
 }
 
 /* ==========================================================
@@ -254,17 +256,29 @@ nav * { display: none;}
    7. GTA
    ========================================================== */
 
-.actu-texte-gta6 {
-    margin: 1rem 0;
-    font-family: arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
+.article-gta6-critique {
+    background-color: rgba(61, 29, 75);
     color: #ffffff;
-    text-align: center;
-    font-size: 1rem;
-    padding: 1rem 0;
-    margin: 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.125rem solid rgb(41, 19, 50);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+    margin: 1rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
+    
+}
+
+.article-gta6-critique p.note-positive {
+    background-color: green;
+}
+
+.article-gta6-critique p.note-negative {
+    background-color: red;
 }
 
 
@@ -276,29 +290,29 @@ footer {
     background-color: #1e293b;
     color: #ffffff;
     padding: 20px;
-    display: none;
+    display:grid ;
 }
 
 footer table,tr,td{
     justify-content: center;
     width: 50rem;
     height: 3rem;
-    display: none;
+    display: grid;
     
 }
 footer table th{
-    width: 10rem
-    display: none;
+    width: 10rem;
+    display: grid;
 }
 
 footer p:first-of-type{
     border-bottom: 5px solid #25354e;
-    display: none;
+    display: grid;
 }
 
 footer img{
     max-width: 3rem;
-    display: none;
+    display: grid;
 }
 
 
@@ -308,7 +322,7 @@ footer img{
 
 @media (min-width: 48rem) {
     .logo { display: none; }
-    nav { display: flex; }
+    nav { display: flex; flex-wrap: wrap; }
     nav * { display: inline-block; }
 
     .menu { margin: 3rem; font-size: 2.5rem; }

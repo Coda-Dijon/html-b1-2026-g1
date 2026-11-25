@@ -5,7 +5,7 @@ Membres du groupe :
 - Nolhan Robelin
 - Esteban Georget
 - Nathan Lion
-- 
+- Lilou Walkowiak
 
 [Consignes](CONSIGNES.md)
 
@@ -32,12 +32,10 @@ Sur chaque oeuvre, il y aura une page qui va apparaître avec plus de détails t
 
 
 # A montrer
-reponsive design
-les effets
-la barre de navigation
-le grid
-comment fonctionne l'image pour afficher le lien
-l
+la nouvelle page article
+nouvelle barre de nav
+le truc actualiter masi c'est un peu flop
+footer
 
 
 A faire:

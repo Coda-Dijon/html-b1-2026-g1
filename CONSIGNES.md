@@ -41,16 +41,16 @@
 
 | Critère                      | Max. | Niveau (0-4) | Points | Observations |
 |------------------------------|------|--------------|--------|--------------|
-| I1 — Images pertinentes      | 1    |              |        |              |
-| I2 — Alternatives textuelles | 2    |              |        |              |
+| I1 — Images pertinentes      | 1    |✅|        |              |
+| I2 — Alternatives textuelles | 2    |      travailler        |        |              |
 
 ### Structure et sémantique (5 points)
 
 | Critère                          | Max. | Niveau (0-4) | Points | Observations |
 |----------------------------------|------|--------------|--------|--------------|
-| S1 — Régions de page (landmarks) | 1    |              |        |              |
-| S2 — Balises sémantiques         | 1    |              |        |              |
-| S3 — Hiérarchie des titres       | 1    |              |        |              |
+| S1 — Régions de page (landmarks) | 1    |        ✅      |        |              |
+| S2 — Balises sémantiques         | 1    |       ✅       |        |              |
+| S3 — Hiérarchie des titres       | 1    |       ✅       |        |              |
 | S4 — Noms des liens              | 1    |              |        |              |
 | S5 — Sections sémantiques        | 1    |              |        |              |
 
