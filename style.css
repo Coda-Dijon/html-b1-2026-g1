@@ -1,15 +1,26 @@
+/* Police du site (doit rester tout en haut du fichier) */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 /* ==========================================================
    1. Base
    ========================================================== */
 
 * { box-sizing: border-box; }
 
+:root {
+    --font-main: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html { font-family: var(--font-main); }
+
 body { 
     background-color: rgb(82, 63, 84); 
     margin: 0;
-    padding: 0;
     min-height: 100vh;
+    line-height: 1.6;
 }
+
+h1, h2, h3 { letter-spacing: -0.02em; }
 
 a { text-decoration: none; }
 
@@ -24,7 +35,6 @@ nav {
     padding: 0.5rem;
     background: rgb(50, 40, 50);
     border-radius: 2rem;
-    transition: transform 0.3s ease;
 }
 nav * { display: none;}
 
@@ -35,7 +45,6 @@ nav img{
 .menu {
     position: relative;
     margin: 1.5rem;
-    font-family: arial, sans-serif;
     font-size: 1.25rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -73,8 +82,15 @@ nav img{
     align-items: center;
     margin: 3rem;
     cursor: pointer;
+    transition: transform 0.3s;
+    padding: 1rem;
 }
 
+.logo:hover { 
+    transform: scale(1.1);
+    cursor: help;
+    
+}
 .logo:active { 
     transform: scale(1.1); 
     transition: transform 0.2s;
@@ -112,7 +128,7 @@ nav img{
     inset: -10px;
     position: absolute;
     z-index: -1;
-    background-image: url(Ressources-index/gta6.jpg);
+    background-image: url(Ressources-index/gta6.webp);
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -129,7 +145,6 @@ nav img{
 
 .actualites .soustitre {
     margin: 0 0 0.5rem;
-    font-family: arial, sans-serif;
     text-transform: uppercase;
     color: gold;
     text-shadow: 0 0 0.3rem black;
@@ -162,7 +177,6 @@ nav img{
 }
 
 .galerie li {
-    position: relative;
     width: 90%;
 }
 
@@ -186,7 +200,6 @@ nav img{
 }
 
 .galerie p {
-  position: static;
   width: fit-content;
   margin: -1.5rem 0 0 5%;
   color: #ffffff;
@@ -201,7 +214,6 @@ nav img{
 
 .title {
     margin: 1rem 0;
-    font-family: arial, sans-serif;
     font-size: 1.75rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -211,7 +223,6 @@ nav img{
 
 .title_2 {
     margin: 1rem 0;
-    font-family: arial, sans-serif;
     font-size: 1.75rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -252,35 +263,135 @@ nav img{
 
 .jeux ul li a { color: rgb(241, 121, 9); }
 
+.jeux .top li { position: relative; }
+
+.jeux .top .iframe {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 20rem;
+    border: 0.125rem solid gold;
+    pointer-events: none;
+}
+
+.jeux .top li:active .iframe,
+.jeux .top .toggle:checked ~ .iframe {
+    display: block;
+}
+
+.jeux .top .toggle { display: none; }
+
+.jeux .top label { cursor: pointer; }
+
 /* ==========================================================
    7. GTA
    ========================================================== */
-
-.article-gta6-critique {
-    background-color: rgba(61, 29, 75);
-    color: #ffffff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 0.125rem solid rgb(41, 19, 50);
-    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
-    margin: 1rem 0;
-    flex: 1;
+.article-intro + .article-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.article-intro + .article-content img {
+    display: block;
+    width: min(100%, 20rem);
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.article-intro + .article-content p {
+    margin: 0;
+}
+
+.article-gta6-critique {
+    display: grid;
     align-items: center;
+    gap: 0.75rem 1rem;
+
+    margin: 1rem 0;
+    padding: 1rem;
+    color: #fff;
+    background-color: #3d1d4b;
+    border: 2px solid #291332;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 25%);
+}
+
+.article-gta6-critique h2 {
+    grid-area: titre;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.article-gta6-critique p {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.article-gta6-critique :is(.note-positive, .note-negative) {
+    grid-area: note;
+    min-width: 3.25rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.article-gta6-critique .note-positive { 
+    background-color: #176534;
     
-    
+ }
+ 
+.article-gta6-critique .note-negative {
+    background-color: #a12637;
+ }
+
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.article-gta6-critique p.note-positive {
-    background-color: green;
+.article-content tr,
+.article-content td {
+    width: auto;
+    height: auto;
 }
 
-.article-gta6-critique p.note-negative {
-    background-color: red;
+.article-content th,
+.article-content td {
+    padding: 0.5rem;
+    border-bottom: 1px solid rgb(255 255 255 / 0.25);
 }
 
+.article-content th { text-align: left; }
+.article-content td { text-align: right; }
+
+.article-content tr:first-child td {
+    color: #86efac;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media (min-width: 48rem) {
+    .article-intro + .article-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .article-intro + .article-content img {
+        width: min(40%, 20rem);
+    }
+
+    .article-intro + .article-content p {
+        flex: 1;
+    }
+}
 
 /* ==========================================================
    8 . Footer
@@ -290,29 +401,35 @@ footer {
     background-color: #1e293b;
     color: #ffffff;
     padding: 20px;
-    display:grid ;
+    display: flex;
+    flex-direction: column;
 }
 
-footer table,tr,td{
+footer table,footer tr,footer td{
     justify-content: center;
-    width: 50rem;
-    height: 3rem;
-    display: grid;
-    
+    width: 20rem;
+    height: 2.5rem;
+    border-collapse: collapse;
 }
+
 footer table th{
     width: 10rem;
-    display: grid;
 }
 
 footer p:first-of-type{
     border-bottom: 5px solid #25354e;
-    display: grid;
 }
 
 footer img{
-    max-width: 3rem;
-    display: grid;
+    max-width: 2.5rem;
+}
+
+footer a{
+    color: cyan;
+}
+
+footer a:visited{
+    color: cyan;
 }
 
 
@@ -331,35 +448,15 @@ footer img{
 
     .galerie img,
     .top img { height: 35rem; }
-footer {
-        background-color: #1e293b;
-    color: #ffffff;
-    padding: 20px;
-    display: flex;
-}
 
-footer table,tr,td{
-    justify-content: center;
-    width: 50rem;
-    height: 3rem;
-    display: flex;
-    
-}
-footer table th{
-    width: 10rem;
-    display: flex;
-}
+    footer table,
+    tr,
+    td {
+        width: 50rem;
+        height: 4rem;
+    }
 
-footer p:first-of-type{
-    border-bottom: 5px solid #25354e;
-    display: flex;
-}
-
-footer img{
-    max-width: 3rem;
-    display: flex;
-}
-
+    footer img { max-width: 3rem; }
 }
 
 /* ==========================================================

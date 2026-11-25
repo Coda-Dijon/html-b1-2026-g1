@@ -15,10 +15,10 @@
     </label>
     <nav>
             <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Logo du site" width="150"></a>
-            <a href="jeux.html" class="menu" alt="Redirection vers Jeux">Jeux</a> 
-            <a href="musique.html" class="menu" alt="Redirection vers Musiques">Musiques</a>
-            <a href="cinema.html" class="menu" alt="Redirection vers Cinéma">Cinéma</a>
-            <a href="index.html" class="menu" alt="Redirection vers Accueil">Accueil</a> 
+            <a href="jeux.html" class="menu" aria-label="Redirection vers Jeux">Jeux</a> 
+            <a href="musique.html" class="menu" aria-label="Redirection vers Musiques">Musiques</a>
+            <a href="cinema.html" class="menu" aria-label="Redirection vers Cinéma">Cinéma</a>
+            <a href="index.html" class="menu" aria-label="Redirection vers Accueil">Accueil</a> 
         </nav>
     </header>
     <main>
@@ -26,28 +26,58 @@
         <section class="jeux">
             <h2 class="title_2">Top PC</h2>
             <ul class="top">
-                <li><a href="#"><img src="Jeux/images/Elden_Ring.jpg" alt="">Elden Ring</a></li>
-                <!-- <iframe src="index.html" width="600" height="400" title="Aperçu de la page"></iframe> -->
-                <li><a href="#"><img src="Jeux/images/Clair_Obscur.jpg" alt="">Clair Obscur Expedition 33</a></li>
-                <li><a href="#"><img src="Jeux/images/Helldivers.jpg" alt="">Helldivers II</a></li>
+                <li><a href="#"><img src="Jeux/images/Elden_Ring.webp" alt="">Elden Ring</a></li>
+                <li><a href="#"><img src="Jeux/images/Clair_Obscur.webp" alt="">Clair Obscur Expedition 33</a></li>
+                <li><a href="#"><img src="Jeux/images/Helldivers.webp" alt="">Helldivers II</a></li>
             </ul>
         </section>
         <section  class="jeux">
             <h2 class="title_2">Top Playstation</h2>
             <ul class="top">
-                <li><a href="#"><img src="Jeux/images/The_Last_of_Us.jpg" alt="">The Last Of Us Part II</a></li>
-                <li><a href="#"><img src="Jeux/images/Star_Wars_Battlefront.jpg" alt="">Star Wars Battlefront II</a></li>
-                <li><a href="#"><img src="Jeux/images/Detroit_Become_Human.jpg" alt="">Detroit Become Human</a></li>
+                <li><a href="#"><img src="Jeux/images/The_Last_of_Us.webp" alt="">The Last Of Us Part II</a></li>
+                <li><a href="#"><img src="Jeux/images/Star_Wars_Battlefront.webp" alt="">Star Wars Battlefront II</a></li>
+                <li><a href="#"><img src="Jeux/images/Detroit_Become_Human.webp" alt="">Detroit Become Human</a></li>
             </ul>
         </section>
         <section  class="jeux">
             <h2 class="title_2">Top XBOX</h2>
             <ul class="top">
-                <li><a href="#"><img src="Jeux/images/GTA_6.jpg" alt="">Grand Theft Auto 6</a></li>
-                <li><a href="#"><img src="Jeux/images/CyberPunk.jpg" alt="">CyberPunk 2077</a></li>
-                <li><a href="#"><img src="Jeux/images/Forza_Horizon.jpg" alt="">Forza Horizon 6</a></li>
+                <li><input type="checkbox" id="gta-toggle" class="toggle"><label for="gta-toggle"><img src="Jeux/images/GTA_6.webp" alt="" class="GTA"></label>Grand Theft Auto 6
+                    <iframe src="Jeux/pages/GTA6.html" title="Aperçu de la page" class="iframe"></iframe></li>
+                <li><a href="#"><img src="Jeux/images/CyberPunk.webp" alt="">CyberPunk 2077</a></li>
+                <li><a href="#"><img src="Jeux/images/Forza_Horizon.webp" alt="">Forza Horizon 6</a></li>
             </ul>
         </section>
     </main>
+    <footer>
+    <p>Suivez-nous sur les réseaux</p>
+    <table>
+        <tr>
+            <th><img src="Ressources-index/GitHub.svg"></th>
+            <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">Esteban Georget</a></td>
+            <th><img src="Ressources-index/LinkedIn_logo_initials.png"></th>
+            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">Esteban Georget</a></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">Nathan Lion</a></td>
+            <th></th>
+            <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">Nathan Lion</a></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">Nolhan Robelin</a></td>
+            <th></th>
+            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">Lilou Walkowiak</a></td>
+            <th></th>
+            <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">Lilou Walkowiak</a></td>
+        </tr>
+    </table>
+    <p>© 2026 The Worst Review</p>
+</footer>
 </body>
 </html>
