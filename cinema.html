@@ -1,37 +1,72 @@
+<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
 <!DOCTYPE html>
+
+<!-- Balise racine de la page. lang="fr" = la page est en français
+     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
 <html lang="fr">
+
+<!-- ==========================================================
+     HEAD : informations sur la page (invisibles à l'écran)
+     ========================================================== -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+<!-- Titre affiché dans l'onglet du navigateur -->
 <title>Cinéma - The Worst Review</title>
 </head>
 
+<!-- ==========================================================
+     BODY : tout ce qui est visible sur la page.
+     class="cinema" permet de cibler cette page en particulier dans le CSS.
+     ========================================================== -->
 <body class="cinema">
+
+     <!-- ==========================================================
+        EN-TÊTE : logo + menu de navigation (identique sur toutes les pages)
+        ========================================================== -->
     <header class="header">
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="logo">
         <img src="Ressources-index/Logo_site.gif" alt="Logo" width="150">
     </label>
+
+    <!-- <nav> = zone de navigation principale du site -->
     <nav>
-            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Description de l'image"> </a>
-            <a href="index.html" class="menu">Accueil</a>
-            <a href="jeux.html" class="menu">Jeux</a> 
-            <a href="musique.html" class="menu">Musiques</a>
-            <a href="cinema.html" class="menu">Cinéma</a> 
+            <!-- Logo cliquable qui ramène à l'accueil -->
+            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Logo du site"> </a>
+            <!-- Liens du menu. class="menu" leur donne le style (majuscules, trait animé au survol…) -->
+            <a href="index.html" class="menu" aria-label="Redirection vers Accueil">Accueil</a> 
+            <a href="jeux.html" class="menu" aria-label="Redirection vers Jeux">Jeux</a> 
+            <a href="musique.html" class="menu" aria-label="Redirection vers Musiques">Musiques</a>
+            <a href="cinema.html" class="menu" aria-label="Redirection vers Cinéma">Cinéma</a> 
         </nav>
 </header>
+
+    <!-- ==========================================================
+        MAIN
+        ========================================================== -->
+
     <main>
+        <!-- Titre principal de la page (un seul <h1> par page) -->
         <h1 class="title">Cinéma</h1>
-        <section class="films">
+
+        <!-- ---------- Section "Top Films" ---------- -->
+        <section>
+             <!-- Titre de la section -->
             <h2 class="title_2">Top Films</h2>
+            <!-- Liste des films en grille.
+                 Chaque <li> contient une affiche et le nom du film en dessous. -->
             <ul class="top">
-                <li><a href="#"><img src="Films/Images/Dune.webp" alt="Film 1"></a>Dunes</li>
+                <li><a href="#"><img src="Films/Images/Dune.webp" alt="Film 1"></a>Dune</li>
                 <li><a href="#"><img src="Films/Images/Spiderman.webp" alt="Film 2"></a>The Amazing Spiderman 2</li>
                 <li><a href="#"><img src="Films/Images/Social_Network.webp" alt="Film 3"></a>The Social Network</li>
             </ul>
         </section>
-        <section class="series">
+
+        <!-- ---------- Section "Top Série" ----------
+             Même structure que la section films. -->
+        <section>
             <h2 class="title_2">Top Série</h2>
             <ul class="top">
                 <li><a href="#"><img src="Films/Images/Game_of_Throne.webp" alt="Série 1"></a>Game Of Thrones</li>
@@ -39,7 +74,10 @@
                 <li><a href="#"><img src="Films/Images/Reacher.webp" alt="Série 3"></a>Reacher</li>
             </ul>
         </section>
-        <section class="series">
+
+        <!-- ---------- Section "Top Animé" ----------
+             Même structure que les deux sections précédentes. -->
+        <section>
             <h2 class="title_2">Top Animé</h2>
             <ul class="top">
                 <li><a href="#"><img src="Films/Images/Arcane.webp" alt="Série 1"></a>Arcane</li>
@@ -48,27 +86,48 @@
             </ul>
         </section>
     </main>
+
+    <!-- ==========================================================
+        FOOTER : pied de page (réseaux sociaux de l'équipe + copyright)
+        ========================================================== -->
     <footer>
+    
+    <!-- Titre du footer -->
     <p>Suivez-nous sur les réseaux</p>
+
+    <!-- Tableau des liens : une ligne (<tr>) par membre de l'équipe.
+        <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
+        Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
     <table>
+
+        <!-- Ligne 1 : Esteban Georget (les icônes ne sont affichées que sur la 1re ligne).
+             target="_blank" = ouvre le lien dans un nouvel onglet.
+             rel="noopener" = sécurité : la nouvelle page ne peut pas contrôler la page du site.
+             aria-label = texte lu par les lecteurs d'écran (accessibilité). -->
         <tr>
-            <th><img src="Ressources-index/GitHub.svg"></th>
+            <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
             <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">Esteban Georget</a></td>
-            <th><img src="Ressources-index/LinkedIn_logo_initials.png"></th>
+            <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
             <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">Esteban Georget</a></td>
         </tr>
+
+        <!-- Ligne 2 : Nathan Lion (cellules <th> vides pour garder l'alignement des colonnes) -->
         <tr>
             <th></th>
             <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">Nathan Lion</a></td>
             <th></th>
             <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">Nathan Lion</a></td>
         </tr>
+
+        <!-- Ligne 3 : Nolhan Robelin -->
         <tr>
             <th></th>
             <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">Nolhan Robelin</a></td>
             <th></th>
-            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
+            <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
         </tr>
+        
+        <!-- Ligne 4 : Lilou Walkowiak -->
         <tr>
             <th></th>
             <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">Lilou Walkowiak</a></td>
@@ -76,6 +135,8 @@
             <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">Lilou Walkowiak</a></td>
         </tr>
     </table>
+
+    <!-- Mention de copyright (droits d'auteur) -->
     <p>© 2026 The Worst Review</p>
 </footer>
 </body>
