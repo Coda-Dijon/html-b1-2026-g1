@@ -9,12 +9,28 @@
 
 :root {
     --font-main: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    /* Couleurs : DA « Pop rose » */
+    --fond: #141317;           /* fond de page (anthracite) */
+    --surface: #201E25;        /* nav, encadrés, footer */
+    --ligne: #302D37;          /* bordures discrètes */
+    --texte: #F7F5FA;          /* texte principal */
+    --texte-doux: #ABA6B5;     /* texte secondaire */
+    --accent: #FF5FA2;         /* rose vif : titres, survols, cadres */
+    --accent-clair: #FF9CC8;   /* rose clair : dégradés */
+    --note-positive: #6EE7A8;  /* vert : bonnes notes */
+    --note-negative: #FF5A5F;  /* rouge corail : mauvaises notes */
+    --lien: #FF1493;          /* rose fluo : liens */
 }
 
 html { font-family: var(--font-main); }
 
+/* Barre de défilement aux couleurs du site */
+html { scrollbar-color: var(--accent) var(--fond); }
+
 body { 
-    background-color: rgb(82, 63, 84); 
+    background-color: var(--fond);
+    color: var(--texte);
     margin: 0;
     min-height: 100vh;
     line-height: 1.6;
@@ -23,6 +39,12 @@ body {
 h1, h2, h3 { letter-spacing: -0.02em; }
 
 a { text-decoration: none; }
+
+/* Texte sélectionné à la souris */
+::selection {
+    background-color: var(--accent);
+    color: var(--fond);
+}
 
 /* ==========================================================
    2. Navigation
@@ -33,7 +55,7 @@ nav {
     align-items: center;
     display: none;
     padding: 0.5rem;
-    background: rgb(50, 40, 50);
+    background: var(--surface);
     border-radius: 2rem;
 }
 nav * { display: none;}
@@ -48,12 +70,12 @@ nav img{
     font-size: 1.25rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: gold;
+    color: var(--texte);
     transition: transform 0.3s;
 }
 
 .menu:hover {
-    color: red;
+    color: var(--accent);
     transform: scale(1.2);
 } 
  
@@ -98,8 +120,19 @@ nav img{
 
 #menu-toggle { display: none; }
 
-#menu-toggle:checked ~ nav { display: inline-block; }
-#menu-toggle:checked ~ nav a { display: inline-block; }
+#menu-toggle:checked ~ nav { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
+ }
+#menu-toggle:checked ~ nav a { 
+    display: inline-block;
+    justify-content: center;
+ }
 
 /* ==========================================================
    3. Actualités
@@ -116,10 +149,10 @@ nav img{
     min-height: 20rem;
     margin: 1rem auto;
     padding: 1rem;
-    border: 0.7rem solid gold;
+    border: 0.7rem solid var(--accent);
     border-radius: 0.5rem;
     text-align: right;
-    color: white;
+    color: var(--texte);
     transition: all 0.3s;
 }
 
@@ -139,14 +172,14 @@ nav img{
     transform: scale(1.05);
     border: 0.125rem solid;
     border-radius: 0.1875rem;
-    border-image: linear-gradient(silver, gold) 1;
+    border-image: linear-gradient(var(--accent), var(--accent-clair) 1);
     box-shadow: 0 0 5rem #000;
 }
 
 .actualites .soustitre {
     margin: 0 0 0.5rem;
     text-transform: uppercase;
-    color: gold;
+    color: var(--accent);
     text-shadow: 0 0 0.3rem black;
     font-weight: bold;
 }
@@ -154,10 +187,10 @@ nav img{
 .actu-texte {
     margin: 1rem;
     padding: 1rem;
-    background: rgba(82, 63, 84);
+    background: var(--surface);
     border-radius: 0.5rem;
     flex: auto;
-    color: white;
+    color: var(--texte);
     text-shadow: 0 0 0.2rem black;
     font-weight: bold;
 }
@@ -180,12 +213,16 @@ nav img{
     width: 90%;
 }
 
-.galerie a { display: block; }
+.galerie a {
+    display: block;
+    position: relative;
+ }
 
 .galerie img {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 0.5rem;
     transition: all 0.3s;
@@ -195,17 +232,20 @@ nav img{
     transform: scale(1.05);
     border: 0.125rem solid;
     border-radius: 0.1875rem;
-    border-image: linear-gradient(silver, gold) 1;
+    border-image: linear-gradient(var(--accent), var(--accent-clair)) 1;
     box-shadow: 0 0 5rem #000;
 }
 
 .galerie p {
-  width: fit-content;
-  margin: -1.5rem 0 0 5%;
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.5rem;
-  padding: 8px 16px;
+   position: absolute;
+    bottom: 1rem;
+    left: 5%;
+    margin: 0;
+    width: fit-content;
+    color: var(--texte);
+    background-color: rgba(20, 19, 23, 0.85);
+    border-radius: 0.5rem;
+    padding: 8px 16px;
 }
 
 /* ==========================================================
@@ -218,7 +258,7 @@ nav img{
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    color: gold;
+    color: var(--accent);
 }
 
 .title_2 {
@@ -227,7 +267,27 @@ nav img{
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    color:darkcyan;
+    color: var(--texte);
+}
+
+/* Sous-titre « Nos Catégories » */
+.subtitle {
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--texte);
+}
+
+/* Petit trait rose sous le sous-titre */
+.subtitle::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 0.25rem;
+    margin: 0.5rem auto 0;
+    border-radius: 1rem;
+    background-color: var(--accent);
 }
 
 .top {
@@ -252,7 +312,7 @@ nav img{
 }
 
 .top img:hover {
-    border: 0.0625rem solid gold;
+    border: 0.0625rem solid var(--accent);
     box-shadow: 0 0 5rem #000;
     transform: scale(1.05);
 }
@@ -261,7 +321,7 @@ nav img{
    6. Jeux
    ========================================================== */
 
-.jeux ul li a { color: rgb(241, 121, 9); }
+.jeux ul li a { color: var(--accent); }
 
 .jeux .top li { position: relative; }
 
@@ -273,7 +333,7 @@ nav img{
     z-index: 10;
     width: 100%;
     height: 20rem;
-    border: 0.125rem solid gold;
+    border: 0.125rem solid var(--accent);
     pointer-events: none;
 }
 
@@ -307,18 +367,19 @@ nav img{
     margin: 0;
 }
 
+
 .article-gta6-critique {
     display: grid;
     align-items: center;
     gap: 0.75rem 1rem;
-
+    /* text-shadow: 0 0 0.3rem var(--accent); */
     margin: 1rem 0;
     padding: 1rem;
-    color: #fff;
-    background-color: #3d1d4b;
-    border: 2px solid #291332;
+    color: var(--texte);
+    background-color: var(--surface);
+    border: 2px solid var(--ligne);
     border-radius: 0.75rem;
-    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 25%);
+    
 }
 
 .article-gta6-critique h2 {
@@ -341,15 +402,16 @@ nav img{
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
+    color: var(--fond);
 }
 
 .article-gta6-critique .note-positive { 
-    background-color: #176534;
+    background-color: var(--note-positive);
     
  }
  
 .article-gta6-critique .note-negative {
-    background-color: #a12637;
+    background-color: var(--note-negative);
  }
 
 .article-content table {
@@ -366,31 +428,30 @@ nav img{
 .article-content th,
 .article-content td {
     padding: 0.5rem;
-    border-bottom: 1px solid rgb(255 255 255 / 0.25);
+    border-bottom: 1px solid var(--ligne);
 }
 
-.article-content th { text-align: left; }
+.article-content th { text-align: left; color: var(--texte-doux); }
 .article-content td { text-align: right; }
 
 .article-content tr:first-child td {
-    color: #86efac;
+    color: var(--note-positive);
     font-size: 2rem;
     font-weight: bold;
 }
 
+.acheter a{
+    color: var(--lien);
+}
+
+.acheter a:visited{
+    color: var(--lien);
+}
+
+.acheter a:hover { text-decoration: underline; }
+
 @media (min-width: 48rem) {
-    .article-intro + .article-content {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .article-intro + .article-content img {
-        width: min(40%, 20rem);
-    }
-
-    .article-intro + .article-content p {
-        flex: 1;
-    }
+    
 }
 
 /* ==========================================================
@@ -398,8 +459,8 @@ nav img{
    ========================================================== */
 
 footer {
-    background-color: #1e293b;
-    color: #ffffff;
+    background-color: var(--surface);
+    color: var(--texte-doux);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -407,8 +468,8 @@ footer {
 
 footer table,footer tr,footer td{
     justify-content: center;
-    width: 20rem;
-    height: 2.5rem;
+    width: 25rem;
+    height: 3rem;
     border-collapse: collapse;
 }
 
@@ -417,7 +478,7 @@ footer table th{
 }
 
 footer p:first-of-type{
-    border-bottom: 5px solid #25354e;
+    border-bottom: 5px solid var(--ligne);
 }
 
 footer img{
@@ -425,11 +486,11 @@ footer img{
 }
 
 footer a{
-    color: cyan;
+    color: var(--lien);
 }
 
 footer a:visited{
-    color: cyan;
+    color: var(--lien);
 }
 
 
@@ -450,13 +511,26 @@ footer a:visited{
     .top img { height: 35rem; }
 
     footer table,
-    tr,
-    td {
+    footer tr,
+    footer td {
         width: 50rem;
-        height: 4rem;
+        height: 4.5rem;
     }
 
     footer img { max-width: 3rem; }
+    
+    .article-intro + .article-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .article-intro + .article-content img {
+        width: min(40%, 20rem);
+    }
+
+    .article-intro + .article-content p {
+        flex: 1;
+    }
 }
 
 /* ==========================================================

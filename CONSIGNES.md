@@ -31,11 +31,11 @@
 
 | Numéro de critère | Nombre de points | Nom                          | Description                                                                                              | Comment vérifier                                                                                               |
 |-------------------|-----------------:|------------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| P1                |                1 | Nombre de pages              | Le site comporte au moins trois pages distinctes et pertinentes.                                         | Ouvrir la navigation et vérifier que trois pages différentes sont accessibles.                                 |
-| P2                |                1 | Page d’accueil               | Le site comprend une page d’accueil identifiable.                                                        | Vérifier qu’une page d’accueil est présente et accessible depuis la navigation.                                |
+| P1                |                1 | Nombre de pages ✅           | Le site comporte au moins trois pages distinctes et pertinentes.                                         | Ouvrir la navigation et vérifier que trois pages différentes sont accessibles.                                 |
+| P2                |                1 | Page d’accueil ✅            | Le site comprend une page d’accueil identifiable.                                                        | Vérifier qu’une page d’accueil est présente et accessible depuis la navigation.                                |
 | P3                |                1 | Crédits du groupe et membres | Une page de présentation indique le nom du groupe et de ses membres.                                     | Vérifier que le nom du groupe et des membres apparaît sur une page du site.                                    |
 | P4                |                1 | Liens de référence           | Le site contient un lien vers la page Speedlify du projet et un lien de validation W3C pour chaque page. | Cliquer sur chaque lien et vérifier qu'il mène à la bonne page ou au bon résultat de validation.               |
-| P5                |                1 | Navigation cohérente         | Toutes les pages partagent une navigation commune avec les mêmes liens vers les autres pages.            | Ouvrir chaque page et vérifier que la navigation est présente et que les liens mènent aux bonnes destinations. |
+| P5                |                1 | Navigation cohérente ✅      | Toutes les pages partagent une navigation commune avec les mêmes liens vers les autres pages.            | Ouvrir chaque page et vérifier que la navigation est présente et que les liens mènent aux bonnes destinations. |
 
 ### Images (3 points)
 
@@ -58,19 +58,19 @@
 
 | Critère                   | Max. | Niveau (0-4) | Points | Observations |
 |---------------------------|------|--------------|--------|--------------|
-| M1 — Flexbox ou Grid      | 5    |              |        |              |
-| M2 — Sélecteurs variés    | 1    |              |        |              |
-| M3 — Combinateurs         | 1    |              |        |              |
+| M1 — Flexbox ou Grid      | 5    |      ✅      |        |              |
+| M2 — Sélecteurs variés    | 1    |      ✅      |        |              |
+| M3 — Combinateurs         | 1    |      ✅      |        |              |
 | M4 — Sélecteur d'attribut | 1    |              |        |              |
-| M5 — Variables CSS        | 1    |              |        |              |
+| M5 — Variables CSS        | 1    |      ✅      |        |              |
 
 ### Accessibilité et affichage adaptatif (10 points)
 
 | Numéro de critère | Nombre de points | Nom                     | Description                                                                                                                                                                        | Comment vérifier                                                                                                                                               |
 |-------------------|-----------------:|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | A1                |                4 | Responsive et adaptatif | Le contenu s’adapte aux différentes largeurs d’écran sans perte d’information, s’affiche correctement à 350 × 650 px sans défilement horizontal et reste utilisable au zoom 200 %. | Tester les pages sur petit et grand écran, à 350 × 650 px et au zoom 200 %, et vérifier que tout le contenu et toutes les fonctionnalités restent accessibles. |
-| A2                |                3 | Media queries           | Le CSS utilise des media queries pour adapter la mise en page à différentes largeurs d'écran.                                                                                      | Rechercher `@media` dans le CSS et vérifier qu'au moins une media query est présente et fonctionnelle.                                                         |
-| A3                |                2 | Approche mobile first   | Le CSS prévoit d’abord une mise en page pour petit écran, puis des adaptations pour les écrans plus larges.                                                                        | Examiner la feuille CSS et vérifier que les règles de base ciblent les petits écrans et que les adaptations plus larges sont ajoutées ensuite.                 |
+| A2                |                3 | Media queries ✅        | Le CSS utilise des media queries pour adapter la mise en page à différentes largeurs d'écran.                                                                                      | Rechercher `@media` dans le CSS et vérifier qu'au moins une media query est présente et fonctionnelle.                                                         |
+| A3                |                2 | Approche mobile first ✅| Le CSS prévoit d’abord une mise en page pour petit écran, puis des adaptations pour les écrans plus larges.                                                                        | Examiner la feuille CSS et vérifier que les règles de base ciblent les petits écrans et que les adaptations plus larges sont ajoutées ensuite.                 |
 | A4                |                1 | Lisibilité des couleurs | Les couleurs de texte et de fond offrent un contraste suffisant pour une lecture confortable sur toutes les pages.                                                                  | Vérifier avec le color picker des DevTools Chrome ou l'extension « WCAG Color Contrast Checker ».                                                                       |
 
 ### Éco-conception (3 points)
@@ -87,7 +87,7 @@ L’utilisation de `<picture>` ou de `srcset` peut être proposée comme amélio
 |-------------------|-----------------:|---------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Q1                |                3 | Validation HTML           | Toutes les pages sont vérifiées avec le validateur W3C et ne comportent pas d’erreur. | Consulter le résultat du validateur pour chaque page : aucune erreur ne doit être signalée. |
 | Q2                |                1 | Liens fonctionnels        | Le site ne contient pas de lien mort.                                                 | Cliquer sur chaque lien interne et externe et vérifier que sa destination fonctionne.       |
-| Q3                |                1 | Feuille de style partagée | Une même feuille de style CSS est réutilisée sur toutes les pages.                    | Vérifier que chaque page référence le fichier CSS commun du projet.                         |
+| Q3                |                1 | Feuille de style partagée ✅| Une même feuille de style CSS est réutilisée sur toutes les pages.                    | Vérifier que chaque page référence le fichier CSS commun du projet.                         |
 
 ### JavaScript (pénalité)
 
