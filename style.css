@@ -463,8 +463,17 @@ nav img{
    ========================================================== */
 
 .page-titre {
+    width: fit-content;
+    max-width: 90%;
+    margin: 2rem auto;
+    padding: 0.2em 0.6em;
     text-align: center;
-    color: var(--accent);
+    text-transform: uppercase;
+    color: var(--texte);
+    border: 2px solid var(--accent);
+    border-radius: 0.4rem;
+    outline: 2px solid var(--bleu);
+    outline-offset: 4px;
 }
 
 .article-intro + .article-content {
@@ -472,6 +481,9 @@ nav img{
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--ligne);  
+    padding-bottom: 2rem; 
 }
 
 .article-intro + .article-content img {
@@ -479,11 +491,15 @@ nav img{
     width: min(100%, 20rem);
     height: auto;
     border-radius: 0.5rem;
+    border: 2px solid var(--accent); 
+    box-shadow: 5px 5px 0 var(--bleu);
 }
 
 .article-intro + .article-content p {
     margin: 0;
 }
+
+.article-intro + .article-content h2 { width: 100%; order: -1; }
 
 .article-gta6-critique {
     display: grid;
@@ -497,6 +513,9 @@ nav img{
     border: 2px solid var(--ligne);
     border-radius: 0.75rem;
 }
+
+.article-gta6-critique { grid-template: "titre note" / 1fr auto; }
+.date-critique { grid-area: titre; text-decoration: underline var(--accent); text-underline-offset: 4px; }
 
 .article-gta6-critique {
     
@@ -532,6 +551,22 @@ nav img{
     tr:first-child td { color: var(--note-positive); font-size: 2rem; font-weight: var(--gras); }
 }
 
+.article-content tr:nth-child(even) {
+    background-color: var(--surface);
+}
+
+.article-content h2 { color: var(--accent); }
+
+.article-content,
+.acheter {
+    padding-inline: 1rem;
+    margin-block: 2rem;
+}
+
+.article-content p { max-width: 65ch; }
+
+.article-content + .article-content { background: var(--surface); border-radius: 0.75rem; padding: 1rem; }
+
 .nom-critique {
     grid-area: titre;
     margin: 0;
@@ -544,13 +579,10 @@ nav img{
 }
 
 .acheter {
-    a{ color: var(--lien); }
-
-    a:visited{ color: var(--lien); }
-
+    a, a:visited { display: inline-block; margin: 0.4rem 0; padding: 0.3rem 1rem; border-radius: 999px; background-color: var(--lien); color: var(--fond); }
     a:hover { text-decoration: underline; }
-
 }
+
 /* ==========================================================
    8. Footer
    ========================================================== */
