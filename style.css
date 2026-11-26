@@ -4,6 +4,8 @@
 
 * { box-sizing: border-box; }
 
+img { max-width: 100%;}
+
 :root {
     --font-main: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --regular : 400;
@@ -247,7 +249,7 @@ nav img{
   right: 12px;
 }
 /* ===========
-   5. Galerie
+   4. Galerie
    ===========*/
 
 .galerie {
@@ -290,14 +292,18 @@ nav img{
     left: 5%;
     margin: 0;
     width: fit-content;
-    color: var(--texte);
-    background-color: rgba(20, 19, 23, 0.85);
+    color: var(--fond);
+    background-color: var(--texte);
+    border: 2px solid var(--accent);
     border-radius: 0.5rem;
     padding: 8px 16px;
+    font-weight: var(--gras);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 /* ==========================================================
-   6. Top Lists
+   5. Top Lists
    ========================================================== */
 
 .title {
@@ -316,6 +322,16 @@ nav img{
     text-transform: uppercase;
     text-align: center;
     color: var(--texte);
+}
+
+.title_2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 0.25rem;
+    margin: 0.5rem auto 0;
+    border-radius: 1rem;
+    background-color: var(--accent);
 }
 
 .subtitle {
@@ -363,7 +379,7 @@ nav img{
 }
 
 /* ==========================================================
-   7. Jeux
+   6. Jeux
    ========================================================== */
 
 .jeux ul li a { color: var(--accent); }
@@ -406,7 +422,7 @@ nav img{
 .jeux .top label { cursor: pointer; }
 
 /* ==========================================================
-   8. GTA
+   7. GTA
    ========================================================== */
 
 .page-titre {
@@ -499,7 +515,7 @@ nav img{
 
 }
 /* ==========================================================
-   9. Footer
+   8. Footer
    ========================================================== */
 
 footer {
@@ -535,7 +551,7 @@ footer {
 
 }
 /* ==========================================================
-   10. Responsive (écrans d'au moins 48rem)
+   9. Responsive (écrans d'au moins 48rem)
    ========================================================== */
 
 @media (min-width: 48rem) {
@@ -578,7 +594,7 @@ footer {
 }
 
 /* ==========================================================
-   11. Accessibilité
+   10. Accessibilité
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
