@@ -51,38 +51,56 @@
         <h1 class="title">Musiques</h1>
 
          <!-- ---------- Section "Top Auteurs" ---------- -->
-        <section>
+        <section class="jeux">
             <!-- Titre de la section -->
             <h2 class="title_2">Top Auteurs</h2>
 
             <!-- Liste des artistes en grille
                  Chaque <li> contient une image et le nom en dessous. -->
             <ul class="top">
-                <li><a href="#"><img src="Musiques/Images/billie.webp" alt=""></a>Billie Eilish</li>
-                <li><a href="#"><img src="Musiques/Images/John.webp" alt=""></a>John Michael Howell</li>
-                <li><a href="#"><img src="Musiques/Images/surprise.webp" alt=""></a>Surprise</li>
+                <li><input type="checkbox" id="billie-toggle" class="toggle"><label for="billie-toggle"><img src="Musiques/Images/billie.webp" alt=""></label>Billie Eilish
+                    <iframe src="Musiques/Pages/Billie_Eilish.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="billie-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="john-toggle" class="toggle"><label for="john-toggle"><img src="Musiques/Images/John.webp" alt=""></label>John Michael Howell
+                    <iframe src="Musiques/Pages/John_Michael_Howell.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="john-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="surprise-toggle" class="toggle"><label for="surprise-toggle"><img src="Musiques/Images/surprise.webp" alt=""></label>Surprise
+                    <iframe src="Musiques/Pages/Surprise.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="surprise-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
 
         <!-- ---------- Section "Top Albums" ----------
              Même structure : pochette + "Nom de l'album - Artiste". -->
-        <section>
+        <section class="jeux">
             <h2 class="title_2">Top Albums</h2>
             <ul class="top">
-                <li><a href="#"><img src="Musiques/Images/Arcane.webp" alt=""></a>League Of Legends - Arcane</li>
-                <li><a href="#"><img src="Musiques/Images/charlie.webp" alt=""></a>Brat - Charli XCX</li>
-                <li><a href="#"><img src="Musiques/Images/Bekar.webp" alt=""></a>Alba l'Heure Bleu - Bekar</li>
+                <li><input type="checkbox" id="arcane-toggle" class="toggle"><label for="arcane-toggle"><img src="Musiques/Images/Arcane.webp" alt=""></label>League Of Legends - Arcane
+                    <iframe src="Musiques/Pages/Arcane.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="arcane-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="brat-toggle" class="toggle"><label for="brat-toggle"><img src="Musiques/Images/charlie.webp" alt=""></label>Brat - Charli XCX
+                    <iframe src="Musiques/Pages/Brat.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="brat-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="alba-toggle" class="toggle"><label for="alba-toggle"><img src="Musiques/Images/Bekar.webp" alt=""></label>Alba l'Heure Bleu - Bekar
+                    <iframe src="Musiques/Pages/Alba_Lheure_Bleu.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="alba-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
 
         <!-- ---------- Section "Top Musiques" ----------
              Même structure : pochette + "Titre - Artiste". -->
-        <section>
+        <section class="jeux">
             <h2 class="title_2">Top Musiques</h2>
             <ul class="top">
-                <li><a href="#"><img src="Musiques/Images/WAD.webp" alt="musique 1"></a>Plan B - Alpha One </li>
-                <li><a href="#"><img src="Musiques/Images/Idol.webp" alt="musique 2"></a>Eyes Without A Face - Billy Idol</li>
-                <li><a href="#"><img src="Musiques/Images/Ego.webp" alt="musique 3"></a>Ego - Quing Madi</li>
+                <li><input type="checkbox" id="planb-toggle" class="toggle"><label for="planb-toggle"><img src="Musiques/Images/WAD.webp" alt="musique 1"></label>Plan B - Alpha Wann
+                    <iframe src="Musiques/Pages/Plan_B.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="planb-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="idol-toggle" class="toggle"><label for="idol-toggle"><img src="Musiques/Images/Idol.webp" alt="musique 2"></label>Eyes Without A Face - Billy Idol
+                    <iframe src="Musiques/Pages/Eyes_Without_A_Face.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="idol-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="ego-toggle" class="toggle"><label for="ego-toggle"><img src="Musiques/Images/Ego.webp" alt="musique 3"></label>Ego - Quing Madi
+                    <iframe src="Musiques/Pages/Ego.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="ego-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
     </main>
@@ -99,46 +117,44 @@
     <!-- Tableau des liens : une ligne (<tr>) par membre de l'équipe.
         <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
         Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
-    <table>
+   <table>
+        
+    <tr>
+        <th></th>
+        <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+        <th> Test Performance</th>
+    </tr>
+    <tr>
+        <th>Esteban Georget</th>
+        <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">LinkedIn</a></td>
+        <td><a href="https://validator.w3.org/nu/?showoutline=yes&showimagereport=yes&level=warning&doc=https://coda-dijon.github.io/html-b1-2026-g1/musique"  target="_blank" rel="noopener" > W3C </a></td>
+    </tr>
 
-        <!-- Ligne 1 : Esteban Georget (les icônes ne sont affichées que sur la 1re ligne).
-             target="_blank" = ouvre le lien dans un nouvel onglet.
-             rel="noopener" = sécurité : la nouvelle page ne peut pas contrôler la page du site.
-             aria-label = texte lu par les lecteurs d'écran (accessibilité). -->
-        <tr>
-            <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
-            <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">Esteban Georget</a></td>
-            <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
-            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">Esteban Georget</a></td>
-        </tr>
+    <tr>
+        <th>Nathan Lion</th>
+        <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">LinkedIn</a></td>
+        <td><a href="https://speedlify-b1-2026-coda.baldir.fr/site/coda--dijon-github-io-html--b1--2026--g1-musique/"  target="_blank" rel="noopener" > Speedlify </a></td>
+    </tr>
 
-        <!-- Ligne 2 : Nathan Lion (cellules <th> vides pour garder l'alignement des colonnes) -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">Nathan Lion</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">Nathan Lion</a></td>
-        </tr>
+    <tr>
+        <th>Nolhan Robelin</th>
+        <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">LinkedIn</a></td>
+    </tr>
 
-        <!-- Ligne 3 : Nolhan Robelin -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">Nolhan Robelin</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
-        </tr>
+    <tr>
+        <th>Lilou Walkowiak</th>
+        <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">LinkedIn</a></td>
+    </tr>
 
-        <!-- Ligne 4 : Lilou Walkowiak -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">Lilou Walkowiak</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">Lilou Walkowiak</a></td>
-        </tr>
     </table>
 
     <!-- Mention de copyright (droits d'auteur) -->
-    <p>© 2026 The Worst Review</p>
+    <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
 </footer>
 </body>
 </html>

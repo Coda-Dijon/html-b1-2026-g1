@@ -1,65 +1,59 @@
-/* Police du site (doit rester tout en haut du fichier) */
-/* @import charge la police "Space Grotesk" depuis Google Fonts.
-   "wght@300..700" = on récupère toutes les épaisseurs de 300 (fin) à 700 (gras).
-   "display=swap" = le texte s'affiche tout de suite avec une police de secours,
-   puis la vraie police la remplace dès qu'elle est chargée. */
+/* ==========================================================
+   0. Police du site
+   ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('Fonts/SpaceGrotesk-Regular.ttf');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('Fonts/SpaceGrotesk-Bold.ttf');
+    font-weight: bold;
+    font-display: swap;
+}
 
 /* ==========================================================
    1. Base
-   Les règles générales qui s'appliquent à toute la page.
    ========================================================== */
 
-/* "*" = tous les éléments de la page.
-   box-sizing: border-box = la largeur d'un élément INCLUT son padding et sa bordure. */
 * { box-sizing: border-box; }
 
-/* :root = la racine du document (la balise <html>).
-   On y déclare des "variables CSS" (elles commencent par --). */
 :root {
-    /* Police principale + polices de secours si Space Grotesk ne charge pas */
     --font-main: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
-
-    /* Couleurs : Direction Artistique « Pop rose » */
-    --fond: #141317;           /* fond de page (anthracite) */
-    --surface: #201E25;        /* nav, encadrés, footer */
-    --ligne: #302D37;          /* bordures discrètes */
-    --texte: #F7F5FA;          /* texte principal */
-    --texte-doux: #ABA6B5;     /* texte secondaire */
-    --accent: #FF5FA2;         /* rose vif : titres, survols, cadres */
-    --accent-clair: #FF9CC8;   /* rose clair : dégradés */
-    --note-positive: #6EE7A8;  /* vert : bonnes notes */
-    --note-negative: #FF5A5F;  /* rouge corail : mauvaises notes */
-    --lien: #FF1493;          /* rose fluo : liens */
+    --regular : 400;
+    --gras: bold;
+    --fond: #141317;
+    --surface: #201E25;
+    --ligne: #302D37;
+    --texte: #F7F5FA;
+    --texte-doux: #ABA6B5;
+    --accent: #FF5FA2;
+    --accent-clair: #FF9CC8;
+    --note-positive: #6EE7A8;
+    --note-negative: #FF5A5F;
+    --lien: #FF1493;
 }
 
-
-/* On applique la police principale à tout le document.
-   var(--font-main) = "utilise la valeur de la variable --font-main". */
 html { font-family: var(--font-main); }
 
-/* Barre de défilement aux couleurs du site.
-   1re couleur = le curseur (la partie qu'on attrape), 2e couleur = le rail. */
 html { scrollbar-color: var(--accent) var(--fond); }
 
 body {
-    background-color: var(--fond);  /* couleur de fond de la page */
-    color: var(--texte);            /* couleur du texte par défaut */
-    margin: 0;                      /* supprime la marge blanche que le navigateur met par défaut */
-    min-height: 100vh;              /* la page fait au moins toute la hauteur de l'écran (vh = % de la hauteur de la fenêtre) */
-    line-height: 1.6;               /* espace entre les lignes de texte (1.6 × la taille du texte) : plus lisible */
+    background-color: var(--fond);
+    color: var(--texte);
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-
-/* Titres : on resserre légèrement les lettres (valeur négative = lettres plus proches).
-   "em" = relatif à la taille du texte, donc ça s'adapte à chaque titre. */
 h1, h2, h3 { letter-spacing: -0.02em; }
 
-/* Enlève le soulignement par défaut de tous les liens */
 a { text-decoration: none; }
 
-/* Texte sélectionné à la souris : fond rose et texte couleur du fond */
 ::selection {
     background-color: var(--accent);
     color: var(--fond);
@@ -67,291 +61,305 @@ a { text-decoration: none; }
 
 /* ==========================================================
    2. Navigation
-   Fonctionnement : sur mobile, le menu est caché par défaut
-   et s'ouvre quand on clique sur le logo (astuce de la case à cocher
-   cachée #menu-toggle, voir plus bas). Sur grand écran, il est
-   toujours visible (voir la partie Responsive).
    ========================================================== */
 
 nav {
-    justify-content: center;   /* centre les éléments horizontalement (utile quand nav passe en flex) */
-    align-items: center;       /* centre les éléments verticalement */
-    display: none;             /* menu caché par défaut (mobile) */
-    padding: 0.5rem;           /* espace intérieur */
+    justify-content: center;
+    align-items: center;
+    display: none;
+    padding: 0.5rem;
     background: var(--surface);
-    border-radius: 2rem;       /* coins très arrondis */
+    border-radius: 2rem;
 }
-/* Tout ce qui est dans la nav est aussi caché par défaut */
 nav * { display: none;}
 
-/* Taille de l'image (logo) dans la nav */
 nav img{
     width: 175px;
 }
 
-/* .menu = chaque lien du menu */
 .menu {
-    position: relative;        /* nécessaire pour placer le trait du ::after par rapport au lien */
+    position: relative;
     margin: 1.5rem;
     font-size: 1.25rem;
-    font-weight: bold;
-    text-transform: uppercase; /* écrit le texte en MAJUSCULES */
+    font-weight: var(--gras);
+    text-transform: uppercase;
     color: var(--texte);
-    transition: transform 0.3s; /* l'agrandissement au survol se fait en douceur (0,3 seconde) */
+    transition: transform 0.3s;
 }
 
-
-/* Au survol de la souris : le lien devient rose et grossit de 20 % */
 .menu:hover {
     color: var(--accent);
     transform: scale(1.2);
 }
- 
-/* ::after crée un petit élément "fantôme" après le lien : ici, un trait de soulignement animé */
+
 .menu::after {
-    content: "";               /* obligatoire pour que ::after s'affiche (même vide) */
-    position: absolute;        /* placé par rapport au lien (.menu est en position: relative) */
+    content: "";
+    position: absolute;
     left: 0;
-    bottom: -0.12em;           /* juste sous le texte */
-    width: 100%;               /* aussi large que le lien */
-    height: 0.1875rem;         /* épaisseur du trait (3px) */
-    border-radius: 0.1875rem;  /* bouts arrondis */
-    background-color: currentColor; /* même couleur que le texte du lien */
-    transform: scale(0);       /* trait réduit à zéro = invisible au départ */
-    transform-origin: left;    /* il "pousse" depuis la gauche */
-    transition: transform 250ms ease-out; /* animation de 250 ms qui ralentit à la fin */
+    bottom: -0.12em;
+    width: 100%;
+    height: 0.1875rem;
+    border-radius: 0.1875rem;
+    background-color: currentColor;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 250ms ease-out;
 }
 
-
-/* Au survol OU quand on navigue au clavier (touche Tab),
-   le trait reprend sa taille normale : il apparaît de gauche à droite */
 .menu:hover::after,
 .menu:focus-visible::after {
     transform: scale(1);
 }
 
-/* .logo = le logo cliquable qui ouvre le menu sur mobile */
 .logo {
-    display: flex;             /* flex permet de centrer facilement le contenu */
-    justify-content: center;   /* centré horizontalement */
-    align-items: center;       /* centré verticalement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 3rem;
-    cursor: pointer;           /* curseur en forme de main : on comprend que c'est cliquable */
+    cursor: pointer;
     transition: transform 0.3s;
     padding: 1rem;
 }
 
-/* Au survol : le logo grossit de 10 %. */
 .logo:hover {
     transform: scale(1.1);
     cursor: help;
 }
 
-/* :active = pendant qu'on clique dessus */
 .logo:active {
     transform: scale(1.1);
     transition: transform 0.2s;
 }
 
-/* Case à cocher cachée qui sert d'interrupteur pour ouvrir/fermer le menu. */
 #menu-toggle { display: none; }
 
-
-/* :checked = quand la case est cochée.
-   "~" = sélectionne la nav qui se trouve APRÈS la case, au même niveau dans le HTML.
-   Donc : case cochée → le menu s'affiche. */
 #menu-toggle:checked ~ nav {
-    display: flex;             /* le menu réapparaît */
-    flex-wrap: wrap;           /* les liens passent à la ligne s'il n'y a pas assez de place */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;            /* "auto" à gauche et à droite = centré dans la page */
-    width: fit-content;        /* la nav prend juste la largeur de son contenu */
-    max-width: 100%;           /* mais jamais plus large que l'écran */
- }
-/* Et les liens de la nav réapparaissent aussi */
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
+}
+
 #menu-toggle:checked ~ nav a {
     display: inline-block;
     justify-content: center;
- }
+}
 
 /* ==========================================================
-   3. Actualités
-   Le grand encadré "à la une".
+   3. Caroussel
    ========================================================== */
 
-.actualites {
-    position: relative;        /* sert de repère pour l'image de fond (::before) */
-    isolation: isolate;        /* crée un "calque" à part : l'image en z-index -1 reste DERRIÈRE le contenu mais DEVANT le fond de la page */
-    display: flex;
-    flex-direction: column;    /* les éléments s'empilent verticalement */
-    align-items: flex-end;     /* et sont collés à droite */
-    width: 90%;                /* 90 % de la largeur disponible */
-    max-width: 80rem;          /* mais pas plus de 80rem sur les grands écrans */
-    min-height: 20rem;         /* hauteur minimale */
-    margin: 1rem auto;         /* 1rem en haut/bas, centré à gauche/droite */
-    padding: 1rem;
-    border: 0.7rem solid var(--accent); /* gros cadre rose */
-    border-radius: 0.5rem;
-    text-align: right;         /* texte aligné à droite */
-    color: var(--texte);
-    transition: all 0.3s;      /* toutes les modifications (survol) se font en douceur */
+.caroussel ul {
+  width: 100vw;
+  height: 300px;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+
+  /* 👉 1. Cache la barre de défilement */
+  scrollbar-width: none;
+
+  /* 👉 2. Crée automatiquement le conteneur des points en bas */
+  scroll-marker-group: after;
+}
+.caroussel ul::-webkit-scrollbar {
+  display: none;
 }
 
-/* Image de fond floutée, créée avec ::before */
-.actualites::before {
-    content: "";
-    inset: -10px;              /* raccourci de top/right/bottom/left : dépasse de 10px de chaque côté
-                                  (pour cacher les bords transparents créés par le flou) */
-    position: absolute;
-    z-index: -1;               /* placée derrière le contenu */
-    background-image: url(Ressources-index/gta6.webp);
-    background-size: cover;    /* l'image remplit tout l'espace sans être déformée (quitte à être rognée) */
-    background-position: center; /* centrée */
-    filter: blur(3px);         /* flou léger */
+/* 1. Aligner et centrer les 3 points sous le carrousel */
+.caroussel ul::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 0;
+}
+
+/* 2. Dessiner les 3 petits points ronds */
+.caroussel-item::scroll-marker {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #cbd5e1; /* Couleur des points inactifs (gris) */
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* 3. Le point actif quand vous scrollez dessus */
+.caroussel-item::scroll-marker:target-current {
+  background-color: var(--accent); /* Couleur du point actif (noir) */
+  transform: scale(1.2);    /* Grossit légèrement */
+}
+
+.caroussel li {
+    list-style-type: none;
+    background-color: black;
+    border: 1px solid var(--accent);
+    padding: 20px;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    border-radius: 1rem;
+}
+
+.caroussel li:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.152);
+}
+
+.caroussel::scroll-button(*) {
+  border: 0;
+  font-size: 2rem;
+  background: none;
+  color: black;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.caroussel::scroll-button(*):hover,
+.caroussel::scroll-button(*):focus {
+  opacity: 1;
+}
+
+.caroussel::scroll-button(*):active {
+  translate: 1px 1px;
+}
+
+.caroussel::scroll-button(*):disabled {
+  opacity: 0.2;
+  cursor: unset;
+}
+
+.caroussel::scroll-button(left) {
+  content: "◄" / "Previous";
+}
+
+.caroussel::scroll-button(right) {
+  content: "►" / "Next";
+}
+
+.caroussel ul {
+  anchor-name: --my-carousel;
+}
+
+.caroussel::scroll-button(*) {
+  position: absolute;
+  position-anchor: --my-carousel;
+}
+
+.caroussel::scroll-button(left) {
+  right: calc(anchor(left) - 70px);
+  bottom: calc(anchor(top) + 13px);
+}
+
+.caroussel::scroll-button(right) {
+  left: calc(anchor(right) - 70px);
+  bottom: calc(anchor(top) + 13px);
 }
 
 
-/* Au survol : l'encadré grossit, le cadre devient rose clair et une ombre noire apparaît autour */
-.actualites:hover {
-    transform: scale(1.05);
-    border-color: var(--accent-clair);
-    box-shadow: 0 0 5rem #000; /* ombre : décalage x 0, décalage y 0, flou 5rem, couleur noire */
-}
-
-
-/* Petit sous-titre de l'encadré (ex. "À la une") */
-.actualites .soustitre {
-    margin: 0 0 0.5rem;        /* seulement une marge en bas */
-    text-transform: uppercase;
-    color: var(--accent);
-    text-shadow: 0 0 0.3rem black; /* ombre noire autour des lettres : lisible même sur l'image */
-    font-weight: bold;
-}
-
-/* Bloc de texte de l'actualité, sur fond sombre pour rester lisible */
-.actu-texte {
-    margin: 1rem;
-    padding: 1rem;
-    background: var(--surface);
-    border-radius: 0.5rem;
-    flex: auto;                /* le bloc s'étire pour occuper la place restante dans l'encadré */
-    color: var(--texte);
-    text-shadow: 0 0 0.2rem black;
-    font-weight: bold;
-}
 
 /* ==========================================================
-   4. Galerie
-   Grille d'images avec une légende posée par-dessus.
+   5. Galerie
    ========================================================== */
 
 .galerie {
-    display: grid;             /* mise en page en grille */
-    /* repeat(auto-fit, minmax(12rem, 1fr)) = "mets autant de colonnes que possible,
-       chacune fait au moins 12rem et elles se partagent l'espace restant (1fr)".
-       → la grille s'adapte toute seule à la taille de l'écran, sans media query. */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    gap: 1rem;                 /* espace entre les cases */
-    justify-items: center;     /* contenu centré horizontalement dans chaque case */
-    align-items: center;       /* et verticalement */
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
     text-align: center;
-    list-style: none;          /* enlève les puces de la liste <ul> */
+    list-style: none;
 }
 
-/* Chaque élément de la galerie prend 90 % de sa case */
 .galerie li {
     width: 90%;
 }
 
-
-/* Le lien entoure l'image : position relative pour pouvoir placer la légende par-dessus */
 .galerie a {
     display: block;
     position: relative;
- }
+}
 
 .galerie img {
-    display: block;            /* supprime le petit espace vide sous les images */
+    display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 4;       /* format portrait (3 de large pour 4 de haut), comme une jaquette de jeu */
-    object-fit: cover;        /* l'image remplit le cadre sans être déformée */
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
     border-radius: 0.5rem;
     transition: all 0.3s;
 }
 
-/* Au survol : l'image grossit et un liseré rose apparaît. */
 .galerie img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 0 0.125rem var(--accent 0 0 5rem #000);
+    box-shadow: 0 0 0 0.125rem var(--accent), 0 0 5rem #000;
 }
 
-/* Légende posée en bas à gauche de l'image */
 .galerie p {
-   position: absolute;         /* placée par rapport au lien (position: relative) */
-    bottom: 1rem;              /* à 1rem du bas */
-    left: 5%;                  /* à 5 % du bord gauche */
+    position: absolute;
+    bottom: 1rem;
+    left: 5%;
     margin: 0;
-    width: fit-content;        /* aussi large que le texte, pas plus */
+    width: fit-content;
     color: var(--texte);
-    background-color: rgba(20, 19, 23, 0.85); /* fond sombre à 85 % d'opacité (légèrement transparent) */
+    background-color: rgba(20, 19, 23, 0.85);
     border-radius: 0.5rem;
-    padding: 8px 16px;         /* 8px en haut/bas, 16px à gauche/droite */
+    padding: 8px 16px;
 }
 
 /* ==========================================================
-   5. Top Lists
-   Titres de sections et grilles des "tops".
+   6. Top Lists
    ========================================================== */
 
-/* Grand titre de section en rose */
 .title {
     margin: 1rem 0;
     font-size: 1.75rem;
-    font-weight: bold;
+    font-weight: var(--gras);
     text-transform: uppercase;
     text-align: center;
     color: var(--accent);
 }
 
-/* Même style que .title mais en blanc */
 .title_2 {
     margin: 1rem 0;
     font-size: 1.75rem;
-    font-weight: bold;
+    font-weight: var(--gras);
     text-transform: uppercase;
     text-align: center;
     color: var(--texte);
 }
 
-/* Sous-titre « Nos Catégories » */
 .subtitle {
-    margin: 2rem 0 1rem;       /* 2rem en haut, 0 sur les côtés, 1rem en bas */
+    margin: 2rem 0 1rem;
     font-size: 1.5rem;
     text-transform: uppercase;
     text-align: center;
     color: var(--texte);
 }
 
-/* Petit trait rose sous le sous-titre (créé avec ::after) */
 .subtitle::after {
     content: "";
-    display: block;            /* block = se place sur sa propre ligne, sous le texte */
-    width: 3rem;               /* "auto" sur les côtés = trait centré */
+    display: block;
+    width: 3rem;
     height: 0.25rem;
     margin: 0.5rem auto 0;
     border-radius: 1rem;
     background-color: var(--accent);
 }
 
-/* Grille des tops : même principe que la galerie (colonnes automatiques d'au moins 14rem) */
 .top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: 1rem;
-    max-width: 87.5rem;          /* largeur max sur grand écran */
-    margin: 0 auto 2rem;       /* centrée, avec 2rem d'espace en dessous */
+    max-width: 87.5rem;
+    margin: 0 auto 2rem;
     padding: 0 1rem;
     list-style: none;
     font-size: 1.5rem;
@@ -360,75 +368,81 @@ nav img{
 .top img {
     display: block;
     width: 100%;
-    height: 31rem;             /* hauteur fixe pour que toutes les images soient alignées */
+    height: 31rem;
     margin-bottom: 1rem;
     object-fit: cover;
     border-radius: 0.5rem;
     transition: all 0.3s;
 }
 
-/* Au survol : l'image grossit, avec un liseré rose ET une grande ombre noire.
-   Les deux ombres sont séparées par une virgule. */
 .top img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 0 0.125rem var(--accent), 0 0 5rem #000;
 }
 
 /* ==========================================================
-   6. Jeux
+   7. Jeux
    ========================================================== */
 
-/* Liens de la section jeux en rose */
 .jeux ul li a { color: var(--accent); }
 
-/* Chaque jeu sert de repère pour placer son iframe */
 .jeux .top li { position: relative; }
 
-/* La fenêtre (iframe) : cachée par défaut, elle s'affiche sous le jeu */
 .jeux .top .iframe {
-    display: none;
-    position: absolute;
-    top: 100%;                 /* juste en dessous de l'élément */
-    left: 0;
-    z-index: 10;               /* passe au-dessus des autres éléments */
-    width: 100%;
-    height: 40rem;
+    display: none;                 /* cachée tant que la case n'est pas cochée */
+    position: fixed;               /* collée à la fenêtre : elle ne défile pas avec la page */
+    inset: 5vh 5vw;                /* marges de 5 % de la hauteur (haut/bas) et de la largeur (gauche/droite) */
+    z-index: 100;                  /* passe au-dessus de tout le reste */
+    width: 90vw;                   /* 90 % de la largeur de l'écran */
+    height: 90vh;                  /* 90 % de la hauteur de l'écran */
     border: 0.125rem solid var(--accent);
     background: var(--fond);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75); /* énorme ombre noire semi-transparente : assombrit toute la page derrière */
 }
 
-/* L'iframe s'affiche :
-   - pendant qu'on appuie sur le jeu (:active)
-   - OU quand la case cachée .toggle est cochée (elle reste alors ouverte) */
-.jeux .top li:active .iframe,
-.jeux .top .toggle:checked ~ .iframe {
+.jeux .top .fermer {
+    display: none;                 /* caché tant que l'iframe est fermée */
+    position: fixed;               /* collé à la fenêtre, comme l'iframe */
+    top: 1vh;                      /* dans la marge du haut, au-dessus de l'iframe */
+    right: 5vw;                    /* aligné sur le bord droit de l'iframe */
+    z-index: 101;                  /* juste au-dessus de l'iframe (100) pour rester cliquable */
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--accent);
+    color: var(--fond);
+    font-weight: var(--gras);
+}
+
+/* "~" = éléments qui suivent la case cochée : on affiche l'iframe et le bouton */
+.jeux .top .toggle:checked ~ .iframe,
+.jeux .top .toggle:checked ~ .fermer {
     display: block;
 }
 
-/* La case à cocher est cachée : on clique sur son <label> à la place */
 .jeux .top .toggle { display: none; }
 
-/* Curseur "main" sur le label pour montrer qu'il est cliquable */
 .jeux .top label { cursor: pointer; }
 
 /* ==========================================================
-   7. GTA
-   Mise en page de l'article / la critique de GTA 6.
+   8. GTA
    ========================================================== */
 
-/* "+" = sélectionne le bloc .article-content placé JUSTE APRÈS .article-intro.
-   Sur mobile : image et texte empilés en colonne. */
+.page-titre {
+    text-align: center;
+    color: var(--accent);
+}
+
 .article-intro + .article-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   /* collés à gauche */
+    align-items: flex-start;
     gap: 1rem;
 }
 
 .article-intro + .article-content img {
     display: block;
-    width: min(100%, 20rem);   /* prend la plus petite valeur : toute la largeur, mais jamais plus de 20rem */
-    height: auto;              /* garde les proportions de l'image */
+    width: min(100%, 20rem);
+    height: auto;
     border-radius: 0.5rem;
 }
 
@@ -436,147 +450,125 @@ nav img{
     margin: 0;
 }
 
-/* Encadré d'une critique (titre + note + texte) */
 .article-gta6-critique {
     display: grid;
     align-items: center;
-    gap: 0.75rem 1rem;         /* 0.75rem entre les lignes, 1rem entre les colonnes */
-    /* text-shadow: 0 0 0.3rem var(--accent); */
-    box-shadow: 0 0 0.3rem var(--accent); /* léger halo rose autour de l'encadré */
+    gap: 0.75rem 1rem;
+    box-shadow: 0 0 0.3rem var(--accent);
     margin: 1rem 1rem;
     padding: 1rem;
     color: var(--texte);
     background-color: var(--surface);
     border: 2px solid var(--ligne);
     border-radius: 0.75rem;
-    
 }
 
-/* Titre de la critique, placé dans la zone "titre" de la grille */
-.article-gta6-critique h2 {
-    grid-area: titre;
-    margin: 0;
-    line-height: 1.25;
-}
-
-/* Le texte occupe toute la largeur : de la 1re ligne de colonne (1) à la dernière (-1) */
 .article-gta6-critique p {
     grid-column: 1 / -1;
     margin: 0;
 }
 
-/* :is(...) = "l'un ou l'autre". Ce style s'applique à la fois
-   aux badges .note-positive et .note-negative (style commun). */
 .article-gta6-critique :is(.note-positive, .note-negative) {
     grid-area: note;
-    min-width: 3.25rem;        /* largeur minimale pour que le badge reste lisible */
+    min-width: 3.25rem;
     padding: 0.4rem 0.65rem;
     border-radius: 0.5rem;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: var(--gras);
     line-height: 1.2;
     text-align: center;
-    color: var(--fond);        /* texte foncé sur fond coloré */
+    color: var(--fond);
 }
 
-/* Badge vert pour une bonne note */
-.article-gta6-critique .note-positive { 
+.article-gta6-critique .note-positive {
     background-color: var(--note-positive);
-    
- }
- 
- /* Badge rouge pour une mauvaise note */
+}
+
 .article-gta6-critique .note-negative {
     background-color: var(--note-negative);
- }
+}
 
- /* Tableau de l'article */
 .article-content table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Lignes et cellules : taille automatique selon le contenu */
 .article-content tr,
 .article-content td {
     width: auto;
     height: auto;
 }
 
-/* Espace dans les cellules + fine ligne de séparation sous chaque ligne */
 .article-content th,
 .article-content td {
     padding: 0.5rem;
     border-bottom: 1px solid var(--ligne);
 }
 
-/* En-têtes (th) à gauche en gris, valeurs (td) à droite */
 .article-content th { text-align: left; color: var(--texte-doux); }
 .article-content td { text-align: right; }
 
-/* La valeur de la 1re ligne du tableau (ex. la note finale) est mise en avant :
-   grosse, en gras et en vert */
 .article-content tr:first-child td {
     color: var(--note-positive);
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: var(--gras);
 }
 
-/* Liens d'achat en rose fluo */
+.nom-critique {
+    grid-area: titre;
+    margin: 0;
+    line-height: 1.25;
+    text-align: center;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "titre titre"
+        "note  date";
+}
+
 .acheter a{
     color: var(--lien);
 }
 
-/* :visited = lien déjà cliqué. On garde la même couleur
-   (sinon le navigateur l'affiche en violet par défaut). */
 .acheter a:visited{
     color: var(--lien);
 }
 
-/* Souligné au survol */
 .acheter a:hover { text-decoration: underline; }
 
-
-
 /* ==========================================================
-   8. Footer
-   Le pied de page.
+   9. Footer
    ========================================================== */
 
 footer {
     background-color: var(--surface);
-    color: var(--texte-doux);  /* texte un peu plus discret */
+    color: var(--texte-doux);
     padding: 20px;
     display: flex;
-    flex-direction: column;    /* les éléments s'empilent verticalement */
+    flex-direction: column;
 }
 
-/* Tableau du footer */
 footer table {
     width: 100%;
     max-width: 50rem;
     border-collapse: collapse;
 }
 
-/* Hauteur de chaque ligne du tableau */
-footer tr { height: 3rem; }
-
-/* Colonne des en-têtes étroite */
-footer table th{
-    width: 3rem;
+footer table th :first-child{
+    text-align: left;
 }
 
-/* :first-of-type = le premier paragraphe du footer : on lui ajoute une épaisse ligne en dessous */
+footer tr{
+    text-align: center;
+}
+
 footer p:first-of-type{
     border-bottom: 5px solid var(--ligne);
 }
 
-/* Icônes du footer : jamais plus larges que 2.5rem */
 footer img{
     max-width: 2.5rem;
 }
 
-/* Liens du footer : même style que les liens d'achat */
 footer a{
     color: var(--lien);
 }
@@ -587,69 +579,58 @@ footer a:visited{
 
 footer a:hover { text-decoration: underline; }
 
-
 /* ==========================================================
-   9. Responsive
-   Les règles ci-dessous ne s'appliquent QUE sur les écrans
-   d'au moins 48rem de large (≈ 768px : tablettes et ordinateurs).
-   Elles remplacent les règles "mobile" écrites plus haut.
+   10. Responsive (écrans d'au moins 48rem)
    ========================================================== */
 
 @media (min-width: 48rem) {
-    /* Le logo-bouton n'est plus utile : on le cache… */
     .logo { display: none; }
-    /* …et le menu est toujours visible */
     nav { display: flex; flex-wrap: wrap; }
     nav * { display: inline-block; }
 
-    /* Tout est plus grand et plus aéré sur grand écran */
     .menu { margin: 3rem; font-size: 2.5rem; }
     .title { margin: 2rem 0; font-size: 3rem; }
     .top { gap: 2rem; padding: 0 2rem; margin-bottom: 3rem; }
 
-    /* Images plus hautes */
     .galerie img,
     .top img { height: 37rem; }
 
     footer tr{ height: 4.5rem; }
 
     footer img { max-width: 3rem; }
-    
-    /* Article GTA : image et texte côte à côte (en ligne) au lieu d'être empilés */
+
     .article-intro + .article-content {
         flex-direction: row;
         align-items: center;
     }
 
-    /* L'image prend au maximum 40 % de la largeur (et jamais plus de 20rem) */
     .article-intro + .article-content img {
         width: min(40%, 20rem);
     }
 
-    /* flex: 1 = le texte prend toute la place restante à côté de l'image */
     .article-intro + .article-content p {
         flex: 1;
     }
 
-    /* L'iframe des jeux s'ouvre à DROITE du jeu (et plus en dessous) */
-    .jeux .top .iframe {
-        top: 0;
-        left: calc(100% + 1rem); /* calc() fait un calcul : toute la largeur du jeu + 1rem d'espace */
+    .jeux .top .fermer {
+        top: 6vh;
+        right: 6vw;
+        z-index: 1000;
+        font-size: 1.5rem;
     }
 }
 
 /* ==========================================================
-   9. Accessibilité
+   11. Accessibilité
    ========================================================== */
 
-
-/* Si l'utilisateur a demandé "réduire les animations" dans les réglages
-   de son ordinateur ou téléphone (personnes sensibles aux mouvements),
-   on rend toutes les animations et transitions quasi instantanées. */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;      /* !important = cette règle passe avant toutes les autres */
-        animation-iteration-count: 1 !important;    /* l'animation ne se joue qu'une fois */
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        overflow: auto !important;
+        pointer-events: auto !important;
     }
 }

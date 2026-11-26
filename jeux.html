@@ -1,13 +1,7 @@
-<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
 <!DOCTYPE html>
 
-<!-- Balise racine de la page. lang="fr" = la page est en français
-     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
 <html lang="fr">
 
-<!-- ==========================================================
-     HEAD : informations sur la page (invisibles à l'écran)
-     ========================================================== -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"  content="width=device-width, initial-scale=1.0">
@@ -15,21 +9,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<!-- ==========================================================
-     BODY : tout ce qui est visible sur la page
-     ========================================================== -->
 <body>
 
-    <!-- ==========================================================
-         EN-TÊTE : logo + menu de navigation (identique sur toutes les pages)
-         ========================================================== -->
     <header class="header">
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="logo">
         <img src="Ressources-index/Logo_site.gif" alt="Logo" width="150">
     </label>
 
-    <!-- <nav> = zone de navigation principale du site -->
     <nav>
             <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Logo du site" width="150"></a>
             <a href="index.html" class="menu" aria-label="Redirection vers Accueil">Accueil</a> 
@@ -40,113 +27,99 @@
     </header>
 
 
-    <!-- ==========================================================
-         MAIN 
-         ========================================================== -->
     <main>
-        <!-- Titre principal de la page (un seul <h1> par page) -->
         <h1 class="title">Jeux</h1>
 
-        <!-- ---------- Section "Top PC" ----------
-             <section> = une partie thématique de la page, avec son propre titre.
-             class="jeux" permet d'appliquer les styles propres à cette page (liens roses, fenêtre d'aperçu…). -->
         <section class="jeux">
-            <!-- Titre de la section -->
             <h2 class="title_2">Top PC</h2>
 
-            <!-- Liste des jeux en grille (classe "top" dans le CSS).
-                 Chaque <li> contient une jaquette et le nom du jeu en dessous. -->
             <ul class="top">
-                <li><a href="#"><img src="Jeux/images/Elden_Ring.webp" alt=""></a>Elden Ring</li>
-                <li><a href="#"><img src="Jeux/images/Clair_Obscur.webp" alt=""></a>Clair Obscur Expedition 33</li>
-                <li><a href="#"><img src="Jeux/images/Helldivers.webp" alt=""></a>Helldivers II</li>
+                <li><input type="checkbox" id="elden-toggle" class="toggle"><label for="elden-toggle"><img src="Jeux/images/Elden_Ring.webp" alt=""></label>Elden Ring
+                    <iframe src="Jeux/pages/Elden_ring.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="elden-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="clair-toggle" class="toggle"><label for="clair-toggle"><img src="Jeux/images/Clair_Obscur.webp" alt=""></label>Clair Obscur Expedition 33
+                    <iframe src="Jeux/pages/Clair_Obscur.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="clair-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="helldivers-toggle" class="toggle"><label for="helldivers-toggle"><img src="Jeux/images/Helldivers.webp" alt=""></label>Helldivers II
+                    <iframe src="Jeux/pages/Helldivers.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="helldivers-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
 
-        <!-- ---------- Section "Top Playstation" ----------
-             Même structure que la section PC. -->
         <section  class="jeux">
             <h2 class="title_2">Top Playstation</h2>
             <ul class="top">
-                <li><a href="#"><img src="Jeux/images/The_Last_of_Us.webp" alt=""></a>The Last Of Us Part II</li>
-                <li><a href="#"><img src="Jeux/images/Star_Wars_Battlefront.webp" alt=""></a>Star Wars Battlefront II</li>
-                <li><a href="#"><img src="Jeux/images/Detroit_Become_Human.webp" alt=""></a>Detroit Become Human</li>
+                <li><input type="checkbox" id="tlou-toggle" class="toggle"><label for="tlou-toggle"><img src="Jeux/images/The_Last_of_Us.webp" alt="" loading="lazy"></label>The Last Of Us Part II
+                    <iframe src="Jeux/pages/The_Last_of_Us.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="tlou-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="battlefront-toggle" class="toggle"><label for="battlefront-toggle"><img src="Jeux/images/Star_Wars_Battlefront.webp" alt="" loading="lazy"></label>Star Wars Battlefront II
+                    <iframe src="Jeux/pages/Star_Wars_Battlefront.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="battlefront-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="detroit-toggle" class="toggle"><label for="detroit-toggle"><img src="Jeux/images/Detroit_Become_Human.webp" alt="" loading="lazy"></label>Detroit Become Human
+                    <iframe src="Jeux/pages/Detroit_Become_Human.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="detroit-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
 
-        <!-- ---------- Section "Top XBOX" ----------
-             Même structure, sauf pour GTA 6 qui ouvre un aperçu de sa page. -->
         <section  class="jeux">
             <h2 class="title_2">Top XBOX</h2>
             <ul class="top">
 
-                <!-- GTA 6 : aperçu de la page de l'article au clic.
-                     1. <input type="checkbox" class="toggle"> = case à cocher cachée par le CSS.
-                     2. Le <label for="gta-toggle"> contient la jaquette : cliquer sur l'image
-                        coche/décoche la case (même astuce que pour le menu).
-                     3. Quand la case est cochée, le CSS affiche l'<iframe> (.toggle:checked ~ .iframe).
-                     <iframe> = une "fenêtre" qui affiche une autre page HTML à l'intérieur de celle-ci.
-                     title = description de la fenêtre pour les lecteurs d'écran.
-                     Sur mobile, l'aperçu s'ouvre sous le jeu ; sur grand écran, à droite. -->
-                <li><input type="checkbox" id="gta-toggle" class="toggle"><label for="gta-toggle"><img src="Jeux/images/GTA_6.webp" alt="" class="GTA"></label>Grand Theft Auto 6
-                    <iframe src="Jeux/pages/GTA6.html" title="Aperçu de la page" class="iframe"></iframe></li>
-                <li><a href="#"><img src="Jeux/images/CyberPunk.webp" alt=""></a>CyberPunk 2077</li>
-                <li><a href="#"><img src="Jeux/images/Forza_Horizon.webp" alt=""></a>Forza Horizon 6</li>
+                <li><input type="checkbox" id="gta-toggle" class="toggle"><label for="gta-toggle"><img src="Jeux/images/GTA_6.webp" alt="" class="GTA" loading="lazy"></label>Grand Theft Auto 6
+                    <iframe src="Jeux/pages/GTA6.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="gta-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="cyberpunk-toggle" class="toggle"><label for="cyberpunk-toggle"><img src="Jeux/images/CyberPunk.webp" alt="" loading="lazy"></label>CyberPunk 2077
+                    <iframe src="Jeux/pages/CyberPunk.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="cyberpunk-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="forza-toggle" class="toggle"><label for="forza-toggle"><img src="Jeux/images/Forza_Horizon.webp" alt="" loading="lazy"></label>Forza Horizon 6
+                    <iframe src="Jeux/pages/Forza_Horizon.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="forza-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
     </main>
 
-    <!-- ==========================================================
-         FOOTER : pied de page (réseaux sociaux de l'équipe + copyright)
-         ========================================================== -->
     <footer>
     
-    <!-- Titre du footer -->
     <p>Suivez-nous sur les réseaux</p>
 
-    <!-- Tableau des liens : une ligne (<tr>) par membre de l'équipe.
-        <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
-        Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
     <table>
+        
+    <tr>
+        <th></th>
+        <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+        <th> Test Performance</th>
+    </tr>
+    <tr>
+        <th>Esteban Georget</th>
+        <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">LinkedIn</a></td>
+        <td><a href="https://validator.w3.org/nu/?showoutline=yes&showimagereport=yes&level=warning&doc=https://coda-dijon.github.io/html-b1-2026-g1/jeux"  target="_blank" rel="noopener" > W3C </a></td>
+    </tr>
 
-        <!-- Ligne 1 : Esteban Georget (les icônes ne sont affichées que sur la 1re ligne).
-             target="_blank" = ouvre le lien dans un nouvel onglet.
-             rel="noopener" = sécurité : la nouvelle page ne peut pas contrôler la page du site.
-             aria-label = texte lu par les lecteurs d'écran (accessibilité). -->
-        <tr>
-            <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
-            <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">Esteban Georget</a></td>
-            <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
-            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">Esteban Georget</a></td>
-        </tr>
+    <tr>
+        <th>Nathan Lion</th>
+        <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">LinkedIn</a></td>
+        <td><a href="https://speedlify-b1-2026-coda.baldir.fr/site/coda--dijon-github-io-html--b1--2026--g1-jeux/"  target="_blank" rel="noopener" > Speedlify </a></td>
+    </tr>
 
-         <!-- Ligne 2 : Nathan Lion (cellules <th> vides pour garder l'alignement des colonnes) -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">Nathan Lion</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">Nathan Lion</a></td>
-        </tr>
+    <tr>
+        <th>Nolhan Robelin</th>
+        <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">LinkedIn</a></td>
+    </tr>
 
-        <!-- Ligne 3 : Nolhan Robelin -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">Nolhan Robelin</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
-        </tr>
+    <tr>
+        <th>Lilou Walkowiak</th>
+        <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">LinkedIn</a></td>
+    </tr>
 
-        <!-- Ligne 4 : Lilou Walkowiak -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">Lilou Walkowiak</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">Lilou Walkowiak</a></td>
-        </tr>
     </table>
 
-    <!-- Mention de copyright (droits d'auteur) -->
-    <p>© 2026 The Worst Review</p>
+    <p> </p>
+    <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
 </footer>
 </body>
 </html>

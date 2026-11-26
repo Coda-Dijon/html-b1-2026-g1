@@ -52,37 +52,55 @@
         <h1 class="title">Cinéma</h1>
 
         <!-- ---------- Section "Top Films" ---------- -->
-        <section>
+        <section class="jeux">
              <!-- Titre de la section -->
             <h2 class="title_2">Top Films</h2>
             <!-- Liste des films en grille.
                  Chaque <li> contient une affiche et le nom du film en dessous. -->
             <ul class="top">
-                <li><a href="#"><img src="Films/Images/Dune.webp" alt="Film 1"></a>Dune</li>
-                <li><a href="#"><img src="Films/Images/Spiderman.webp" alt="Film 2"></a>The Amazing Spiderman 2</li>
-                <li><a href="#"><img src="Films/Images/Social_Network.webp" alt="Film 3"></a>The Social Network</li>
+                <li><input type="checkbox" id="dune-toggle" class="toggle"><label for="dune-toggle"><img src="Films/Images/Dune.webp" alt="Film 1"></label>Dune
+                    <iframe src="Films/Pages/Dune.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="dune-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="spiderman-toggle" class="toggle"><label for="spiderman-toggle"><img src="Films/Images/Spiderman.webp" alt="Film 2"></label>The Amazing Spiderman 2
+                    <iframe src="Films/Pages/Spiderman_2.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="spiderman-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="social-toggle" class="toggle"><label for="social-toggle"><img src="Films/Images/Social_Network.webp" alt="Film 3"></label>The Social Network
+                    <iframe src="Films/Pages/Social_Network.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="social-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
 
         <!-- ---------- Section "Top Série" ----------
              Même structure que la section films. -->
-        <section>
+        <section class="jeux">
             <h2 class="title_2">Top Série</h2>
             <ul class="top">
-                <li><a href="#"><img src="Films/Images/Game_of_Throne.webp" alt="Série 1"></a>Game Of Thrones</li>
-                <li><a href="#"><img src="Films/Images/Friends.webp" alt="Série 2"></a>Friends</li>
-                <li><a href="#"><img src="Films/Images/Reacher.webp" alt="Série 3"></a>Reacher</li>
+                <li><input type="checkbox" id="got-toggle" class="toggle"><label for="got-toggle"><img src="Films/Images/Game_of_Throne.webp" alt="Série 1"></label>Game Of Thrones
+                    <iframe src="Films/Pages/Game_Of_Thrones.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="got-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="friends-toggle" class="toggle"><label for="friends-toggle"><img src="Films/Images/Friends.webp" alt="Série 2"></label>Friends
+                    <iframe src="Films/Pages/Friends.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="friends-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="reacher-toggle" class="toggle"><label for="reacher-toggle"><img src="Films/Images/Reacher.webp" alt="Série 3"></label>Reacher
+                    <iframe src="Films/Pages/Reacher.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="reacher-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
 
         <!-- ---------- Section "Top Animé" ----------
              Même structure que les deux sections précédentes. -->
-        <section>
+        <section class="jeux">
             <h2 class="title_2">Top Animé</h2>
             <ul class="top">
-                <li><a href="#"><img src="Films/Images/Arcane.webp" alt="Série 1"></a>Arcane</li>
-                <li><a href="#"><img src="Films/Images/Cyberpunk.webp" alt="Série 2"></a>CyberPunk Edgerunners</li>
-                <li><a href="#"><img src="Films/Images/Bleach.webp" alt="Série 3"></a>Bleach</li>
+                <li><input type="checkbox" id="arcane-toggle" class="toggle"><label for="arcane-toggle"><img src="Films/Images/Arcane.webp" alt="Animé 1"></label>Arcane
+                    <iframe src="Films/Pages/Arcane.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="arcane-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="edgerunners-toggle" class="toggle"><label for="edgerunners-toggle"><img src="Films/Images/Cyberpunk.webp" alt="Animé 2"></label>CyberPunk Edgerunners
+                    <iframe src="Films/Pages/CyberPunk_Edgerunners.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="edgerunners-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="bleach-toggle" class="toggle"><label for="bleach-toggle"><img src="Films/Images/Bleach.webp" alt="Animé 3"></label>Bleach
+                    <iframe src="Films/Pages/Bleach.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
+                    <label for="bleach-toggle" class="fermer">Fermer</label></li>
             </ul>
         </section>
     </main>
@@ -99,45 +117,43 @@
         <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
         Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
     <table>
-
-        <!-- Ligne 1 : Esteban Georget (les icônes ne sont affichées que sur la 1re ligne).
-             target="_blank" = ouvre le lien dans un nouvel onglet.
-             rel="noopener" = sécurité : la nouvelle page ne peut pas contrôler la page du site.
-             aria-label = texte lu par les lecteurs d'écran (accessibilité). -->
-        <tr>
-            <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
-            <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">Esteban Georget</a></td>
-            <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
-            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">Esteban Georget</a></td>
-        </tr>
-
-        <!-- Ligne 2 : Nathan Lion (cellules <th> vides pour garder l'alignement des colonnes) -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">Nathan Lion</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">Nathan Lion</a></td>
-        </tr>
-
-        <!-- Ligne 3 : Nolhan Robelin -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">Nolhan Robelin</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
-        </tr>
         
-        <!-- Ligne 4 : Lilou Walkowiak -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">Lilou Walkowiak</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">Lilou Walkowiak</a></td>
-        </tr>
+    <tr>
+        <th></th>
+        <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+        <th> Test Performance</th>
+    </tr>
+    <tr>
+        <th>Esteban Georget</th>
+        <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">LinkedIn</a></td>
+        <td><a href="https://validator.w3.org/nu/?showoutline=yes&showimagereport=yes&level=warning&doc=https://coda-dijon.github.io/html-b1-2026-g1/cinema"  target="_blank" rel="noopener" > W3C </a></td>
+    </tr>
+
+    <tr>
+        <th>Nathan Lion</th>
+        <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">LinkedIn</a></td>
+        <td><a href="https://speedlify-b1-2026-coda.baldir.fr/site/coda--dijon-github-io-html--b1--2026--g1-cinema/"  target="_blank" rel="noopener" > Speedlify </a></td>
+    </tr>
+
+    <tr>
+        <th>Nolhan Robelin</th>
+        <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">LinkedIn</a></td>
+    </tr>
+
+    <tr>
+        <th>Lilou Walkowiak</th>
+        <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">LinkedIn</a></td>
+    </tr>
+
     </table>
 
     <!-- Mention de copyright (droits d'auteur) -->
-    <p>© 2026 The Worst Review</p>
+    <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
 </footer>
 </body>
 </html>

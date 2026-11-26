@@ -1,91 +1,46 @@
-<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
 <!DOCTYPE html>
 
-<!-- Balise racine de la page. lang="fr" = la page est en français
-     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
 <html lang="fr">
 
-<!-- ==========================================================
-     HEAD : informations sur la page (invisibles à l'écran)
-     ========================================================== -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style.css">
-<!-- Titre affiché dans l'onglet du navigateur -->
 <title>GTA 6 - The Worst Review</title>
 </head>
 
-<!-- ==========================================================
-     BODY : tout ce qui est visible sur la page.
-     class="article_gta6" permet de cibler cette page en particulier dans le CSS.
-     ========================================================== -->
 <body class="article_gta6">
 
 
-    <!-- ==========================================================
-         EN-TÊTE : logo + menu de navigation (identique sur toutes les pages)
-         Tous les chemins commencent par "../../" car on est deux dossiers plus bas.
-         ========================================================== -->
-    <header class="header">
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="logo">
-        <img src="../../Ressources-index/Logo_site.gif" alt="Logo" width="150">
-    </label>
-    
-    <!-- <nav> = zone de navigation principale du site -->
-    <nav>
-            <a href="../../index.html"> <img src="../../Ressources-index/Logo_site.gif" alt="Logo du site" width="150"></a>
-            <a href="../../index.html" class="menu">Accueil</a>
-            <a href="../../jeux.html" class="menu">Jeux</a> 
-            <a href="../../musique.html" class="menu">Musiques</a>
-            <a href="../../cinema.html" class="menu">Cinéma</a> 
-        </nav>
-    </header>
-
-    <!-- ==========================================================
-         MAIN : le contenu principal de la page (l'article sur GTA 6)
-         (il ne doit y avoir qu'un seul <main> par page)
-         ========================================================== -->
     <main class="main-article-gta6">
         <section class="article-intro">
-        <!-- ---------- Introduction : le titre de l'article ---------- -->
-            <h1>Grand Theft Auto 6</h1>
+            <h1 class="page-titre">Grand Theft Auto 6</h1>
         </section>
 
-         <!-- ---------- Présentation du jeu ----------
-             C'est le bloc placé JUSTE APRÈS .article-intro : le CSS (.article-intro + .article-content)
-             met l'image et le texte empilés sur mobile, et côte à côte sur grand écran. -->
         <section class="article-content">
             <img src="../images/gta6.webp" alt="GTA 6">
-            <!-- Texte de présentation -->
+            <h2> Résumé </h2>
             <p>Grand Theft Auto 6 est le dernier opus de la célèbre série de jeux vidéo d'action-aventure développée par Rockstar Games. Le jeu promet un monde ouvert vaste et immersif, avec une histoire captivante et des personnages mémorables.</p>
         </section>
 
-        <!-- ---------- Notes Metacritic ---------- -->
         <section class="article-content">
             <h2>Critique Metacritic</h2>
-            <p>Metacritic a attribué à Grand Theft Auto 6 une note globale très positive</p>
+            <p>Metacritic a attribué à Grand Theft Auto 6 une note globale très positive sur la base des critiques des utilisateurs et des professionnels. </p>
+            <p>Voici le détail des critiques sur Metacritic :</p>
             
-            <!-- Tableau des notes : une ligne (<tr>) par information.
-                 <th> = intitulé (à gauche, en gris), <td> = valeur (à droite).-->
             <table>
-                <!-- Note globale -->
                 <tr>
                     <th>Metascore</th>
                     <td>99</td>
                 </tr>
-                <!-- Nombre de critiques positives -->
                 <tr>
                     <th>Positive</th>
                     <td>152 Reviews</td>
                 </tr>
-                <!-- Nombre de critiques mitigées -->
                 <tr>
                     <th>Mixed</th>
                     <td>0 Reviews</td>
                 </tr>
-                <!-- Nombre de critiques négatives -->
                 <tr>
                     <th>Negative</th>
                     <td>0 Reviews</td>
@@ -94,93 +49,70 @@
             
         </section>
 
-        <!-- ---------- Où acheter le jeu ---------- -->
-        <section class="acheter">
-            <h2>Acheter Grand Theft Auto 6</h2>
-            <p>Vous pouvez acheter Grand Theft Auto 6 sur les plateformes suivantes :</p>
-            <!-- Liste des boutiques. -->
-            <ul>
-                <li><a href="">Steam</a></li>
-                <li><a href="#">PlayStation Store</a></li>
-                <li><a href="#">Xbox Store</a></li>
-            </ul>
-        </section>
 
-        <!-- ---------- Critique des joueurs ---------- -->
         <section class="article-gta6-critique">
-            <h2>Critique des joueurs</h2>
-            <!-- Note sous forme de badge : class="note-positive" = fond vert -->
-            <p class="note-positive">100</p>
-            <!-- Date de la critique -->
-            <p class="date">NOV 20, 2026</p>
-            <!-- Texte de la critique -->
+            <p class="note-positive">99</p>
+            <p class="date-critique"><strong>Avis general des joueurs</strong></p>
             <p> 100 Daily Star GTA6 is incredible and, despite many hours put in, I feel like I’ve barely scratched the surface.</p>
         </section>
 
-        <!-- ---------- Notre critique ----------
-             Même encadré que la critique des joueurs. -->
         <section class="article-gta6-critique">
-            <h2>Notre Critique</h2>
-            <!-- Note sous forme de badge : class="note-negative" = fond rouge -->
             <p class="note-negative">2</p>
-            <!-- Date de la critique -->
-            <p class="date">NOV 25, 2026</p>
-            <!-- Texte de la critique -->
+            <p class="date-critique"><strong>Notre avis</strong></p>
             <p>GTA VI c'est tellement nul on aurait du brûler les locaux des 2013, depuis quand on a besoin d'essence dans un GTA, les missions sont nuls, du 30fps et les personnages sont wokes </p>
+        </section>
+        
+        <section class="acheter">
+            <h2>Acheter Grand Theft Auto 6</h2>
+            <p>Vous pouvez acheter Grand Theft Auto 6 sur les plateformes suivantes :</p>
+            <ul>
+                <li><a href="https://store.playstation.com/fr-fr/product/EP1004-PPSA01547_00-GTAVISTANDARD001">PlayStation Store</a></li>
+                <li><a href="https://www.xbox.com/fr-FR/games/store/grand-theft-auto-vi/9np019g7nzxt">Xbox Store</a></li>
+            </ul>
         </section>
         
     </main>
 
-    <!-- ==========================================================
-         FOOTER : pied de page (réseaux sociaux de l'équipe + copyright)
-         ========================================================== -->
     <footer>
-    <!-- Titre du footer (souligné d'une ligne épaisse par le CSS : footer p:first-of-type) -->
     <p>Suivez-nous sur les réseaux</p>
 
-    <!-- Tableau des liens : une ligne (<tr>) par membre de l'équipe.
-         <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
-         Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
     <table>
+        
+    <tr>
+        <th></th>
+        <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+        <th> Test Performance</th>
+    </tr>
+    <tr>
+        <th>Esteban Georget</th>
+        <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">LinkedIn</a></td>
+        <td><a href="https://validator.w3.org/nu/?showoutline=yes&showimagereport=yes&level=warning&doc=https://coda-dijon.github.io/html-b1-2026-g1/Jeux/pages/GTA6"  target="_blank" rel="noopener" > W3C </a></td>
+    </tr>
 
-        <!-- Ligne 1 : Esteban Georget (les icônes ne sont affichées que sur la 1re ligne).
-             target="_blank" = ouvre le lien dans un nouvel onglet.
-             rel="noopener" = sécurité : la nouvelle page ne peut pas contrôler la page du site.
-             aria-label = texte lu par les lecteurs d'écran (accessibilité). -->
-        <tr>
-            <th><img src="../../Ressources-index/GitHub.svg" alt="GitHub"></th>
-            <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">Esteban Georget</a></td>
-            <th><img src="../../Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
-            <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">Esteban Georget</a></td>
-        </tr>
+    <tr>
+        <th>Nathan Lion</th>
+        <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">LinkedIn</a></td>
+        <td><a href="https://speedlify-b1-2026-coda.baldir.fr/site/coda--dijon-github-io-html--b1--2026--g1-jeux-pages-gta6/"  target="_blank" rel="noopener" > Speedlify </a></td>
+    </tr>
 
-        <!-- Ligne 2 : Nathan Lion (cellules <th> vides pour garder l'alignement des colonnes) -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">Nathan Lion</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">Nathan Lion</a></td>
-        </tr>
+    <tr>
+        <th>Nolhan Robelin</th>
+        <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">LinkedIn</a></td>
+    </tr>
 
-        <!-- Ligne 3 : Nolhan Robelin -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">Nolhan Robelin</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">Nolhan Robelin</a></td>
-        </tr>
+    <tr>
+        <th>Lilou Walkowiak</th>
+        <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">LinkedIn</a></td>
+    </tr>
 
-        <!-- Ligne 4 : Lilou Walkowiak -->
-        <tr>
-            <th></th>
-            <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">Lilou Walkowiak</a></td>
-            <th></th>
-            <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">Lilou Walkowiak</a></td>
-        </tr>
     </table>
 
-    <!-- Mention de copyright (droits d'auteur) -->
-    <p>© 2026 The Worst Review</p>
+    <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
 </footer>
     
 </body>
