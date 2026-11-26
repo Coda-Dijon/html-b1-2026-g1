@@ -20,6 +20,7 @@ img { max-width: 100%;}
     --note-positive: #6EE7A8;
     --note-negative: #FF5A5F;
     --lien: #FF1493;
+    --bleu: #4D9FFF;
 }
 
 html { font-family: var(--font-main); }
@@ -315,6 +316,29 @@ nav img{
     color: var(--accent);
 }
 
+.title.title-accueil {
+    color: var(--bleu);
+    text-shadow: -1.5px 0 2px rgba(255, 95, 162, 0.5), 1.5px 0 2px rgba(77, 159, 255, 0.5);
+    width: fit-content;
+    max-width: 90%;
+    margin-inline: auto;
+    padding: 0.2em 0.6em;
+    border: 2px solid var(--accent);
+    border-radius: 0.5rem;
+}
+
+
+.title.title-bloc {
+    width: fit-content;
+    max-width: 90%;
+    margin-inline: auto;
+    padding: 0.1em 0.5em;
+    border-radius: 0.4rem;
+    color: var(--fond);
+    background-color: var(--bleu);
+    box-shadow: 5px 5px 0 var(--accent);
+}
+
 .title_2 {
     margin: 1rem 0;
     font-size: 1.75rem;
@@ -363,6 +387,16 @@ nav img{
     font-size: 1.5rem;
 }
 
+.top li {
+    font-weight: var(--gras);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.125rem;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-shadow: 0 2px 6px rgba(255, 95, 162, 0.6);
+}
+
 .top img {
     display: block;
     width: 100%;
@@ -409,6 +443,9 @@ nav img{
     background: var(--accent);
     color: var(--fond);
     font-weight: var(--gras);
+    text-transform: none;
+    letter-spacing: normal;
+    text-shadow: none;
 }
 
 
@@ -561,6 +598,7 @@ footer {
 
     .menu { margin: 3rem; font-size: 2.5rem; }
     .title { margin: 2rem 0; font-size: 3rem; }
+
     .top { gap: 2rem; padding: 0 2rem; margin-bottom: 3rem; }
 
     .galerie img,

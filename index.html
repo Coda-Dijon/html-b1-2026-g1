@@ -33,7 +33,7 @@
 </header>
 
 <main>
-    <h1 class="title">Bienvenue sur The Worst Review</h1>
+    <h1 class="title title-accueil">Bienvenue sur The Worst Review</h1>
    <section class="caroussel">
     <ul>
         <li id="actu-1" class="caroussel-item" data-accName="Actu 1" style="--bg-img: url('Ressources-index/gta6.webp');">
@@ -43,7 +43,7 @@
                 <a href="jeux.html#gta-redirection" class="actu-lien" aria-label="Voir plus : redirection vers GTA VI dans Jeux">Voir plus</a>
             </article>
             <a href="#actu-3" class="fleche fleche-gauche" aria-label="Actu précédente : Cinéma">❮</a>
-            <a href="#actu-2" class="fleche fleche-droite" aria-label="Actu suivante : Musique"">❯</a>
+            <a href="#actu-2" class="fleche fleche-droite" aria-label="Actu suivante : Musique">❯</a>
         </li>
 
         <li id="actu-2" class="caroussel-item" data-accName="Actu 2" style="--bg-img: url('Ressources-index/alphlauren.webp');">
@@ -53,7 +53,7 @@
                 <a href="musique.html#alpha-wann-redirection" class="actu-lien" aria-label="Voir plus : redirection vers Alpha Wann dans Musiques">Voir plus</a>
             </article>
             <a href="#actu-1" class="fleche fleche-gauche" aria-label="Actu précédente : Jeux">❮</a>
-            <a href="#actu-3" class="fleche fleche-droite" aria-label="Actu suivante : Cinéma"">❯</a>
+            <a href="#actu-3" class="fleche fleche-droite" aria-label="Actu suivante : Cinéma">❯</a>
         </li>
 
         <li id="actu-3" class="caroussel-item" data-accName="Actu 3" style="--bg-img: url('Ressources-index/network.webp');">
@@ -72,9 +72,23 @@
         <h2 class="subtitle">Nos Catégories</h2>
 
         <ul class="galerie">
-            <li><a href="jeux.html" aria-label="Aller à la section Jeux : critiques de jeux vidéo"> <img src="Ressources-index/Gta_portrait.webp" alt="" loading="lazy"><p>Jeux</p></a></li>
-            <li><a href="musique.html" aria-label="Aller à la section Musique : critiques d'albums et de titres" ><img src="Ressources-index/Billie-Eilish.webp" alt="" loading="lazy"><p>Musique</p></a></li>
-            <li><a href="cinema.html" aria-label="Aller à la section Cinéma : critiques de films, séries et animés"><img src="Ressources-index/friends.webp" alt="" loading="lazy"><p>Cinéma</p></a></li>
+            <li><a href="jeux.html" aria-label="Aller à la section Jeux : critiques de jeux vidéo"> 
+                <picture>
+                <source srcset="Ressources-index/Gta_portrait.webp" media="(width >= 48rem)" />
+                <img src="Ressources-index/Gta_portrait_mobile.webp" alt="" loading="lazy"/>
+                </picture><p>Jeux</p></a></li>
+            
+            <li><a href="musique.html" aria-label="Aller à la section Musique : critiques d'albums et de titres" >
+                <picture>
+                <source srcset="Ressources-index/Billie-Eilish.webp" media="(width >= 48rem)" />
+                <img src="Ressources-index/Billie-Eilish_mobile.webp" alt="" loading="lazy"/>
+                </picture><p>Musique</p></a></li>
+            
+            <li><a href="cinema.html" aria-label="Aller à la section Cinéma : critiques de films, séries et animés">
+                <picture>
+                <source srcset="Ressources-index/friends.webp" media="(width >= 48rem)" />
+                <img src="Ressources-index/friends_mobile.webp" alt="" loading="lazy"/>
+                </picture><p>Cinéma</p></a></li>
         </ul>
     </section>
 </main>
