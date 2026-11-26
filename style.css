@@ -1,21 +1,3 @@
-/* ==========================================================
-   0. Police du site
-   ========================================================== */
-
-@font-face {
-    font-family: 'Space Grotesk';
-    src: url('Fonts/SpaceGrotesk-Regular.ttf');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Space Grotesk';
-    src: url('Fonts/SpaceGrotesk-Bold.ttf');
-    font-weight: bold;
-    font-display: swap;
-}
-
 /* ========
    1. Base
    ======== */
@@ -151,7 +133,6 @@ nav img{
 /* ========
    3. Caroussel
     ======== */
-
 .caroussel {
   position: relative;
   width: 100%;
@@ -169,27 +150,10 @@ nav img{
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  scroll-marker-group: after;
 }
 
 .caroussel ul::-webkit-scrollbar {
   display: none;
-}
-
-.caroussel li {
-  list-style-type: none;
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  padding: 20px;
-  background-color: black;
-  color: white;
-  border: 1px solid var(--accent, #ec4899);
-  border-radius: 1rem;
-  scroll-snap-align: center;
-}
-
-.caroussel li:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.152);
 }
 
 .caroussel ul::scroll-marker-group {
@@ -200,21 +164,87 @@ nav img{
   padding: 15px 0;
 }
 
-.caroussel-item::scroll-marker {
-  content: "";
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #cbd5e1;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+.caroussel li {
+  position: relative;
+  overflow: hidden;
+  list-style-type: none;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  
+  padding: 20px 60px;
+  
+  background-color: black;
+  color: white;
+  border: 1px solid var(--accent, #ec4899);
+  border-radius: 1rem;
+  scroll-snap-align: center;
 }
 
-.caroussel-item::scroll-marker:target-current {
+
+.caroussel li::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.35);
+  z-index: 0;
+}
+
+.caroussel li:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.152);
+}
+
+.actualites {
+  position: relative;
+  z-index: 1;
+}
+
+.actu-lien {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--accent);
+  border-radius: 1rem;
+  text-decoration: none;
+}
+
+.actu-lien:hover {
+  transform: translateY(-2px);
+}
+
+.fleche {
+  position: absolute; /* 👈 Remettre "absolute" pour qu'elles flottent sur les bords */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: var(--accent, #ec4899);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.fleche:hover {
   background-color: var(--accent, #ec4899);
-  transform: scale(1.3);
+  color: white;
+}
+
+.fleche-gauche {
+  left: 12px;
+}
+
+.fleche-droite {
+  right: 12px;
 }
 /* ===========
    5. Galerie
@@ -415,12 +445,11 @@ nav img{
     border-radius: 0.75rem;
 }
 
-.article-gta6-critique p {
-    grid-column: 1 / -1;
-    margin: 0;
-}
+.article-gta6-critique {
+    
+    p {grid-column: 1 / -1;margin: 0;}
 
-.article-gta6-critique :is(.note-positive, .note-negative) {
+    :is(.note-positive, .note-negative) {
     grid-area: note;
     min-width: 3.25rem;
     padding: 0.4rem 0.65rem;
@@ -430,40 +459,24 @@ nav img{
     line-height: 1.2;
     text-align: center;
     color: var(--fond);
+    }
+
+    .note-positive {background-color: var(--note-positive);}
+
+    .note-negative {background-color: var(--note-negative);}
+
 }
+.article-content {
+    table { width: 100%; border-collapse: collapse; }
 
-.article-gta6-critique .note-positive {
-    background-color: var(--note-positive);
-}
+    tr, td { width: auto; height: auto; }
 
-.article-gta6-critique .note-negative {
-    background-color: var(--note-negative);
-}
+    th,td { padding: 0.5rem; border-bottom: 1px solid var(--ligne); }
 
-.article-content table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    th { text-align: left; color: var(--texte-doux); }
+    td { text-align: right; }
 
-.article-content tr,
-.article-content td {
-    width: auto;
-    height: auto;
-}
-
-.article-content th,
-.article-content td {
-    padding: 0.5rem;
-    border-bottom: 1px solid var(--ligne);
-}
-
-.article-content th { text-align: left; color: var(--texte-doux); }
-.article-content td { text-align: right; }
-
-.article-content tr:first-child td {
-    color: var(--note-positive);
-    font-size: 2rem;
-    font-weight: var(--gras);
+    tr:first-child td { color: var(--note-positive); font-size: 2rem; font-weight: var(--gras); }
 }
 
 .nom-critique {
@@ -477,16 +490,14 @@ nav img{
         "note  date";
 }
 
-.acheter a{
-    color: var(--lien);
+.acheter {
+    a{ color: var(--lien); }
+
+    a:visited{ color: var(--lien); }
+
+    a:hover { text-decoration: underline; }
+
 }
-
-.acheter a:visited{
-    color: var(--lien);
-}
-
-.acheter a:hover { text-decoration: underline; }
-
 /* ==========================================================
    9. Footer
    ========================================================== */
@@ -499,42 +510,30 @@ footer {
     flex-direction: column;
 }
 
-footer table {
+footer {
+    table {
     width: 100%;
     max-width: 50rem;
     border-collapse: collapse;
+    }
+
+    table th :first-child {text-align: left;}
+
+    tr {text-align: center;}
+
+    p:first-of-type {border-bottom: 5px solid var(--ligne);}
+
+    img {max-width: 2.5rem;}
+
+    a[target="_blank"]::after {content: " ↗";}
+
+    a {color: var(--lien);}
+
+    a:visited {color: var(--lien);}
+
+    a:hover {text-decoration: underline; }
+
 }
-
-footer table th :first-child{
-    text-align: left;
-}
-
-footer tr{
-    text-align: center;
-}
-
-footer p:first-of-type{
-    border-bottom: 5px solid var(--ligne);
-}
-
-footer img{
-    max-width: 2.5rem;
-}
-
-footer a[target="_blank"]::after {
-    content: " ↗";
-}
-
-footer a{
-    color: var(--lien);
-}
-
-footer a:visited{
-    color: var(--lien);
-}
-
-footer a:hover { text-decoration: underline; }
-
 /* ==========================================================
    10. Responsive (écrans d'au moins 48rem)
    ========================================================== */
@@ -552,9 +551,9 @@ footer a:hover { text-decoration: underline; }
     .top img { height: 37rem; }
 
     footer{
-            tr{ height: 4.5rem; }
+        tr{ height: 4.5rem; }
 
-            img { max-width: 3rem; }
+        img{ max-width: 3rem; }
     }
     
     .article-intro + .article-content {

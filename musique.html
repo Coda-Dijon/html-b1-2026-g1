@@ -1,128 +1,100 @@
-<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
 <!DOCTYPE html>
 
-<!-- Balise racine de la page. lang="fr" = la page est en français
-     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
 <html lang="fr">
-
-<!-- ==========================================================
-     HEAD : informations sur la page (invisibles à l'écran)
-     ========================================================== -->
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="The Worst Review - Découvrez les dernières actualités et critiques sur les Auteurs, Musiques et Albums.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Titre affiché dans l'onglet du navigateur -->
+
     <title>Musiques - The Worst Review</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css" media="print" onload="this.media='all'">
 </head>
 
-<!-- ==========================================================
-     BODY : tout ce qui est visible sur la page.
-     class="cinema" permet de cibler cette page en particulier dans le CSS.
-     ========================================================== -->
 <body class="musique">
     
-    <!-- ==========================================================
-        EN-TÊTE : logo + menu de navigation (identique sur toutes les pages)
-        ========================================================== -->
     <header class="header">
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="logo">
-        <img src="Ressources-index/Logo_site.gif" alt="Logo" width="150">
+        <img src="Ressources-index/Logo_site.gif" alt="" role="img" aria-label="Ouvrir ou fermer le menu de navigation" width="150">
     </label>
 
-    <!-- <nav> = zone de navigation principale du site -->
+
     <nav>
-            <!-- Logo cliquable qui ramène à l'accueil -->
-            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Logo du site" width="150"></a>
-            <!-- Liens du menu. class="menu" leur donne le style (majuscules, trait animé au survol…) --> 
+
+            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="" role="img" aria-label="Logo animé The Worst Review, lien vers la page d'accueil" width="150"></a>
+
             <a href="index.html" class="menu" aria-label="Redirection vers Accueil">Accueil</a> 
             <a href="jeux.html" class="menu" aria-label="Redirection vers Jeux">Jeux</a> 
             <a href="musique.html" class="menu" aria-label="Redirection vers Musiques">Musiques</a>
             <a href="cinema.html" class="menu" aria-label="Redirection vers Cinéma">Cinéma</a> 
         </nav>
     </header>
-    
-    <!-- ==========================================================
-        MAIN
-        ========================================================== -->
+
     <main>
-        <!-- Titre principal de la page (un seul <h1> par page) -->
+
         <h1 class="title">Musiques</h1>
 
-         <!-- ---------- Section "Top Auteurs" ---------- -->
+
         <section class="jeux">
-            <!-- Titre de la section -->
+
             <h2 class="title_2">Top Auteurs</h2>
 
-            <!-- Liste des artistes en grille
-                 Chaque <li> contient une image et le nom en dessous. -->
             <ul class="top">
-                <li><input type="checkbox" id="billie-toggle" class="toggle"><label for="billie-toggle"><img src="Musiques/Images/billie.webp" alt=""></label>Billie Eilish
-                    <iframe src="Musiques/Pages/Billie_Eilish.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="billie-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="john-toggle" class="toggle"><label for="john-toggle"><img src="Musiques/Images/John.webp" alt=""></label>John Michael Howell
-                    <iframe src="Musiques/Pages/John_Michael_Howell.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="john-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="surprise-toggle" class="toggle"><label for="surprise-toggle"><img src="Musiques/Images/surprise.webp" alt=""></label>Surprise
-                    <iframe src="Musiques/Pages/Surprise.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="surprise-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="billie-toggle" class="toggle"><label for="billie-toggle"><img src="Musiques/Images/billie.webp" alt="" role="img" aria-label="Photo de la chanteuse Billie Eilish. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Billie Eilish
+                    <iframe src="Musiques/Pages/Billie_Eilish.html" title="Aperçu de la critique de Billie Eilish" class="iframe" loading="lazy"></iframe>
+                    <label for="billie-toggle" class="fermer" aria-label="Fermer l'aperçu de Billie Eilish">Fermer</label></li>
+                <li><input type="checkbox" id="john-toggle" class="toggle"><label for="john-toggle"><img src="Musiques/Images/John.webp" alt="" role="img" aria-label="Photo de l'artiste John Michael Howell. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>John Michael Howell
+                    <iframe src="Musiques/Pages/John_Michael_Howell.html" title="Aperçu de la critique de John Michael Howell" class="iframe" loading="lazy"></iframe>
+                    <label for="john-toggle" class="fermer" aria-label="Fermer l'aperçu de John Michael Howell">Fermer</label></li>
+                <li><input type="checkbox" id="surprise-toggle" class="toggle"><label for="surprise-toggle"><img src="Musiques/Images/surprise.webp" alt="" role="img" aria-label="Image de la page Surprise. Bouton pour ouvrir ou fermer l'aperçu de la page"></label>Surprise
+                    <iframe src="Musiques/Pages/Surprise.html" title="Aperçu de la page Surprise" class="iframe" loading="lazy"></iframe>
+                    <label for="surprise-toggle" class="fermer" aria-label="Fermer l'aperçu de la page Surprise">Fermer</label></li>
             </ul>
         </section>
 
-        <!-- ---------- Section "Top Albums" ----------
-             Même structure : pochette + "Nom de l'album - Artiste". -->
         <section class="jeux">
             <h2 class="title_2">Top Albums</h2>
             <ul class="top">
-                <li><input type="checkbox" id="arcane-toggle" class="toggle"><label for="arcane-toggle"><img src="Musiques/Images/Arcane.webp" alt=""></label>League Of Legends - Arcane
-                    <iframe src="Musiques/Pages/Arcane.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="arcane-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="brat-toggle" class="toggle"><label for="brat-toggle"><img src="Musiques/Images/charlie.webp" alt=""></label>Brat - Charli XCX
-                    <iframe src="Musiques/Pages/Brat.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="brat-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="alba-toggle" class="toggle"><label for="alba-toggle"><img src="Musiques/Images/Bekar.webp" alt=""></label>Alba l'Heure Bleu - Bekar
-                    <iframe src="Musiques/Pages/Alba_Lheure_Bleu.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="alba-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="arcane-toggle" class="toggle"><label for="arcane-toggle"><img src="Musiques/Images/Arcane.webp" alt="" role="img" aria-label="Pochette de l'album League Of Legends - Arcane. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>League Of Legends - Arcane
+                    <iframe src="Musiques/Pages/Arcane.html" title="Aperçu de la critique de League Of Legends - Arcane" class="iframe" loading="lazy"></iframe>
+                    <label for="arcane-toggle" class="fermer" aria-label="Fermer l'aperçu de League Of Legends - Arcane">Fermer</label></li>
+                <li><input type="checkbox" id="brat-toggle" class="toggle"><label for="brat-toggle"><img src="Musiques/Images/charlie.webp" alt="" role="img" aria-label="Pochette de l'album Brat de Charli XCX. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Brat - Charli XCX
+                    <iframe src="Musiques/Pages/Brat.html" title="Aperçu de la critique de Brat de Charli XCX" class="iframe" loading="lazy"></iframe>
+                    <label for="brat-toggle" class="fermer" aria-label="Fermer l'aperçu de Brat de Charli XCX">Fermer</label></li>
+                <li><input type="checkbox" id="alba-toggle" class="toggle"><label for="alba-toggle"><img src="Musiques/Images/Bekar.webp" alt="" role="img" aria-label="Pochette de l'album Alba l'Heure Bleu de Bekar. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Alba l'Heure Bleu - Bekar
+                    <iframe src="Musiques/Pages/Alba_Lheure_Bleu.html" title="Aperçu de la critique de Alba l'Heure Bleu de Bekar" class="iframe" loading="lazy"></iframe>
+                    <label for="alba-toggle" class="fermer" aria-label="Fermer l'aperçu de Alba l'Heure Bleu">Fermer</label></li>
             </ul>
         </section>
 
-        <!-- ---------- Section "Top Musiques" ----------
-             Même structure : pochette + "Titre - Artiste". -->
         <section class="jeux">
             <h2 class="title_2">Top Musiques</h2>
             <ul class="top">
-                <li><input type="checkbox" id="planb-toggle" class="toggle"><label for="planb-toggle"><img src="Musiques/Images/WAD.webp" alt="musique 1"></label>Plan B - Alpha Wann
-                    <iframe src="Musiques/Pages/Plan_B.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="planb-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="idol-toggle" class="toggle"><label for="idol-toggle"><img src="Musiques/Images/Idol.webp" alt="musique 2"></label>Eyes Without A Face - Billy Idol
-                    <iframe src="Musiques/Pages/Eyes_Without_A_Face.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="idol-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="ego-toggle" class="toggle"><label for="ego-toggle"><img src="Musiques/Images/Ego.webp" alt="musique 3"></label>Ego - Quing Madi
-                    <iframe src="Musiques/Pages/Ego.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="ego-toggle" class="fermer">Fermer</label></li>
+                <li id="alpha-wann-redirection"><input type="checkbox" id="planb-toggle" class="toggle"><label for="planb-toggle"><img src="Musiques/Images/WAD.webp" alt="" role="img" aria-label="Pochette de l'album Plan B d'Alpha Wann. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Plan B - Alpha Wann
+                    <iframe src="Musiques/Pages/Plan_B.html" title="Aperçu de la critique de Plan B d'Alpha Wann" class="iframe" loading="lazy"></iframe>
+                    <label for="planb-toggle" class="fermer" aria-label="Fermer l'aperçu de Plan B">Fermer</label></li>
+                <li><input type="checkbox" id="idol-toggle" class="toggle"><label for="idol-toggle"><img src="Musiques/Images/Idol.webp" alt="" role="img" aria-label="Pochette du titre Eyes Without A Face de Billy Idol. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Eyes Without A Face - Billy Idol
+                    <iframe src="Musiques/Pages/Eyes_Without_A_Face.html" title="Aperçu de la critique de Eyes Without A Face de Billy Idol" class="iframe" loading="lazy"></iframe>
+                    <label for="idol-toggle" class="fermer" aria-label="Fermer l'aperçu de Eyes Without A Face">Fermer</label></li>
+                <li><input type="checkbox" id="ego-toggle" class="toggle"><label for="ego-toggle"><img src="Musiques/Images/Ego.webp" alt="" role="img" aria-label="Pochette du titre Ego de Quing Madi. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Ego - Quing Madi
+                    <iframe src="Musiques/Pages/Ego.html" title="Aperçu de la critique de Ego de Quing Madi" class="iframe" loading="lazy"></iframe>
+                    <label for="ego-toggle" class="fermer" aria-label="Fermer l'aperçu de Ego">Fermer</label></li>
             </ul>
         </section>
     </main>
 
-
-    <!-- ==========================================================
-        FOOTER : pied de page (réseaux sociaux de l'équipe + copyright)
-        ========================================================== -->
     <footer>
 
-    <!-- Titre du footer -->
+
     <p>Suivez-nous sur les réseaux</p>
 
-    <!-- Tableau des liens : une ligne (<tr>) par membre de l'équipe.
-        <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
-        Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
    <table>
         
     <tr>
-        <th></th>
-        <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
-        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+        <th> Nom</th>
+        <th><img src="Ressources-index/GitHub.webp" alt="" role="img" aria-label="Colonne des liens GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="" role="img" aria-label="Colonne des liens LinkedIn"></th>
         <th> Test Performance</th>
     </tr>
     <tr>
@@ -153,7 +125,6 @@
 
     </table>
 
-    <!-- Mention de copyright (droits d'auteur) -->
     <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
 </footer>
 </body>

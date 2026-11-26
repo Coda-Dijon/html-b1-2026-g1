@@ -1,41 +1,29 @@
-<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
 <!DOCTYPE html>
 
-<!-- Balise racine de la page. lang="fr" = la page est en français
-     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
 <html lang="fr">
 
-<!-- ==========================================================
-     HEAD : informations sur la page (invisibles à l'écran)
-     ========================================================== -->
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="The Worst Review - Découvrez les dernières actualités et critiques sur le Films, Séries et Animés.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-<!-- Titre affiché dans l'onglet du navigateur -->
+    <link rel="stylesheet" href="font.css" media="print" onload="this.media='all'">
+
 <title>Cinéma - The Worst Review</title>
 </head>
 
-<!-- ==========================================================
-     BODY : tout ce qui est visible sur la page.
-     class="cinema" permet de cibler cette page en particulier dans le CSS.
-     ========================================================== -->
 <body class="cinema">
 
-     <!-- ==========================================================
-        EN-TÊTE : logo + menu de navigation (identique sur toutes les pages)
-        ========================================================== -->
     <header class="header">
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="logo">
-        <img src="Ressources-index/Logo_site.gif" alt="Logo" width="150">
+        <img src="Ressources-index/Logo_site.gif" alt="" role="img" aria-label="Ouvrir ou fermer le menu de navigation" width="150">
     </label>
 
-    <!-- <nav> = zone de navigation principale du site -->
     <nav>
-            <!-- Logo cliquable qui ramène à l'accueil -->
-            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Logo du site"> </a>
-            <!-- Liens du menu. class="menu" leur donne le style (majuscules, trait animé au survol…) -->
+
+            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="" role="img" aria-label="Logo animé The Worst Review, lien vers la page d'accueil"> </a>
+
             <a href="index.html" class="menu" aria-label="Redirection vers Accueil">Accueil</a> 
             <a href="jeux.html" class="menu" aria-label="Redirection vers Jeux">Jeux</a> 
             <a href="musique.html" class="menu" aria-label="Redirection vers Musiques">Musiques</a>
@@ -43,86 +31,69 @@
         </nav>
 </header>
 
-    <!-- ==========================================================
-        MAIN
-        ========================================================== -->
-
     <main>
-        <!-- Titre principal de la page (un seul <h1> par page) -->
+
         <h1 class="title">Cinéma</h1>
 
-        <!-- ---------- Section "Top Films" ---------- -->
         <section class="jeux">
-             <!-- Titre de la section -->
+
             <h2 class="title_2">Top Films</h2>
-            <!-- Liste des films en grille.
-                 Chaque <li> contient une affiche et le nom du film en dessous. -->
+
             <ul class="top">
-                <li><input type="checkbox" id="dune-toggle" class="toggle"><label for="dune-toggle"><img src="Films/Images/Dune.webp" alt="Film 1"></label>Dune
-                    <iframe src="Films/Pages/Dune.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="dune-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="spiderman-toggle" class="toggle"><label for="spiderman-toggle"><img src="Films/Images/Spiderman.webp" alt="Film 2"></label>The Amazing Spiderman 2
-                    <iframe src="Films/Pages/Spiderman_2.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="spiderman-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="social-toggle" class="toggle"><label for="social-toggle"><img src="Films/Images/Social_Network.webp" alt="Film 3"></label>The Social Network
-                    <iframe src="Films/Pages/Social_Network.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="social-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="dune-toggle" class="toggle"><label for="dune-toggle"><img src="Films/Images/Dune.webp" alt="" role="img" aria-label="Affiche du film Dune. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Dune
+                    <iframe src="Films/Pages/Dune.html" title="Aperçu de la critique de Dune" class="iframe" loading="lazy"></iframe>
+                    <label for="dune-toggle" class="fermer" aria-label="Fermer l'aperçu de Dune">Fermer</label></li>
+                <li><input type="checkbox" id="spiderman-toggle" class="toggle"><label for="spiderman-toggle"><img src="Films/Images/Spiderman.webp" alt="" role="img" aria-label="Affiche du film The Amazing Spiderman 2. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>The Amazing Spiderman 2
+                    <iframe src="Films/Pages/Spiderman_2.html" title="Aperçu de la critique de The Amazing Spiderman 2" class="iframe" loading="lazy"></iframe>
+                    <label for="spiderman-toggle" class="fermer" aria-label="Fermer l'aperçu de The Amazing Spiderman 2">Fermer</label></li>
+                <li id="the-social-network-redirection"><input type="checkbox" id="social-toggle" class="toggle"><label for="social-toggle"><img src="Films/Images/Social_Network.webp" alt="" role="img" aria-label="Affiche du film The Social Network. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>The Social Network
+                    <iframe src="Films/Pages/Social_Network.html" title="Aperçu de la critique de The Social Network" class="iframe" loading="lazy"></iframe>
+                    <label for="social-toggle" class="fermer" aria-label="Fermer l'aperçu de The Social Network">Fermer</label></li>
             </ul>
         </section>
 
-        <!-- ---------- Section "Top Série" ----------
-             Même structure que la section films. -->
         <section class="jeux">
-            <h2 class="title_2">Top Série</h2>
+            <h2 class="title_2">Top Séries</h2>
             <ul class="top">
-                <li><input type="checkbox" id="got-toggle" class="toggle"><label for="got-toggle"><img src="Films/Images/Game_of_Throne.webp" alt="Série 1"></label>Game Of Thrones
-                    <iframe src="Films/Pages/Game_Of_Thrones.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="got-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="friends-toggle" class="toggle"><label for="friends-toggle"><img src="Films/Images/Friends.webp" alt="Série 2"></label>Friends
-                    <iframe src="Films/Pages/Friends.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="friends-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="reacher-toggle" class="toggle"><label for="reacher-toggle"><img src="Films/Images/Reacher.webp" alt="Série 3"></label>Reacher
-                    <iframe src="Films/Pages/Reacher.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="reacher-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="got-toggle" class="toggle"><label for="got-toggle"><img src="Films/Images/Game_of_Throne.webp" alt="" role="img" aria-label="Affiche de la série Game of Thrones. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Game Of Thrones
+                    <iframe src="Films/Pages/Game_Of_Thrones.html" title="Aperçu de la critique de Game Of Thrones" class="iframe" loading="lazy"></iframe>
+                    <label for="got-toggle" class="fermer" aria-label="Fermer l'aperçu de Game Of Thrones">Fermer</label></li>
+                <li><input type="checkbox" id="friends-toggle" class="toggle"><label for="friends-toggle"><img src="Films/Images/Friends.webp" alt="" role="img" aria-label="Affiche de la série Friends. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Friends
+                    <iframe src="Films/Pages/Friends.html" title="Aperçu de la critique de Friends" class="iframe" loading="lazy"></iframe>
+                    <label for="friends-toggle" class="fermer" aria-label="Fermer l'aperçu de Friends">Fermer</label></li>
+                <li><input type="checkbox" id="reacher-toggle" class="toggle"><label for="reacher-toggle"><img src="Films/Images/Reacher.webp" alt="" role="img" aria-label="Affiche de la série Reacher. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Reacher
+                    <iframe src="Films/Pages/Reacher.html" title="Aperçu de la critique de Reacher" class="iframe" loading="lazy"></iframe>
+                    <label for="reacher-toggle" class="fermer" aria-label="Fermer l'aperçu de Reacher">Fermer</label></li>
             </ul>
         </section>
 
-        <!-- ---------- Section "Top Animé" ----------
-             Même structure que les deux sections précédentes. -->
         <section class="jeux">
-            <h2 class="title_2">Top Animé</h2>
+            <h2 class="title_2">Top Animés</h2>
             <ul class="top">
-                <li><input type="checkbox" id="arcane-toggle" class="toggle"><label for="arcane-toggle"><img src="Films/Images/Arcane.webp" alt="Animé 1"></label>Arcane
-                    <iframe src="Films/Pages/Arcane.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="arcane-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="edgerunners-toggle" class="toggle"><label for="edgerunners-toggle"><img src="Films/Images/Cyberpunk.webp" alt="Animé 2"></label>CyberPunk Edgerunners
-                    <iframe src="Films/Pages/CyberPunk_Edgerunners.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="edgerunners-toggle" class="fermer">Fermer</label></li>
-                <li><input type="checkbox" id="bleach-toggle" class="toggle"><label for="bleach-toggle"><img src="Films/Images/Bleach.webp" alt="Animé 3"></label>Bleach
-                    <iframe src="Films/Pages/Bleach.html" title="Aperçu de la page" class="iframe" loading="lazy"></iframe>
-                    <label for="bleach-toggle" class="fermer">Fermer</label></li>
+                <li><input type="checkbox" id="arcane-toggle" class="toggle"><label for="arcane-toggle"><img src="Films/Images/Arcane.webp" alt="" role="img" aria-label="Affiche de l'animé Arcane. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Arcane
+                    <iframe src="Films/Pages/Arcane.html" title="Aperçu de la critique de Arcane" class="iframe" loading="lazy"></iframe>
+                    <label for="arcane-toggle" class="fermer" aria-label="Fermer l'aperçu de Arcane">Fermer</label></li>
+                <li><input type="checkbox" id="edgerunners-toggle" class="toggle"><label for="edgerunners-toggle"><img src="Films/Images/Cyberpunk.webp" alt="" role="img" aria-label="Affiche de l'animé CyberPunk Edgerunners. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>CyberPunk Edgerunners
+                    <iframe src="Films/Pages/CyberPunk_Edgerunners.html" title="Aperçu de la critique de CyberPunk Edgerunners" class="iframe" loading="lazy"></iframe>
+                    <label for="edgerunners-toggle" class="fermer" aria-label="Fermer l'aperçu de CyberPunk Edgerunners">Fermer</label></li>
+                <li><input type="checkbox" id="bleach-toggle" class="toggle"><label for="bleach-toggle"><img src="Films/Images/Bleach.webp" alt="" role="img" aria-label="Affiche de l'animé Bleach. Bouton pour ouvrir ou fermer l'aperçu de la critique"></label>Bleach
+                    <iframe src="Films/Pages/Bleach.html" title="Aperçu de la critique de Bleach" class="iframe" loading="lazy"></iframe>
+                    <label for="bleach-toggle" class="fermer" aria-label="Fermer l'aperçu de Bleach">Fermer</label></li>
             </ul>
         </section>
     </main>
 
-    <!-- ==========================================================
-        FOOTER : pied de page (réseaux sociaux de l'équipe + copyright)
-        ========================================================== -->
     <footer>
     
-    <!-- Titre du footer -->
     <p>Suivez-nous sur les réseaux</p>
 
-    <!-- Tableau des liens : une ligne (<tr>) par membre de l'équipe.
-        <th> = cellule d'en-tête (ici, l'icône du réseau), <td> = cellule normale (le lien).
-        Colonnes : icône GitHub | lien GitHub | icône LinkedIn | lien LinkedIn -->
     <table>
 
     <tr>
-        <th></th>
-        <th><img src="Ressources-index/GitHub.svg" alt="GitHub"></th>
-        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
-        <th> Test Performance</th>
+        <th> Nom</th>
+        <th><img src="Ressources-index/GitHub.webp" alt="" role="img" aria-label="Colonne des liens GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="" role="img" aria-label="Colonne des liens LinkedIn"></th>
+        <th> Test Performance </th>
     </tr>
     <tr>
         <th>Esteban Georget</th>
@@ -152,7 +123,6 @@
 
     </table>
 
-    <!-- Mention de copyright (droits d'auteur) -->
     <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
 </footer>
 </body>
