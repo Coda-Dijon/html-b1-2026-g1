@@ -1,6 +1,4 @@
-/* ========
-   1. Base
-   ======== */
+/* ===================== 1. Base ===================== */
 
 * { box-sizing: border-box; }
 
@@ -8,7 +6,7 @@ img { max-width: 100%;}
 
 :root {
     --font-main: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --regular : 400;
+    --regular: 400;
     --gras: bold;
     --fond: #141317;
     --surface: #201E25;
@@ -23,9 +21,10 @@ img { max-width: 100%;}
     --bleu: #4D9FFF;
 }
 
-html { font-family: var(--font-main); }
-
-html { scrollbar-color: var(--accent) var(--fond); }
+html { 
+    font-family: var(--font-main);
+    scrollbar-color: var(--accent) var(--fond); 
+}
 
 body {
     background-color: var(--fond);
@@ -44,9 +43,8 @@ a { text-decoration: none; }
     color: var(--fond);
 }
 
-/* ========
-   2. Navigation
-   ======== */
+/* ===================== 2. Navigation ===================== */
+
 
 nav {
     justify-content: center;
@@ -130,12 +128,10 @@ nav img{
 
 #menu-toggle:checked ~ nav a {
     display: inline-block;
-    justify-content: center;
 }
 
-/* ========
-   3. Caroussel
-    ======== */
+/* ===================== 3. Carrousel ===================== */
+
 .caroussel {
   position: relative;
   width: 100%;
@@ -143,7 +139,7 @@ nav img{
 
 .caroussel ul {
   width: 100%;
-  height: 300px;
+  min-height: 300px;
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
@@ -221,7 +217,7 @@ nav img{
 }
 
 .fleche {
-  position: absolute; /* 👈 Remettre "absolute" pour qu'elles flottent sur les bords */
+  position: absolute; 
   top: 50%;
   transform: translateY(-50%);
   width: 42px;
@@ -249,9 +245,8 @@ nav img{
 .fleche-droite {
   right: 12px;
 }
-/* ===========
-   4. Galerie
-   ===========*/
+
+/* ===================== 4. Galerie ===================== */
 
 .galerie {
     display: grid;
@@ -303,9 +298,7 @@ nav img{
     letter-spacing: 0.06em;
 }
 
-/* ==========================================================
-   5. Top Lists
-   ========================================================== */
+/* ===================== 5. Top Lists ===================== */
 
 .title {
     margin: 1rem 0;
@@ -411,9 +404,7 @@ nav img{
     box-shadow: 0 0 0 0.125rem var(--accent), 0 0 5rem #000;
 }
 
-/* ==========================================================
-   6. Jeux
-   ========================================================== */
+/* ===================== 6. Jeux ===================== */
 
 .jeux ul li a { color: var(--accent); }
 
@@ -457,9 +448,7 @@ nav img{
 
 .jeux .top label { cursor: pointer; }
 
-/* ==========================================================
-   7. GTA
-   ========================================================== */
+/* ===================== 7. Pages de critique (ex: GTA) ===================== */
 
 .page-titre {
     width: fit-content;
@@ -502,6 +491,7 @@ nav img{
 
 .article-gta6-critique {
     display: grid;
+    grid-template: "titre note" / 1fr auto;
     align-items: center;
     gap: 0.75rem 1rem;
     box-shadow: 0 0 0.3rem var(--accent);
@@ -513,7 +503,6 @@ nav img{
     border-radius: 0.75rem;
 }
 
-.article-gta6-critique { grid-template: "titre note" / 1fr auto; }
 .date-critique { grid-area: titre; text-decoration: underline var(--accent); text-underline-offset: 4px; }
 
 .article-gta6-critique {
@@ -540,8 +529,6 @@ nav img{
 .article-content {
     table { width: 100%; border-collapse: collapse; }
 
-    tr, td { width: auto; height: auto; }
-
     th,td { padding: 0.5rem; border-bottom: 1px solid var(--ligne); }
 
     th { text-align: left; color: var(--texte-doux); }
@@ -566,16 +553,6 @@ nav img{
 
 .article-content + .article-content { background: var(--surface); border-radius: 0.75rem; padding: 1rem; }
 
-.nom-critique {
-    grid-area: titre;
-    margin: 0;
-    line-height: 1.25;
-    text-align: center;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-        "titre titre"
-        "note  date";
-}
 
 .acheter {
     a, a:visited { 
@@ -589,9 +566,7 @@ nav img{
     a:hover { text-decoration: underline; }
 }
 
-/* ==========================================================
-   8. Footer
-   ========================================================== */
+/* ===================== 8. Footer ===================== */
 
 footer {
     background-color: var(--surface);
@@ -599,16 +574,14 @@ footer {
     padding: 20px;
     display: flex;
     flex-direction: column;
-}
 
-footer {
     table {
-    width: 100%;
-    max-width: 50rem;
-    border-collapse: collapse;
+        width: 100%;
+        max-width: 50rem;
+        border-collapse: collapse;
     }
 
-    table th :first-child {text-align: left;}
+    table th:first-child {text-align: left;}
 
     tr {text-align: center;}
 
@@ -623,11 +596,10 @@ footer {
     a:visited {color: var(--lien);}
 
     a:hover {text-decoration: underline; }
-
 }
-/* ==========================================================
-   9. Responsive (écrans d'au moins 48rem)
-   ========================================================== */
+
+/* ===================== 9. Responsive (écrans d'au moins 48rem) ===================== */
+
 
 @media (min-width: 48rem) {
     .logo { display: none; }
@@ -669,9 +641,7 @@ footer {
     }
 }
 
-/* ==========================================================
-   10. Accessibilité
-   ========================================================== */
+/* ===================== 10. Accessibilité ===================== */
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
