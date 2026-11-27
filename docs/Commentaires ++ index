@@ -1,0 +1,246 @@
+<!-- ==========================================================
+     BROUILLON COMMENTÉ DE index.html (pour réviser)
+     Ce fichier sert uniquement à apprendre : ne pas l'ouvrir comme une vraie page
+     (il est dans docs/, donc les chemins vers les images et le CSS ne marchent pas d'ici).
+     Le code est identique à index.html, seuls les commentaires ont été ajoutés.
+     ========================================================== -->
+
+<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
+<!DOCTYPE html>
+
+<!-- Balise racine de la page. lang="fr" = la page est en français
+     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
+<html lang="fr">
+
+<!-- ==========================================================
+     HEAD : informations sur la page (invisibles à l'écran)
+     ========================================================== -->
+<head>
+    <!-- Encodage des caractères : UTF-8 permet d'afficher les accents (é, à, ç…) -->
+    <meta charset="UTF-8">
+
+    <!-- Description de la page : le petit texte affiché sous le titre dans Google -->
+    <meta name="description" content="The Worst Review - Découvrez les dernières actualités et critiques sur les jeux, musiques et cinéma.">
+
+    <!-- Indispensable pour le responsive : la page prend la largeur réelle de l'écran
+         (sinon, sur téléphone, le site s'affiche en tout petit comme sur un ordinateur) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Lien vers la feuille de style CSS (toute la mise en forme du site) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Feuille de la police (Space Grotesk), chargée sans bloquer l'affichage de la page :
+         media="print" = au départ, le navigateur la croit réservée à l'impression, donc il ne l'attend pas ;
+         onload="this.media='all'" = une fois chargée, elle est activée pour tous les écrans.
+         Résultat : le texte s'affiche tout de suite avec une police de secours, puis la vraie police arrive. -->
+    <link rel="stylesheet" href="font.css" media="print" onload="this.media='all'">
+
+    <!-- Favicon : la petite icône affichée dans l'onglet du navigateur -->
+    <link rel="icon" href="Ressources-index/Logo_site_page.gif">
+
+<!-- Titre affiché dans l'onglet du navigateur -->
+<title>Accueil - The Worst Review</title>
+</head>
+
+
+<!-- ==========================================================
+     BODY : tout ce qui est visible sur la page.
+     class="index" permet de cibler cette page en particulier dans le CSS (pas utilisé pour l'instant).
+     ========================================================== -->
+<body class="index">
+
+<!-- ==========================================================
+     EN-TÊTE : logo + menu de navigation (identique sur toutes les pages)
+     ========================================================== -->
+<header class="header">
+
+    <!-- Menu sans JavaScript, en 2 éléments :
+         1. Une case à cocher, cachée par le CSS (#menu-toggle { display: none; }).
+         2. Un <label for="menu-toggle"> qui contient le logo. Le "for" relie le label à la case grâce à l'id :
+            cliquer sur le logo coche/décoche la case.
+         Le CSS affiche le menu quand la case est cochée (#menu-toggle:checked ~ nav).
+         Sur grand écran, ce logo est caché et le menu est toujours visible. -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="logo">
+        <!-- alt = texte lu par les lecteurs d'écran (et affiché si l'image ne charge pas) -->
+        <img src="Ressources-index/Logo_site.gif" alt="Afficher ou cacher le menu" width="150">
+    </label>
+
+    <!-- <nav> = zone de navigation principale du site -->
+    <nav>
+            <!-- Logo cliquable qui ramène à l'accueil -->
+            <a href="index.html"> <img src="Ressources-index/Logo_site.gif" alt="Accueil The Worst Review"> </a>
+
+            <!-- Liens du menu. class="menu" leur donne le style (majuscules, trait animé au survol…).
+                 aria-label = texte lu par les lecteurs d'écran à la place du texte visible (accessibilité). -->
+            <a href="index.html" class="menu" aria-label="Redirection vers Accueil">Accueil</a>
+            <a href="jeux.html" class="menu" aria-label="Redirection vers Jeux">Jeux</a>
+            <a href="musique.html" class="menu" aria-label="Redirection vers Musiques">Musiques</a>
+            <a href="cinema.html" class="menu" aria-label="Redirection vers Cinéma">Cinéma</a>
+    </nav>
+</header>
+
+<!-- ==========================================================
+     MAIN : le contenu principal de la page
+     (il ne doit y avoir qu'un seul <main> par page)
+     ========================================================== -->
+<main>
+    <!-- Titre principal de la page. Un seul <h1> par page : c'est le titre le plus important
+         (pour Google et pour les lecteurs d'écran).
+         2 classes : "title" = style commun aux titres de page, "title-accueil" = variante de l'accueil (texte bleu, cadre rose) -->
+    <h1 class="title title-accueil">Bienvenue sur The Worst Review</h1>
+
+   <!-- ---------- Carrousel des actualités ----------
+        Carrousel sans JavaScript :
+        - les actus sont alignées côte à côte dans une liste qui défile horizontalement (voir CSS) ;
+        - chaque actu a un id (#actu-1, #actu-2, #actu-3) ;
+        - les flèches sont de simples liens vers l'id de l'actu précédente / suivante :
+          cliquer dessus fait défiler la liste jusqu'à cette actu.
+        <section> = une partie thématique de la page. -->
+   <section class="caroussel">
+
+    <ul>
+        <!-- ===== Actu 1 : Jeux =====
+             id="actu-1" = l'adresse de cette actu (les flèches pointent vers "#actu-1").
+             style="--bg-img: url(...)" = on crée une variable CSS directement dans le HTML :
+             le CSS l'utilise pour afficher l'image floutée en fond (.caroussel li::before).
+             Ça permet d'avoir une image différente pour chaque actu avec une seule règle CSS. -->
+        <li id="actu-1" class="caroussel-item" style="--bg-img: url('Ressources-index/gta6.webp');">
+            <!-- <article> = un contenu qui a du sens tout seul (ici, une actu) -->
+            <article class="actualites">
+                <h2 class="soustitre">Actualités Jeux</h2>
+                <p class="actu-texte">GTA VI Découvrez le jeu de l'année attendu par tous les fans ! Notre revue de qualité est là pour vous guider. </p>
+                <!-- Bouton "Voir plus" : "jeux.html#gta-redirection" = ouvre la page Jeux
+                     et descend directement à l'élément qui a id="gta-redirection" -->
+                <a href="jeux.html#gta-redirection" class="actu-lien" aria-label="Voir plus : redirection vers GTA VI dans Jeux">Voir plus</a>
+            </article>
+            <!-- Flèches : la gauche renvoie à la dernière actu (le carrousel "tourne en boucle") -->
+            <a href="#actu-3" class="fleche fleche-gauche" aria-label="Actu précédente : Cinéma">❮</a>
+            <a href="#actu-2" class="fleche fleche-droite" aria-label="Actu suivante : Musique">❯</a>
+        </li>
+
+        <!-- ===== Actu 2 : Musique (même structure) ===== -->
+        <li id="actu-2" class="caroussel-item" style="--bg-img: url('Ressources-index/alphlauren.webp');">
+            <article class="actualites">
+                <h2 class="soustitre">Actualités Musique</h2>
+                <p class="actu-texte">Découvrez Alpha Wann et ses dernières actualités musicales.</p>
+                <a href="musique.html#alpha-wann-redirection" class="actu-lien" aria-label="Voir plus : redirection vers Alpha Wann dans Musiques">Voir plus</a>
+            </article>
+            <a href="#actu-1" class="fleche fleche-gauche" aria-label="Actu précédente : Jeux">❮</a>
+            <a href="#actu-3" class="fleche fleche-droite" aria-label="Actu suivante : Cinéma">❯</a>
+        </li>
+
+        <!-- ===== Actu 3 : Cinéma (même structure) ===== -->
+        <li id="actu-3" class="caroussel-item" style="--bg-img: url('Ressources-index/network.webp');">
+            <article class="actualites">
+                <h2 class="soustitre">Actualités Cinéma</h2>
+                <p class="actu-texte">The Social Network et ses dernières actualités cinématographiques.</p>
+                <a href="cinema.html#the-social-network-redirection" class="actu-lien" aria-label="Voir plus : redirection vers The Social Network dans Cinéma">Voir plus</a>
+            </article>
+            <!-- La flèche droite renvoie à la 1re actu (boucle) -->
+            <a href="#actu-2" class="fleche fleche-gauche" aria-label="Actu précédente : Musique">❮</a>
+            <a href="#actu-1" class="fleche fleche-droite" aria-label="Actu suivante : Jeux">❯</a>
+        </li>
+    </ul>
+</section>
+
+    <!-- ---------- Section "Nos Catégories" ---------- -->
+    <section class="categories">
+        <!-- Sous-titre (avec le petit trait rose dessous, ajouté par le CSS) -->
+        <h2 class="subtitle">Nos Catégories</h2>
+
+        <!-- Galerie d'images en grille. <ul> = liste non ordonnée, <li> = un élément de la liste.
+             Chaque catégorie = un lien qui contient une image + une étiquette <p> posée dessus par le CSS. -->
+        <ul class="galerie">
+            <!-- aria-label sur le lien : décrit la destination pour les lecteurs d'écran.
+                 Du coup l'image a alt="" (vide) : elle est décorative, inutile de la décrire en double. -->
+            <li><a href="jeux.html" aria-label="Aller à la section Jeux : critiques de jeux vidéo">
+                <!-- <picture> = choisir une image selon la taille de l'écran :
+                     - <source> : grande image, utilisée si l'écran fait au moins 48rem (media="(width >= 48rem)") ;
+                     - <img> : image légère utilisée par défaut (mobile). <img> est obligatoire dans <picture>.
+                     Le téléphone télécharge donc une image plus petite = page plus rapide. -->
+                <picture>
+                <source srcset="Ressources-index/Gta_portrait.webp" media="(width >= 48rem)" />
+                <!-- fetchpriority="high" = image chargée en priorité (elle est visible tout de suite en haut de page) -->
+                <img src="Ressources-index/Gta_portrait_mobile.webp" alt="" fetchpriority="high"/>
+                </picture><p>Jeux</p></a></li>
+
+            <li><a href="musique.html" aria-label="Aller à la section Musique : critiques d'albums et de titres" >
+                <picture>
+                <source srcset="Ressources-index/Billie-Eilish.webp" media="(width >= 48rem)" />
+                <!-- loading="lazy" = l'image ne se charge que quand on descend jusqu'à elle -->
+                <img src="Ressources-index/Billie-Eilish_mobile.webp" alt="" loading="lazy"/>
+                </picture><p>Musique</p></a></li>
+
+            <li><a href="cinema.html" aria-label="Aller à la section Cinéma : critiques de films, séries et animés">
+                <picture>
+                <source srcset="Ressources-index/friends.webp" media="(width >= 48rem)" />
+                <img src="Ressources-index/friends_mobile.webp" alt="" loading="lazy"/>
+                </picture><p>Cinéma</p></a></li>
+        </ul>
+    </section>
+</main>
+
+<!-- ==========================================================
+     FOOTER : pied de page (réseaux sociaux de l'équipe + tests + copyright)
+     ========================================================== -->
+<footer>
+
+    <!-- 1er paragraphe du footer : souligné d'une ligne épaisse par le CSS (footer p:first-of-type) -->
+    <p>Suivez-nous sur les réseaux</p>
+
+    <!-- Tableau de l'équipe : une ligne (<tr>) par membre.
+         <th> = cellule d'en-tête (en gras), <td> = cellule normale.
+         Colonnes : Nom | GitHub | LinkedIn | Test Performance -->
+    <table>
+
+    <!-- Ligne d'en-tête : les titres des colonnes (les icônes servent de titres) -->
+    <tr>
+        <th> Nom</th>
+        <th><img src="Ressources-index/GitHub.webp" alt="GitHub"></th>
+        <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+
+        <!-- W3C = validité du code HTML, Speedlify = vitesse de chargement de la page. -->
+        <th> Test Performance</th>
+    </tr>
+    <!-- Ligne d'Esteban : le nom est dans un <th> car il sert de titre à la ligne.
+         target="_blank" = ouvre le lien dans un nouvel onglet (le CSS ajoute une flèche ↗).
+         rel="noopener" = sécurité : la nouvelle page ne peut pas contrôler la page du site. -->
+    <tr>
+        <th>Esteban Georget</th>
+        <td><a href="https://github.com/HPOULETO" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Esteban Georget">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/esteban-georget/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Esteban Georget">LinkedIn</a></td>
+        <!-- Lien vers le validateur W3C, avec l'adresse de la page à tester dans "doc=" -->
+        <td><a href="https://validator.w3.org/nu/?showoutline=yes&showimagereport=yes&level=warning&doc=https://coda-dijon.github.io/html-b1-2026-g1/"  target="_blank" rel="noopener" aria-label="Tester la page d'accueil avec le validateur W3C (s'ouvre dans un nouvel onglet)"> W3C </a></td>
+    </tr>
+
+    <!-- Ligne de Nathan (même structure) -->
+    <tr>
+        <th>Nathan Lion</th>
+        <td><a href="https://github.com/nkiwi71" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nathan Lion">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nathanlion/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nathan Lion">LinkedIn</a></td>
+        <!-- Lien vers les résultats de performance de la page sur Speedlify -->
+        <td><a href="https://speedlify-b1-2026-coda.baldir.fr/site/coda--dijon-github-io-html--b1--2026--g1/"  target="_blank" rel="noopener" aria-label="Tester la performance de la page d'accueil avec Speedlify (s'ouvre dans un nouvel onglet)"> Speedlify </a></td>
+    </tr>
+
+    <!-- Ligne de Nolhan (même structure) -->
+    <tr>
+        <th>Nolhan Robelin</th>
+        <td><a href="https://github.com/Nolhan-robelin" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Nolhan Robelin">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/nolhan-robelin-82432a44a/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Nolhan Robelin">LinkedIn</a></td>
+    </tr>
+
+    <!-- Ligne de Lilou (même structure) -->
+    <tr>
+        <th>Lilou Walkowiak</th>
+        <td><a href="https://github.com/lilouwalkowiak" target="_blank" rel="noopener" aria-label="Redirection vers GitHub de Lilou Walkowiak">GitHub</a></td>
+        <td><a href="https://www.linkedin.com/in/lilou-walkowiak/" target="_blank" rel="noopener" aria-label="Redirection vers LinkedIn de Lilou Walkowiak">LinkedIn</a></td>
+    </tr>
+
+    </table>
+
+    <!-- Mention de copyright (droits d'auteur) -->
+    <p>© 2026 The Worst Review - Groupe 1 (Les Cannetons) HTML B1 2026</p>
+</footer>
+</body>
+</html>

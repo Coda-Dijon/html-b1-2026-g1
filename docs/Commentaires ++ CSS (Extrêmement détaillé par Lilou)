@@ -1,0 +1,799 @@
+/* ==========================================================
+   BROUILLON COMMENTÉ DE style.css (pour réviser)
+   Ce fichier n'est relié à aucune page : il sert uniquement à apprendre.
+   Le code est identique à style.css, seuls les commentaires ont été ajoutés.
+   ========================================================== */
+
+
+/* ===================== 1. Base =====================
+   Les règles générales qui s'appliquent à tout le site. */
+
+/* "*" = tous les éléments de la page.
+   box-sizing: border-box = la largeur d'un élément INCLUT son padding et sa bordure.
+   Exemple : un bloc de 200px avec 20px de padding fait toujours 200px au total. */
+* { box-sizing: border-box; }
+
+/* Aucune image ne peut être plus large que son conteneur (évite qu'elle dépasse de l'écran) */
+img { max-width: 100%;}
+
+/* :root = la racine du document (la balise <html>).
+   On y déclare des "variables CSS" (elles commencent par --).
+   On les utilise ensuite avec var(--nom). Changer une valeur ici la change partout. */
+:root {
+    /* Police principale + polices de secours si Space Grotesk ne charge pas */
+    --font-main: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --regular: 400;            /* épaisseur de texte normale */
+    --gras: bold;              /* épaisseur de texte en gras */
+    --fond: #141317;           /* fond de page (anthracite) */
+    --surface: #201E25;        /* fond des encadrés, nav, footer */
+    --ligne: #302D37;          /* bordures et séparateurs */
+    --texte: #F7F5FA;          /* texte principal (blanc cassé) */
+    --texte-doux: #ABA6B5;     /* texte secondaire (gris) */
+    --accent: #FF5FA2;         /* rose principal du site */
+    --accent-clair: #FF9CC8;   /* rose clair */
+    --note-positive: #6EE7A8;  /* vert des bonnes notes */
+    --note-negative: #FF5A5F;  /* rouge des mauvaises notes */
+    --lien: #FF1493;           /* rose fluo des liens */
+    --bleu: #4D9FFF;           /* bleu des titres et décorations */
+}
+
+html {
+    font-family: var(--font-main);              /* applique la police principale à tout le site */
+    scrollbar-color: var(--accent) var(--fond); /* barre de défilement : 1re couleur = le curseur, 2e = le rail */
+}
+
+body {
+    background-color: var(--fond);  /* couleur de fond de la page */
+    color: var(--texte);            /* couleur du texte par défaut */
+    margin: 0;                      /* supprime la marge blanche que le navigateur met par défaut */
+    min-height: 100vh;              /* la page fait au moins toute la hauteur de l'écran (vh = % de la hauteur de la fenêtre) */
+    line-height: 1.6;               /* espace entre les lignes (1.6 × la taille du texte) : plus lisible */
+}
+
+/* Titres : lettres légèrement resserrées (valeur négative).
+   "em" = relatif à la taille du texte, donc ça s'adapte à chaque titre. */
+h1, h2, h3 { letter-spacing: -0.02em; }
+
+/* Enlève le soulignement par défaut de tous les liens */
+a { text-decoration: none; }
+
+/* Texte sélectionné à la souris : fond rose et texte couleur du fond */
+::selection {
+    background-color: var(--accent);
+    color: var(--fond);
+}
+
+
+/* ===================== 2. Navigation =====================
+   Sur mobile : menu caché, il s'ouvre en cliquant sur le logo
+   (astuce de la case à cocher cachée #menu-toggle).
+   Sur grand écran : menu toujours visible (voir partie 9. Responsive). */
+
+nav {
+    justify-content: center;   /* centre les éléments horizontalement (quand la nav passe en flex) */
+    align-items: center;       /* centre les éléments verticalement */
+    display: none;             /* menu caché par défaut (mobile) */
+    padding: 0.5rem;           /* espace intérieur */
+    background: var(--surface);
+    border-radius: 2rem;       /* coins très arrondis = forme de "pilule" */
+}
+
+/* Tout ce qui est dans la nav est aussi caché par défaut.
+   Ça cache aussi l'image du logo dans la nav : sur mobile, quand le menu s'ouvre,
+   seuls les liens réapparaissent (voir #menu-toggle:checked ~ nav a). */
+nav * { display: none;}
+
+/* Largeur du logo dans la nav */
+nav img{
+    width: 175px;
+}
+
+/* .menu = les liens texte du menu (Accueil, Jeux…) */
+.menu {
+    position: relative;        /* nécessaire pour placer le trait du ::after par rapport au lien */
+    margin: 1.5rem;            /* espace autour de chaque lien */
+    font-size: 1.25rem;
+    font-weight: var(--gras);
+    text-transform: uppercase; /* écrit le texte en MAJUSCULES */
+    color: var(--texte);
+    transition: transform 0.3s; /* l'agrandissement au survol se fait en douceur (0,3 seconde) */
+}
+
+/* Au survol : le lien devient rose et grossit de 20 % */
+.menu:hover {
+    color: var(--accent);
+    transform: scale(1.2);
+}
+
+/* ::after crée un petit élément "fantôme" après le lien : ici, un trait de soulignement animé */
+.menu::after {
+    content: "";               /* obligatoire pour que ::after existe (même vide) */
+    position: absolute;        /* placé par rapport au lien (.menu est en position: relative) */
+    left: 0;
+    bottom: -0.12em;           /* juste sous le texte */
+    width: 100%;               /* aussi large que le lien */
+    height: 0.1875rem;         /* épaisseur du trait (3px) */
+    border-radius: 0.1875rem;  /* bouts arrondis */
+    background-color: currentColor; /* même couleur que le texte du lien */
+    transform: scale(0);       /* trait réduit à zéro = invisible au départ */
+    transform-origin: left;    /* il "pousse" depuis la gauche */
+    transition: transform 250ms ease-out; /* animation de 250 ms qui ralentit à la fin */
+}
+
+/* Au survol OU au clavier (touche Tab) : le trait reprend sa taille normale,
+   il apparaît donc de gauche à droite */
+.menu:hover::after,
+.menu:focus-visible::after {
+    transform: scale(1);
+}
+
+/* .logo = le logo-bouton qui ouvre/ferme le menu sur mobile (c'est le <label> de la case cachée) */
+.logo {
+    display: flex;             /* flex permet de centrer facilement le contenu */
+    justify-content: center;   /* centré horizontalement */
+    align-items: center;       /* centré verticalement */
+    margin: 3rem;
+    cursor: pointer;           /* curseur en forme de main : on comprend que c'est cliquable */
+    transition: transform 0.3s;
+    padding: 1rem;
+}
+
+/* Au survol : le logo grossit de 10 %.
+   cursor: help remplace la main du dessus par un point d'interrogation */
+.logo:hover {
+    transform: scale(1.1);
+    cursor: help;
+}
+
+/* :active = pendant qu'on appuie dessus */
+.logo:active {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+
+/* La case à cocher qui sert d'interrupteur est cachée : on clique sur le logo (son label) à la place */
+#menu-toggle { display: none; }
+
+/* :checked = quand la case est cochée.
+   "~" = la nav placée APRÈS la case, au même niveau dans le HTML.
+   Donc : case cochée → le menu s'affiche. */
+#menu-toggle:checked ~ nav {
+    display: flex;             /* le menu réapparaît */
+    flex-wrap: wrap;           /* les liens passent à la ligne s'il n'y a pas assez de place */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;            /* "auto" à gauche et à droite = centré dans la page */
+    width: fit-content;        /* la nav prend juste la largeur de son contenu */
+    max-width: 100%;           /* mais jamais plus large que l'écran */
+}
+
+/* Les liens de la nav réapparaissent aussi */
+#menu-toggle:checked ~ nav a {
+    display: inline-block;
+}
+
+
+/* ===================== 3. Carrousel =====================
+   Carrousel sans JavaScript : les actus sont alignées en ligne
+   et on passe de l'une à l'autre par défilement horizontal.
+   Les flèches sont de simples liens vers l'id de l'actu voulue (#actu-1…). */
+
+/* Le conteneur du carrousel */
+.caroussel {
+  position: relative;
+  width: 100%;
+}
+
+/* La liste des actus = la "bande" qui défile */
+.caroussel ul {
+  width: 100%;
+  min-height: 300px;               /* hauteur minimale du carrousel */
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;          /* (déjà appliqué à tout par "*", donc pas obligatoire ici) */
+  display: flex;                   /* les actus sont placées côte à côte */
+  gap: 4rem;                       /* espace entre deux actus */
+  overflow-x: scroll;              /* défilement horizontal */
+  scroll-snap-type: x mandatory;   /* le défilement s'arrête toujours pile sur une actu */
+  scroll-behavior: smooth;         /* défilement fluide quand on clique sur une flèche */
+  scrollbar-width: none;           /* cache la barre de défilement (Firefox) */
+}
+
+/* Cache la barre de défilement (Chrome, Safari) */
+.caroussel ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chaque actu du carrousel */
+.caroussel li {
+  position: relative;              /* repère pour l'image de fond (::before) et les flèches */
+  overflow: hidden;                /* coupe ce qui dépasse (les bords de l'image floutée) */
+  list-style-type: none;           /* enlève la puce de la liste */
+  flex: 0 0 100%;                  /* ne grandit pas, ne rétrécit pas, prend 100 % de la largeur */
+  box-sizing: border-box;
+  padding: 20px 60px;              /* 60px sur les côtés pour laisser la place aux flèches */
+  background-color: black;
+  color: white;
+  border: 1px solid var(--accent, #ec4899); /* 2e valeur = couleur de secours si --accent n'existait pas */
+  border-radius: 1rem;
+  scroll-snap-align: center;       /* l'actu se cale au centre quand le défilement s'arrête */
+}
+
+/* Image de fond floutée et assombrie, créée avec ::before (pas besoin de <img> dans le HTML) */
+.caroussel li::before {
+  content: "";                     /* obligatoire pour que ::before existe */
+  position: absolute;
+  inset: -15px;                    /* raccourci de top/right/bottom/left : dépasse de 15px de chaque côté
+                                      (pour cacher les bords transparents créés par le flou) */
+  /* --bg-img est définie dans le HTML, sur chaque actu (style="--bg-img: url(...)") */
+  background-image: var(--bg-img);
+  background-size: cover;          /* l'image remplit tout l'espace sans être déformée */
+  background-position: center;     /* centrée */
+  filter: blur(8px) brightness(0.35); /* floutée et assombrie (35 % de luminosité) pour que le texte reste lisible */
+  z-index: 0;                      /* derrière le texte */
+}
+
+/* nth-child(even) = les éléments pairs (2e, 4e…) : fond légèrement différent */
+.caroussel li:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.152);
+}
+
+/* Le contenu de l'actu passe au-dessus de l'image de fond (z-index 1 > 0) */
+.actualites {
+  position: relative;              /* z-index ne marche que sur un élément positionné */
+  z-index: 1;
+}
+
+/* Bouton "Voir plus" */
+.actu-lien {
+  display: inline-block;           /* permet d'avoir du padding et une marge en haut */
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--accent);
+  border-radius: 1rem;
+  text-decoration: none;
+}
+
+/* Au survol : le bouton monte de 2px */
+.actu-lien:hover {
+  transform: translateY(-2px);
+}
+
+/* Flèches rondes ❮ ❯ */
+.fleche {
+  position: absolute;              /* placées par rapport à l'actu (li en position: relative) */
+  top: 50%;                        /* le haut de la flèche est au milieu de l'actu… */
+  transform: translateY(-50%);     /* …puis on la remonte de la moitié de sa hauteur : elle est pile centrée */
+  width: 42px;
+  height: 42px;
+  background-color: rgba(0, 0, 0, 0.65); /* noir à 65 % d'opacité */
+  color: var(--accent, #ec4899);
+  border-radius: 50%;              /* 50 % = cercle parfait */
+  display: flex;                   /* pour centrer le symbole dans le cercle */
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  z-index: 2;                      /* au-dessus du contenu de l'actu */
+}
+
+/* Au survol : la flèche se remplit de rose */
+.fleche:hover {
+  background-color: var(--accent, #ec4899);
+  color: white;
+}
+
+/* Flèche de gauche collée à 12px du bord gauche */
+.fleche-gauche {
+  left: 12px;
+}
+
+/* Flèche de droite collée à 12px du bord droit */
+.fleche-droite {
+  right: 12px;
+}
+
+
+/* ===================== 4. Galerie =====================
+   La grille "Nos Catégories" de l'accueil : une image + une étiquette posée dessus. */
+
+.galerie {
+    display: grid;             /* mise en page en grille */
+    /* repeat(auto-fit, minmax(12rem, 1fr)) = "mets autant de colonnes que possible,
+       chacune fait au moins 12rem et elles se partagent l'espace restant (1fr)".
+       → la grille s'adapte toute seule à la taille de l'écran, sans media query. */
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1rem;                 /* espace entre les cases */
+    justify-items: center;     /* contenu centré horizontalement dans chaque case */
+    align-items: center;       /* et verticalement */
+    text-align: center;
+    list-style: none;          /* enlève les puces de la liste */
+}
+
+/* Chaque catégorie prend 90 % de sa case */
+.galerie li {
+    width: 90%;
+}
+
+/* Le lien entoure l'image : position relative pour pouvoir placer l'étiquette par-dessus */
+.galerie a {
+    display: block;
+    position: relative;
+}
+
+.galerie img {
+    display: block;            /* supprime le petit espace vide sous les images */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;       /* format portrait (3 de large pour 4 de haut) */
+    object-fit: cover;         /* l'image remplit le cadre sans être déformée (quitte à être rognée) */
+    border-radius: 0.5rem;
+    transition: all 0.3s;      /* l'effet de survol se fait en douceur */
+}
+
+/* Au survol : l'image grossit, avec un liseré rose ET une grande ombre noire.
+   Les deux ombres sont séparées par une virgule. */
+.galerie img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0.125rem var(--accent), 0 0 5rem #000;
+}
+
+/* Étiquette (Jeux, Musique, Cinéma) posée en bas à gauche de l'image */
+.galerie p {
+    position: absolute;        /* placée par rapport au lien (position: relative) */
+    bottom: 1rem;              /* à 1rem du bas */
+    left: 5%;                  /* à 5 % du bord gauche */
+    margin: 0;
+    width: fit-content;        /* aussi large que le texte, pas plus */
+    color: var(--fond);        /* texte foncé… */
+    background-color: var(--texte); /* …sur fond clair */
+    border: 2px solid var(--accent);
+    border-radius: 0.5rem;
+    padding: 8px 16px;         /* 8px en haut/bas, 16px à gauche/droite */
+    font-weight: var(--gras);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;    /* lettres légèrement espacées */
+}
+
+
+/* ===================== 5. Top Lists =====================
+   Les titres et les grilles des classements ("Top PC", "Top Films"…). */
+
+/* .title = titre principal (h1) des pages */
+.title {
+    margin: 1rem 0;
+    font-size: 1.75rem;
+    font-weight: var(--gras);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent);
+}
+
+/* ".title.title-accueil" (sans espace) = un élément qui a LES DEUX classes.
+   Variante du titre pour l'accueil : texte bleu dans un cadre rose. */
+.title.title-accueil {
+    color: var(--bleu);
+    width: fit-content;        /* le cadre fait juste la largeur du texte */
+    max-width: 90%;
+    margin-inline: auto;       /* margin-inline = marges gauche et droite : "auto" centre le titre */
+    padding: 0.2em 0.6em;
+    border: 2px solid var(--accent);
+    border-radius: 0.5rem;
+}
+
+/* Variante du titre en "bloc" : fond bleu avec une ombre rose décalée */
+.title.title-bloc {
+    width: fit-content;
+    max-width: 90%;
+    margin-inline: auto;
+    padding: 0.1em 0.5em;
+    border-radius: 0.4rem;
+    color: var(--fond);
+    background-color: var(--bleu);
+    box-shadow: 5px 5px 0 var(--accent); /* ombre décalée de 5px à droite et en bas, sans flou */
+}
+
+/* .title_2 = titres des sections "Top" (Top PC, Top Films…) */
+.title_2 {
+    margin: 1rem 0;
+    font-size: 1.75rem;
+    font-weight: var(--gras);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--texte);
+}
+
+/* Petit trait rose sous le titre, créé avec ::after */
+.title_2::after {
+    content: "";
+    display: block;            /* block = se place sur sa propre ligne, sous le texte */
+    width: 3rem;
+    height: 0.25rem;
+    margin: 0.5rem auto 0;     /* "auto" sur les côtés = trait centré */
+    border-radius: 1rem;
+    background-color: var(--accent);
+}
+
+/* .subtitle = titre "Nos Catégories" de l'accueil */
+.subtitle {
+    margin: 2rem 0 1rem;       /* 2rem en haut, 0 sur les côtés, 1rem en bas */
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--texte);
+}
+
+/* Même petit trait rose que sous .title_2 */
+.subtitle::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 0.25rem;
+    margin: 0.5rem auto 0;
+    border-radius: 1rem;
+    background-color: var(--accent);
+}
+
+/* .top = grille des listes "Top" (3 jeux / films / musiques avec leur image).
+   Même principe que la galerie : colonnes automatiques d'au moins 14rem. */
+.top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+    max-width: 87.5rem;        /* largeur max sur grand écran */
+    margin: 0 auto 2rem;       /* centrée, avec 2rem d'espace en dessous */
+    padding: 0 1rem;
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+/* Nom de chaque élément du top (sous l'image) */
+.top li {
+    font-weight: var(--gras);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.125rem;
+    letter-spacing: 0.12em;    /* lettres espacées */
+    line-height: 1.5;
+    text-shadow: 0 2px 6px rgba(255, 95, 162, 0.6); /* léger halo rose sous le texte */
+}
+
+.top img {
+    display: block;
+    width: 100%;
+    height: 31rem;             /* hauteur fixe pour que toutes les images soient alignées */
+    margin-bottom: 1rem;       /* espace entre l'image et le nom */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+/* Au survol : même effet que dans la galerie */
+.top img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0.125rem var(--accent), 0 0 5rem #000;
+}
+
+
+/* ===================== 6. Jeux =====================
+   Aperçu des critiques sans JavaScript : cliquer sur une jaquette coche une case cachée,
+   ce qui ouvre la page de critique dans une fenêtre (iframe) par-dessus la page. */
+
+/* Liens de la page Jeux en rose */
+.jeux ul li a { color: var(--accent); }
+
+/* Chaque jeu sert de repère pour placer ses éléments */
+.jeux .top li { position: relative; }
+
+/* .iframe = fenêtre qui affiche la page de critique d'un jeu */
+.jeux .top .iframe {
+    display: none;                 /* cachée par défaut */
+    position: fixed;               /* fixe à l'écran : reste en place même si on défile */
+    inset: 5vh 5vw;                /* 5 % de la hauteur en haut/bas, 5 % de la largeur à gauche/droite */
+    z-index: 100;                  /* passe au-dessus de tout le reste */
+    width: 90vw;                   /* 90 % de la largeur de l'écran */
+    height: 90vh;                  /* 90 % de la hauteur de l'écran */
+    border: 0.125rem solid var(--accent);
+    background: var(--fond);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75); /* ombre géante (100vmax) qui assombrit tout le reste de la page */
+}
+
+/* .fermer = bouton pour fermer la fenêtre (c'est un 2e label relié à la même case) */
+.jeux .top .fermer {
+    display: none;                 /* caché par défaut */
+    position: fixed;               /* fixe à l'écran, en haut à droite */
+    top: 1vh;
+    right: 5vw;
+    z-index: 101;                  /* au-dessus de la fenêtre (101 > 100) */
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--accent);
+    color: var(--fond);
+    font-weight: var(--gras);
+    text-transform: none;          /* annule les majuscules héritées de .top li */
+    letter-spacing: normal;        /* annule l'espacement hérité de .top li */
+    text-shadow: none;             /* annule le halo rose hérité de .top li */
+}
+
+/* .toggle = case à cocher cachée.
+   Quand elle est cochée (clic sur la jaquette), la fenêtre et le bouton Fermer s'affichent.
+   "~" = les éléments placés après la case, dans le même <li>. */
+.jeux .top .toggle:checked ~ .iframe,
+.jeux .top .toggle:checked ~ .fermer {
+    display: block;
+}
+
+/* La case elle-même est cachée */
+.jeux .top .toggle { display: none; }
+
+/* Curseur "main" sur les labels (jaquette et bouton Fermer) pour montrer qu'ils sont cliquables */
+.jeux .top label { cursor: pointer; }
+
+
+/* ===================== 7. Pages de critique (ex: GTA) ===================== */
+
+/* .page-titre = titre principal (h1) des pages de critique, avec un double cadre */
+.page-titre {
+    width: fit-content;
+    max-width: 90%;
+    margin: 2rem auto;             /* centré */
+    padding: 0.2em 0.6em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--texte);
+    border: 2px solid var(--accent); /* 1er cadre : bordure rose */
+    border-radius: 0.4rem;
+    outline: 2px solid var(--bleu);  /* 2e cadre : contour bleu */
+    outline-offset: 4px;             /* écarté de 4px de la bordure */
+}
+
+/* "+" = seulement le bloc .article-content placé JUSTE APRÈS .article-intro
+   (le 1er bloc : image + résumé). Sur mobile, ils sont empilés en colonne. */
+.article-intro + .article-content {
+    display: flex;
+    flex-direction: column;        /* éléments empilés verticalement */
+    align-items: flex-start;       /* collés à gauche */
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--ligne); /* ligne de séparation en dessous */
+    padding-bottom: 2rem;
+}
+
+/* Image du résumé */
+.article-intro + .article-content img {
+    display: block;
+    width: min(100%, 20rem);       /* prend la plus petite valeur : toute la largeur, mais jamais plus de 20rem */
+    height: auto;                  /* garde les proportions de l'image */
+    border-radius: 0.5rem;
+    border: 2px solid var(--accent);
+    box-shadow: 5px 5px 0 var(--bleu); /* ombre bleue décalée, sans flou */
+}
+
+.article-intro + .article-content p {
+    margin: 0;
+}
+
+/* order: -1 = le titre "Résumé" passe AVANT l'image, même s'il est écrit après dans le HTML.
+   width: 100% = il prend toute la ligne. */
+.article-intro + .article-content h2 { width: 100%; order: -1; }
+
+/* .article-gta6-critique = encadré d'une critique.
+   Grille à 2 zones nommées : "titre" à gauche (1fr = prend la place restante),
+   "note" à droite (auto = juste la taille de la note). */
+.article-gta6-critique {
+    display: grid;
+    grid-template: "titre note" / 1fr auto;
+    align-items: center;
+    gap: 0.75rem 1rem;             /* 0.75rem entre les lignes, 1rem entre les colonnes */
+    box-shadow: 0 0 0.3rem var(--accent); /* léger halo rose autour de l'encadré */
+    margin: 1rem 1rem;
+    padding: 1rem;
+    color: var(--texte);
+    background-color: var(--surface);
+    border: 2px solid var(--ligne);
+    border-radius: 0.75rem;
+}
+
+/* .date-critique = malgré son nom, c'est le TITRE de la critique ("Notre avis"…).
+   grid-area: titre = placé dans la zone "titre" de la grille.
+   Il est souligné en rose, avec 4px d'écart entre le texte et le trait. */
+.date-critique { grid-area: titre; text-decoration: underline var(--accent); text-underline-offset: 4px; }
+
+/* CSS imbriqué : les règles écrites à l'intérieur ne s'appliquent
+   qu'aux éléments DANS .article-gta6-critique.
+   Ex. "p { }" ici = ".article-gta6-critique p { }" */
+.article-gta6-critique {
+
+    /* Les paragraphes prennent toute la largeur : de la 1re ligne de colonne (1) à la dernière (-1) */
+    p {grid-column: 1 / -1;margin: 0;}
+
+    /* :is(...) = "l'un ou l'autre" : style commun aux deux badges de note */
+    :is(.note-positive, .note-negative) {
+    grid-area: note;               /* placés dans la zone "note" de la grille (à droite) */
+    min-width: 3.25rem;            /* largeur minimale pour que le badge reste lisible */
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: var(--gras);
+    line-height: 1.2;
+    text-align: center;
+    color: var(--fond);            /* texte foncé sur fond coloré */
+    }
+
+    /* Badge vert pour une bonne note */
+    .note-positive {background-color: var(--note-positive);}
+
+    /* Badge rouge pour une mauvaise note */
+    .note-negative {background-color: var(--note-negative);}
+
+}
+
+/* Tableau Metacritic (CSS imbriqué aussi) */
+.article-content {
+    /* border-collapse: collapse = fusionne les bordures des cellules (pas de double trait) */
+    table { width: 100%; border-collapse: collapse; }
+
+    /* Espace dans les cellules + fine ligne de séparation sous chaque ligne */
+    th,td { padding: 0.5rem; border-bottom: 1px solid var(--ligne); }
+
+    /* En-têtes (th) à gauche en gris, valeurs (td) à droite */
+    th { text-align: left; color: var(--texte-doux); }
+    td { text-align: right; }
+
+    /* La valeur de la 1re ligne (le Metascore) est mise en avant : grosse, en gras et en vert */
+    tr:first-child td { color: var(--note-positive); font-size: 2rem; font-weight: var(--gras); }
+}
+
+/* Une ligne sur deux a un fond plus clair (tableau "zébré") */
+.article-content tr:nth-child(even) {
+    background-color: var(--ligne);
+}
+
+/* Titres h2 des articles en rose */
+.article-content h2 { color: var(--accent); }
+
+/* Espacement des blocs d'article et de la section "Acheter".
+   padding-inline = gauche et droite ; margin-block = haut et bas. */
+.article-content,
+.acheter {
+    padding-inline: 1rem;
+    margin-block: 2rem;
+}
+
+/* 65ch = environ 65 caractères par ligne : longueur confortable à lire */
+.article-content p { max-width: 65ch; }
+
+/* Les blocs .article-content qui suivent un autre .article-content sont mis dans un encadré sombre */
+.article-content + .article-content { background: var(--surface); border-radius: 0.75rem; padding: 1rem; }
+
+/* Liens d'achat (PlayStation Store, Xbox Store) en forme de boutons arrondis */
+.acheter {
+    /* :visited = lien déjà cliqué : on garde le même style (sinon il passe en violet) */
+    a, a:visited {
+        display: inline-block;     /* permet d'avoir du padding comme un bouton */
+        margin: 0.4rem 0;
+        padding: 0.3rem 1rem;
+        border-radius: 999px;      /* 999px = arrondi maximal, forme de "pilule" */
+        background-color: var(--lien);
+        color: var(--fond); }
+
+    /* Souligné au survol */
+    a:hover { text-decoration: underline; }
+}
+
+
+/* ===================== 8. Footer ===================== */
+
+footer {
+    background-color: var(--surface);
+    color: var(--texte-doux);      /* texte un peu plus discret */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;        /* les éléments s'empilent verticalement */
+
+    /* Tableau de l'équipe (CSS imbriqué : = "footer table") */
+    table {
+        width: 100%;
+        max-width: 50rem;          /* pas trop large sur grand écran */
+        border-collapse: collapse;
+    }
+
+    /* :first-child = la 1re cellule de chaque ligne (les noms) : alignée à gauche */
+    table th:first-child {text-align: left;}
+
+    /* Le reste du tableau est centré */
+    tr {text-align: center;}
+
+    /* :first-of-type = le 1er paragraphe du footer ("Suivez-nous…") : épaisse ligne en dessous */
+    p:first-of-type {border-bottom: 5px solid var(--ligne);}
+
+    /* Icônes GitHub / LinkedIn : jamais plus larges que 2.5rem */
+    img {max-width: 2.5rem;}
+
+    /* a[target="_blank"] = les liens qui s'ouvrent dans un nouvel onglet.
+       On ajoute une petite flèche ↗ après eux pour prévenir l'utilisateur. */
+    a[target="_blank"]::after {content: " ↗";}
+
+    /* Liens en rose fluo, même une fois visités */
+    a {color: var(--lien);}
+
+    a:visited {color: var(--lien);}
+
+    /* Souligné au survol */
+    a:hover {text-decoration: underline; }
+}
+
+
+/* ===================== 9. Responsive (écrans d'au moins 48rem) =====================
+   Les règles ci-dessous ne s'appliquent QUE sur les écrans d'au moins 48rem
+   (≈ 768px : tablettes et ordinateurs). Elles remplacent les règles "mobile" écrites plus haut.
+   On écrit d'abord pour mobile, puis on adapte : c'est le "mobile first". */
+
+@media (min-width: 48rem) {
+    /* Le logo-bouton n'est plus utile : on le cache… */
+    .logo { display: none; }
+    /* …et le menu est toujours affiché, avec tout son contenu */
+    nav { display: flex; flex-wrap: wrap; }
+    nav * { display: inline-block; }
+
+    /* Tout est plus grand et plus aéré */
+    .menu { margin: 3rem; font-size: 2.5rem; }
+    .title { margin: 2rem 0; font-size: 3rem; }
+
+    .top { gap: 2rem; padding: 0 2rem; margin-bottom: 3rem; }
+
+    /* Images plus hautes */
+    .galerie img,
+    .top img { height: 37rem; }
+
+    /* Footer : lignes plus hautes et icônes un peu plus grandes */
+    footer{
+        tr{ height: 4.5rem; }
+
+        img{ max-width: 3rem; }
+    }
+
+    /* Pages de critique : image et résumé côte à côte (en ligne) au lieu d'être empilés */
+    .article-intro + .article-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* L'image prend au maximum 40 % de la largeur (et jamais plus de 20rem) */
+    .article-intro + .article-content img {
+        width: min(40%, 20rem);
+    }
+
+    /* flex: 1 = le texte prend toute la place restante à côté de l'image */
+    .article-intro + .article-content p {
+        flex: 1;
+    }
+
+    /* Bouton Fermer un peu plus bas, plus grand et toujours au-dessus de tout */
+    .jeux .top .fermer {
+        top: 6vh;
+        right: 6vw;
+        z-index: 1000;
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ===================== 10. Accessibilité ===================== */
+
+/* Si l'utilisateur a activé "réduire les animations" dans les réglages
+   de son ordinateur ou téléphone (personnes sensibles aux mouvements),
+   les animations et transitions deviennent quasi instantanées. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;      /* !important = cette règle passe avant toutes les autres */
+        animation-iteration-count: 1 !important;    /* l'animation ne se joue qu'une fois */
+        transition-duration: 0.01ms !important;     /* les transitions (survols…) sont instantanées */
+        scroll-behavior: auto !important;           /* défilement direct au lieu de fluide */
+        overflow: auto !important;                  /* le contenu qui dépasse peut défiler */
+        pointer-events: auto !important;            /* les éléments réagissent normalement à la souris */
+    }
+}

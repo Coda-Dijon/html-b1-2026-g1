@@ -1,0 +1,170 @@
+<!-- ==========================================================
+     BROUILLON COMMENTÉ DE Jeux/pages/GTA6.html (pour réviser)
+     Ce fichier sert uniquement à apprendre : ne pas l'ouvrir comme une vraie page
+     (il est dans docs/, donc les chemins vers les images et le CSS ne marchent pas d'ici).
+     Le code est identique à GTA6.html, seuls les commentaires ont été ajoutés.
+     ========================================================== -->
+
+<!-- DOCTYPE : indique au navigateur que la page est écrite en HTML5 (la version actuelle) -->
+<!DOCTYPE html>
+
+<!-- Balise racine de la page. lang="fr" = la page est en français
+     (utile pour les lecteurs d'écran, la traduction automatique et le référencement) -->
+<html lang="fr">
+
+<!-- ==========================================================
+     HEAD : informations sur la page (invisibles à l'écran)
+     ========================================================== -->
+<head>
+    <!-- Encodage des caractères : UTF-8 permet d'afficher les accents (é, à, ç…) -->
+    <meta charset="UTF-8">
+
+    <!-- Description de la page : le petit texte affiché sous le titre dans Google -->
+    <meta name="description" content="The Worst Review - Découvrez les critiques sur Grand Theft Auto 6">
+
+    <!-- Indispensable pour le responsive : la page prend la largeur réelle de l'écran
+         (sinon, sur téléphone, le site s'affiche en tout petit comme sur un ordinateur) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chemins relatifs : cette page est rangée dans Jeux/pages/.
+         "../" = remonter d'un dossier, donc "../../" = remonter de deux dossiers
+         pour retrouver style.css et Ressources-index/ à la racine du site. -->
+
+    <!-- Lien vers la feuille de style CSS (toute la mise en forme du site) -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- Favicon : la petite icône affichée dans l'onglet du navigateur -->
+    <link rel="icon" href="../../Ressources-index/Logo_site_page.gif">
+
+<!-- Titre affiché dans l'onglet du navigateur -->
+<title>GTA 6 - The Worst Review</title>
+</head>
+
+<!-- ==========================================================
+     BODY : tout ce qui est visible sur la page.
+     Pas de header ni de menu : cette page s'affiche dans une fenêtre (iframe)
+     par-dessus la page Jeux, qui a déjà son propre menu.
+     class="article_gta6" n'est pas utilisée dans le CSS pour l'instant.
+     ========================================================== -->
+<body class="article_gta6">
+
+
+    <!-- ==========================================================
+         MAIN : le contenu principal de la page (l'article sur GTA 6)
+         (il ne doit y avoir qu'un seul <main> par page)
+         class="main-article-gta6" n'est pas utilisée dans le CSS pour l'instant.
+         ========================================================== -->
+    <main class="main-article-gta6">
+
+        <!-- ---------- Introduction : le titre ----------
+             <section> = une partie thématique de la page.
+             article-intro sert de REPÈRE au CSS : le bloc .article-content placé juste après
+             (sélecteur "+" dans le CSS) a une mise en page spéciale.
+             Si on déplace ou supprime cette section, la mise en page du résumé casse. -->
+        <section class="article-intro">
+            <!-- Titre principal de la page. Un seul <h1> par page : c'est le titre le plus important.
+                 page-titre = titre encadré (double cadre rose + bleu) propre aux pages de critique -->
+            <h1 class="page-titre">Grand Theft Auto 6</h1>
+        </section>
+
+        <!-- ---------- 1er bloc : résumé ----------
+             Image + titre + texte.
+             Sur mobile : empilés. Sur grand écran : image et texte côte à côte.
+             Le CSS place le <h2> AVANT l'image (order: -1), même s'il est écrit après dans le HTML. -->
+        <section class="article-content">
+            <!-- alt = description de l'image pour les lecteurs d'écran (et si l'image ne charge pas).
+                 "../images/" = remonter d'un dossier (de Jeux/pages/ à Jeux/), puis aller dans images/ -->
+            <img src="../images/Gta6.webp" alt="Jaquette de GTA 6">
+            <h2> Résumé </h2>
+            <p>Grand Theft Auto 6 est le dernier opus de la célèbre série de jeux vidéo d'action-aventure développée par Rockstar Games. Le jeu promet un monde ouvert vaste et immersif, avec une histoire captivante et des personnages mémorables.</p>
+        </section>
+
+        <!-- ---------- 2e bloc : notes Metacritic ----------
+             Un .article-content qui suit un autre .article-content est mis dans un encadré sombre par le CSS. -->
+        <section class="article-content">
+            <h2>Critique Metacritic</h2>
+            <p>Metacritic a attribué à Grand Theft Auto 6 une note globale très positive sur la base des critiques des utilisateurs et des professionnels. </p>
+            <p>Voici le détail des critiques sur Metacritic :</p>
+
+            <!-- Tableau : une ligne (<tr>) par information.
+                 <th> = intitulé (affiché à gauche, en gris), <td> = valeur (affichée à droite).
+                 La 1re ligne (Metascore) est mise en avant par le CSS : grosse, en gras et en vert.
+                 Une ligne sur deux a un fond plus clair (tableau "zébré"). -->
+            <table>
+                <!-- Note globale -->
+                <tr>
+                    <th>Metascore</th>
+                    <td>99 / 100</td>
+                </tr>
+                <!-- Nombre de critiques positives -->
+                <tr>
+                    <th>Positive</th>
+                    <td>152 Reviews</td>
+                </tr>
+                <!-- Nombre de critiques mitigées -->
+                <tr>
+                    <th>Mixed</th>
+                    <td>0 Reviews</td>
+                </tr>
+                <!-- Nombre de critiques négatives -->
+                <tr>
+                    <th>Negative</th>
+                    <td>0 Reviews</td>
+                </tr>
+            </table>
+        </section>
+
+
+        <!-- ---------- Critique des joueurs ----------
+             .article-gta6-critique = encadré d'une critique, organisé en grille par le CSS :
+             titre à gauche, note à droite, texte en dessous sur toute la largeur.
+             - .note-positive = badge vert (bonne note)
+             - .date-critique = malgré son nom, c'est le TITRE de la critique
+               (placé dans la zone "titre" de la grille)
+             - <strong> = texte important (affiché en gras) -->
+        <section class="article-gta6-critique">
+            <p class="note-positive">99</p>
+            <p class="date-critique"><strong>Avis général des joueurs</strong></p>
+            <p> 100 Daily Star GTA6 is incredible and, despite many hours put in, I feel like I’ve barely scratched the surface.</p>
+        </section>
+
+        <!-- ---------- Notre critique (même structure) ----------
+             .note-negative = badge rouge (mauvaise note). -->
+        <section class="article-gta6-critique">
+            <p class="note-negative">2</p>
+            <p class="date-critique"><strong>Notre avis</strong></p>
+            <p>GTA VI c'est tellement nul on aurait du brûler les locaux des 2013, depuis quand on a besoin d'essence dans un GTA, les missions sont nuls, du 30fps et les personnages sont wokes </p>
+        </section>
+
+        <!-- ---------- Où acheter le jeu ----------
+             class="acheter" : les liens sont affichés comme des boutons arrondis rose fluo (voir CSS). -->
+        <section class="acheter">
+            <h2>Acheter Grand Theft Auto 6</h2>
+            <p>Vous pouvez acheter Grand Theft Auto 6 sur les plateformes suivantes :</p>
+            <!-- Liste des boutiques (<ul> = liste, <li> = une boutique).
+                 target="_blank" = ouvre le lien dans un nouvel onglet.
+                 rel="noopener noreferrer" :
+                 - noopener = sécurité : la boutique ne peut pas contrôler notre page ;
+                 - noreferrer = la boutique ne sait pas de quel site on vient.
+                 aria-label = texte lu par les lecteurs d'écran (précise que ça ouvre un nouvel onglet). -->
+            <ul>
+                <li><a href="https://store.playstation.com/fr-fr/product/EP1004-PPSA01547_00-GTAVISTANDARD001" target="_blank" rel="noopener noreferrer" aria-label="Acheter Grand Theft Auto 6 sur PlayStation Store (s'ouvre dans un nouvel onglet)">PlayStation Store</a></li>
+                <li><a href="https://www.xbox.com/fr-FR/games/store/grand-theft-auto-vi/9np019g7nzxt" target="_blank" rel="noopener noreferrer" aria-label="Acheter Grand Theft Auto 6 sur Xbox Store (s'ouvre dans un nouvel onglet)">Xbox Store</a></li>
+            </ul>
+        </section>
+    </main>
+
+        <!-- ==========================================================
+             FOOTER : seulement les liens de test de CETTE page.
+             Pas de liens d'équipe ici : la page est affichée dans la page Jeux, qui a déjà le footer complet.
+             - W3C = vérifie que le code HTML est valide (adresse de la page dans "doc=")
+             - Speedlify = mesure la vitesse de chargement de la page
+             Le CSS ajoute une petite flèche ↗ après ces liens (car target="_blank").
+             ========================================================== -->
+        <footer>
+        <a href="https://validator.w3.org/nu/?showoutline=yes&showimagereport=yes&level=warning&doc=https://coda-dijon.github.io/html-b1-2026-g1/Jeux/pages/GTA6" target="_blank" rel="noopener" aria-label="Tester la page GTA6 avec le validateur W3C (s'ouvre dans un nouvel onglet)">W3C</a>
+        <a href="https://speedlify-b1-2026-coda.baldir.fr/site/coda--dijon-github-io-html--b1--2026--g1-jeux-pages-gta6/" target="_blank" rel="noopener" aria-label="Tester la performance de la page GTA6 avec Speedlify (s'ouvre dans un nouvel onglet)">Speedlify</a>
+    </footer>
+
+</body>
+</html>
