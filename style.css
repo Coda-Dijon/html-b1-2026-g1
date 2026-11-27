@@ -139,7 +139,7 @@ nav img{
 
 .caroussel ul {
   width: 100%;
-  min-height: 300px;
+  minheight: 300px;
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
