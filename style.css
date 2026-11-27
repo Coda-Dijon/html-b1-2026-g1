@@ -10,7 +10,7 @@ img { max-width: 100%;}
     --gras: bold;
     --fond: #141317;
     --surface: #201E25;
-    --ligne: #302D37;
+    --ligne: #302D37; 
     --texte: #F7F5FA;
     --texte-doux: #ABA6B5;
     --accent: #FF5FA2;
@@ -75,6 +75,7 @@ nav img{
     transform: scale(1.2);
 }
 
+/* Trait de soulignement animé : invisible (scale 0), il apparaît de gauche à droite au survol */
 .menu::after {
     content: "";
     position: absolute;
@@ -116,6 +117,7 @@ nav img{
 
 #menu-toggle { display: none; }
 
+/* "~" = la nav placée après la case dans le HTML : case cochée (clic sur le logo) → menu affiché */
 #menu-toggle:checked ~ nav {
     display: flex;
     flex-wrap: wrap;
@@ -139,14 +141,14 @@ nav img{
 
 .caroussel ul {
   width: 100%;
-  minheight: 300px;
+  min-height: 300px;
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
   display: flex;
   gap: 4rem;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;   /* le défilement s'arrête toujours pile sur une actu */
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
@@ -155,13 +157,6 @@ nav img{
   display: none;
 }
 
-.caroussel ul::scroll-marker-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  padding: 15px 0;
-}
 
 .caroussel li {
   position: relative;
@@ -169,9 +164,7 @@ nav img{
   list-style-type: none;
   flex: 0 0 100%;
   box-sizing: border-box;
-  
   padding: 20px 60px;
-  
   background-color: black;
   color: white;
   border: 1px solid var(--accent, #ec4899);
@@ -184,6 +177,7 @@ nav img{
   content: "";
   position: absolute;
   inset: -15px;
+  /* --bg-img est définie dans le HTML, sur chaque actu (style="--bg-img: url(...)") */
   background-image: var(--bg-img);
   background-size: cover;
   background-position: center;
@@ -319,7 +313,7 @@ nav img{
     border-radius: 0.5rem;
 }
 
-
+/* Variante du titre en "bloc" : fond bleu avec une ombre rose décalée */
 .title.title-bloc {
     width: fit-content;
     max-width: 90%;
@@ -331,6 +325,7 @@ nav img{
     box-shadow: 5px 5px 0 var(--accent);
 }
 
+/* .title_2 = titres des sections "Top" (Top PC, Top Films…) */
 .title_2 {
     margin: 1rem 0;
     font-size: 1.75rem;
@@ -368,6 +363,7 @@ nav img{
     background-color: var(--accent);
 }
 
+/* .top = grille des listes "Top" (3 jeux / films / musiques avec leur image) */
 .top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -410,18 +406,20 @@ nav img{
 
 .jeux .top li { position: relative; }
 
+/* .iframe = fenêtre qui affiche la page de critique d'un jeu par-dessus la page Jeux */
 .jeux .top .iframe {
     display: none;                 
-    position: fixed;              
+    position: fixed;         /* reste fixe à l'écran, même si on défile */
     inset: 5vh 5vw;                
     z-index: 100;                 
     width: 90vw;                  
     height: 90vh;                
     border: 0.125rem solid var(--accent);
     background: var(--fond);
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75); 
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75); /* ombre géante qui assombrit tout le reste de la page */
 }
 
+/* .fermer = bouton pour fermer la fenêtre */
 .jeux .top .fermer {
     display: none;                 
     position: fixed;               
@@ -438,7 +436,7 @@ nav img{
     text-shadow: none;
 }
 
-
+/* .toggle = case à cocher cachée : cochée (clic sur la jaquette) → la fenêtre et le bouton Fermer s'affichent */
 .jeux .top .toggle:checked ~ .iframe,
 .jeux .top .toggle:checked ~ .fermer {
     display: block;
@@ -464,6 +462,7 @@ nav img{
     outline-offset: 4px;
 }
 
+/* "+" = seulement le bloc .article-content placé JUSTE APRÈS .article-intro (image + résumé) */
 .article-intro + .article-content {
     display: flex;
     flex-direction: column;
@@ -487,8 +486,10 @@ nav img{
     margin: 0;
 }
 
+/* order: -1 = le titre "Résumé" passe AVANT l'image, même s'il est écrit après dans le HTML */
 .article-intro + .article-content h2 { width: 100%; order: -1; }
 
+/* Grille à 2 zones : "titre" à gauche (prend la place restante), "note" à droite (taille auto) */
 .article-gta6-critique {
     display: grid;
     grid-template: "titre note" / 1fr auto;
@@ -503,8 +504,10 @@ nav img{
     border-radius: 0.75rem;
 }
 
+/* .date-critique = malgré son nom, c'est le TITRE de la critique ("Notre avis"…) */
 .date-critique { grid-area: titre; text-decoration: underline var(--accent); text-underline-offset: 4px; }
 
+/* CSS imbriqué : les règles à l'intérieur ne s'appliquent qu'aux éléments DANS le parent */
 .article-gta6-critique {
     
     p {grid-column: 1 / -1;margin: 0;}
@@ -549,6 +552,7 @@ nav img{
     margin-block: 2rem;
 }
 
+/* 65ch = environ 65 caractères par ligne : longueur confortable à lire */
 .article-content p { max-width: 65ch; }
 
 .article-content + .article-content { background: var(--surface); border-radius: 0.75rem; padding: 1rem; }
@@ -559,7 +563,7 @@ nav img{
         display: inline-block; 
         margin: 0.4rem 0; 
         padding: 0.3rem 1rem; 
-        border-radius: 999px; 
+        border-radius: 999px;      /* 999px = arrondi maximal, forme de "pilule" */
         background-color: var(--lien);
         color: var(--fond); }
 
@@ -589,6 +593,7 @@ footer {
 
     img {max-width: 2.5rem;}
 
+    /* Ajoute une petite flèche ↗ après les liens qui s'ouvrent dans un nouvel onglet */
     a[target="_blank"]::after {content: " ↗";}
 
     a {color: var(--lien);}
@@ -643,6 +648,8 @@ footer {
 
 /* ===================== 10. Accessibilité ===================== */
 
+/* Si l'utilisateur a activé "réduire les animations" sur son appareil,
+   les animations et transitions deviennent quasi instantanées */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;

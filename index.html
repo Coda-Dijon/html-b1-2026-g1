@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Chargée en "print" puis activée pour tous les écrans une fois prête : 
+     la police ne bloque pas l'affichage -->
     <link rel="stylesheet" href="font.css" media="print" onload="this.media='all'">
 
     <link rel="icon" href="Ressources-index/Logo_site_page.gif">
@@ -18,6 +20,9 @@
 <body class="index">
 
 <header class="header">
+
+    <!-- Menu sans JavaScript : 
+     cliquer sur le logo (label) coche la case cachée, ce qui ouvre/ferme le menu sur mobile -->
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="logo">
         <img src="Ressources-index/Logo_site.gif" alt="Afficher ou cacher le menu" width="150">
@@ -34,36 +39,39 @@
 
 <main>
     <h1 class="title title-accueil">Bienvenue sur The Worst Review</h1>
+
+   <!-- Carrousel sans JavaScript : les flèches sont des liens vers l'id de l'actu précédente / suivante.
+        --bg-img = image de fond de l'actu, utilisée par le CSS. --> 
    <section class="caroussel">
     
     <ul>
-        <li id="actu-1" class="caroussel-item" data-accName="Actu 1" style="--bg-img: url('Ressources-index/gta6.webp');">
+        <li id="actu-1" class="caroussel-item" style="--bg-img: url('Ressources-index/gta6.webp');">
             <article class="actualites">
                 <h2 class="soustitre">Actualités Jeux</h2>
-                <p class="actu-texte">GTA VI Decouvrer le jeu de l'annee attendu par tous les fans ! Notre revue de qualité est là pour vous guider. </p>
+                <p class="actu-texte">GTA VI : Découvrez le jeu de l'année attendu par tous les fans ! Notre revue de qualité est là pour vous guider. </p>
                 <a href="jeux.html#gta-redirection" class="actu-lien" aria-label="Voir plus : redirection vers GTA VI dans Jeux">Voir plus</a>
             </article>
             <a href="#actu-3" class="fleche fleche-gauche" aria-label="Actu précédente : Cinéma">❮</a>
             <a href="#actu-2" class="fleche fleche-droite" aria-label="Actu suivante : Musique">❯</a>
         </li>
 
-        <li id="actu-2" class="caroussel-item" data-accName="Actu 2" style="--bg-img: url('Ressources-index/alphlauren.webp');">
+        <li id="actu-2" class="caroussel-item" style="--bg-img: url('Ressources-index/alphlauren.webp');">
             <article class="actualites">
                 <h2 class="soustitre">Actualités Musique</h2>
-                <p class="actu-texte">Decouvrer Alpha Wann et ses dernières actualités musicales.</p>
+                <p class="actu-texte">Découvrez Alpha Wann et ses dernières actualités musicales.</p>
                 <a href="musique.html#alpha-wann-redirection" class="actu-lien" aria-label="Voir plus : redirection vers Alpha Wann dans Musiques">Voir plus</a>
             </article>
             <a href="#actu-1" class="fleche fleche-gauche" aria-label="Actu précédente : Jeux">❮</a>
             <a href="#actu-3" class="fleche fleche-droite" aria-label="Actu suivante : Cinéma">❯</a>
         </li>
 
-        <li id="actu-3" class="caroussel-item" data-accName="Actu 3" style="--bg-img: url('Ressources-index/network.webp');">
+        <li id="actu-3" class="caroussel-item" style="--bg-img: url('Ressources-index/network.webp');">
             <article class="actualites">
                 <h2 class="soustitre">Actualités Cinéma</h2>
                 <p class="actu-texte">The Social Network et ses dernières actualités cinématographiques.</p>
                 <a href="cinema.html#the-social-network-redirection" class="actu-lien" aria-label="Voir plus : redirection vers The Social Network dans Cinéma">Voir plus</a>
             </article>
-            <a href="#actu-2" class="fleche fleche-gauche" aria-label="Actu précédent : Musique">❮</a>
+            <a href="#actu-2" class="fleche fleche-gauche" aria-label="Actu précédente : Musique">❮</a>
             <a href="#actu-1" class="fleche fleche-droite" aria-label="Actu suivante : Jeux">❯</a>
         </li>
     </ul>
@@ -72,6 +80,7 @@
     <section class="categories">
         <h2 class="subtitle">Nos Catégories</h2>
 
+        <!-- <img> = image mobile par défaut, <source> = grande image à partir de 48rem -->
         <ul class="galerie">
             <li><a href="jeux.html" aria-label="Aller à la section Jeux : critiques de jeux vidéo"> 
                 <picture>
@@ -104,6 +113,8 @@
         <th> Nom</th>
         <th><img src="Ressources-index/GitHub.webp" alt="GitHub"></th>
         <th><img src="Ressources-index/LinkedIn_logo_initials.png" alt="LinkedIn"></th>
+
+        <!-- W3C = validité du code HTML, Speedlify = vitesse de chargement de la page -->
         <th> Test Performance</th>
     </tr>
     <tr>
@@ -134,7 +145,7 @@
 
     </table>
 
-    <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
+    <p>© 2026 The Worst Review - Groupe 1 (Les Canetons) HTML B1 2026</p>
 </footer>
 </body>
 </html>

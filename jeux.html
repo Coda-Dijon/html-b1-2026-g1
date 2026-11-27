@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="The Worst Review - Découvrez les dernières actualités et critiques sur les jeux PC, Playstation et XBOX.">
+    <meta name="description" content="The Worst Review - Découvrez les dernières actualités et critiques sur les jeux PC, PlayStation et Xbox.">
     <meta name="viewport"  content="width=device-width, initial-scale=1.0">
     <title>Jeux - The Worst Review</title>
     <link rel="stylesheet" href="style.css">
@@ -32,11 +32,17 @@
 
 
     <main>
+        <!-- "title-bloc" = variante du titre en bloc (fond bleu, ombre rose décalée) -->
         <h1 class="title title-bloc">Jeux</h1>
-
+        
         <section class="jeux">
+            <!-- .title_2 = titre de section (Top PC, Top Playstation…) avec un petit trait rose dessous. -->
             <h2 class="title_2">Top PC</h2>
+            
 
+            <!-- .top = grille des 3 jeux du classement.
+                Aperçu sans JavaScript (même principe pour chaque jeu) : cliquer sur la jaquette coche la case cachée .toggle,
+                ce qui affiche la critique (.iframe) et le bouton .fermer (un 2e label qui décoche la case). -->
             <ul class="top">
                 <li><input type="checkbox" id="elden-toggle" class="toggle"><label for="elden-toggle"><img src="Jeux/images/Elden_Ring.webp" alt="Jaquette d'Elden Ring" fetchpriority="high"></label>Elden Ring
                     <iframe src="Jeux/pages/Elden_ring.html" title="Aperçu de la critique de Elden Ring" class="iframe" loading="lazy"></iframe>
@@ -51,7 +57,7 @@
         </section>
 
         <section  class="jeux">
-            <h2 class="title_2">Top Playstation</h2>
+            <h2 class="title_2">Top PlayStation</h2>
             <ul class="top">
                 <li><input type="checkbox" id="tlou-toggle" class="toggle"><label for="tlou-toggle"><img src="Jeux/images/The_Last_of_Us.webp" alt="Jaquette de The Last Of Us Part II" loading="lazy"></label>The Last Of Us Part II
                     <iframe src="Jeux/pages/The_Last_of_Us.html" title="Aperçu de la critique de The Last Of Us Part II" class="iframe" loading="lazy"></iframe>
@@ -66,7 +72,7 @@
         </section>
 
         <section  class="jeux">
-            <h2 class="title_2">Top XBOX</h2>
+            <h2 class="title_2">Top Xbox</h2>
             <ul class="top">
 
                 <li id="gta-redirection"><input type="checkbox" id="gta-toggle" class="toggle"><label for="gta-toggle"><img src="Jeux/images/GTA_6.webp" alt="Jaquette de GTA 6" class="GTA" loading="lazy"></label>Grand Theft Auto 6
@@ -122,8 +128,7 @@
 
     </table>
 
-    <p> </p>
-    <p>© 2026 The Worst Review - Groupe 1 (Les cannetons) HTML B1 2026</p>
+    <p>© 2026 The Worst Review - Groupe 1 (Les Canetons) HTML B1 2026</p>
 </footer>
 </body>
 </html>
