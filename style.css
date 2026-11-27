@@ -318,7 +318,6 @@ nav img{
 
 .title.title-accueil {
     color: var(--bleu);
-    text-shadow: -1.5px 0 2px rgba(255, 95, 162, 0.5), 1.5px 0 2px rgba(77, 159, 255, 0.5);
     width: fit-content;
     max-width: 90%;
     margin-inline: auto;
@@ -552,7 +551,7 @@ nav img{
 }
 
 .article-content tr:nth-child(even) {
-    background-color: var(--surface);
+    background-color: var(--ligne);
 }
 
 .article-content h2 { color: var(--accent); }
@@ -579,7 +578,14 @@ nav img{
 }
 
 .acheter {
-    a, a:visited { display: inline-block; margin: 0.4rem 0; padding: 0.3rem 1rem; border-radius: 999px; background-color: var(--lien); color: var(--fond); }
+    a, a:visited { 
+        display: inline-block; 
+        margin: 0.4rem 0; 
+        padding: 0.3rem 1rem; 
+        border-radius: 999px; 
+        background-color: var(--lien);
+        color: var(--fond); }
+
     a:hover { text-decoration: underline; }
 }
 
